@@ -1,16 +1,30 @@
 #include <bits/stdc++.h>
-#include "../models/models.h"
+#include "../models/model.h"
 using namespace std;
 
 template <typename T>
-class LinearRegression : public Models<T>
+class LinearRegression : public Model<T>
 {
 private:
     vector<T> coefficients;
-    int epochs = 100;
-    double learningRate = 0.01;
+    int EPOCHS = 100;
+    double LEARNING_RATE = 0.01;
 
 public:
+    LinearRegression() {}
+
+    LinearRegression(int EPOCHS, double LEARNING_RATE)
+    {
+        this->EPOCHS = EPOCHS;
+        this->LEARNING_RATE = LEARNING_RATE;
+    }
+
+    /*
+    Takes features and target as value and trains model using those values
+    @param x features
+    @param y target variables
+    @throws Invalid input exception
+    */
     void
     fit(vector<vector<T>> x, vector<T> y)
     {
@@ -24,40 +38,48 @@ public:
         coefficients.clear();
         coefficients.resize(featureSize + 1);
 
-        for (int epoch = 0; epoch < epochs; epoch++)
+        for (int epoch = 0; epoch < EPOCHS; epoch++)
         {
-            vector<T> y_pred;
+            vector<T> yPred;
             for (int example = 0; example < trainExampleSize; example++)
             {
                 T currentY = coefficients[0];
                 for (int feature = 0; feature < featureSize; feature++)
                     currentY += coefficients[feature + 1] * x[example][feature];
-                y_pred.push_back(currentY);
+                yPred.push_back(currentY);
             }
             for (int example = 0; example < trainExampleSize; example++)
-                coefficients[0] -= learningRate * (y_pred[example] - y[example]) / trainExampleSize;
+                coefficients[0] -= LEARNING_RATE * (yPred[example] - y[example]) / trainExampleSize;
             for (int feature = 0; feature < featureSize; feature++)
             {
                 for (int example = 0; example < trainExampleSize; example++)
-                    coefficients[feature + 1] -= learningRate * (y_pred[example] - y[example]) * x[example][feature] / trainExampleSize;
+                    coefficients[feature + 1] -= LEARNING_RATE * (yPred[example] - y[example]) * x[example][feature] / trainExampleSize;
             }
         }
     }
 
+    /*
+    Takes features and predicts target values for trained weights
+    @param x features
+    @return yPred target variables
+    */
     vector<T> predict(vector<vector<T>> x)
     {
-        vector<T> y_pred;
+        vector<T> yPred;
         int trainExampleSize = x.size(), featureSize = x[0].size();
         for (int example = 0; example < trainExampleSize; example++)
         {
             T currentY = coefficients[0];
             for (int feature = 0; feature < featureSize; feature++)
                 currentY += coefficients[feature + 1] * x[example][feature];
-            y_pred.push_back(currentY);
+            yPred.push_back(currentY);
         }
-        return y_pred;
+        return yPred;
     }
 
+    /*
+    Prints all the weights
+    */
     void printCoefficients()
     {
         for (int i = 0; i < coefficients.size(); i++)

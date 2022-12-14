@@ -13,9 +13,9 @@ int main()
 
     model.printCoefficients();
 
-    vector<double> y_pred = model.predict(x);
+    vector<double> yPred = model.predict(x);
     for (int i = 0; i < y.size(); i++)
-        cout << "Actural value: " << y[i] << ", Predicted value: " << y_pred[i] << endl;
+        cout << "Actual value: " << y[i] << ", Predicted value: " << yPred[i] << endl;
 
     return 0;
 }
