@@ -5,7 +5,3 @@
  */
 #include "knn.hpp"
 
-template <typename T>
-class KNN : public Model<T> {
-
-};

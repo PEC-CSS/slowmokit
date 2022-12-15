@@ -1,4 +1,9 @@
-#include "core.hpp"
+/**
+ * @file ducks/io/io.cpp
+ *
+ * Implementation of the io main program
+ */
+
 #include "io.hpp"
 
 std::vector<std::vector<int>> IO::readCsv(std::string path)

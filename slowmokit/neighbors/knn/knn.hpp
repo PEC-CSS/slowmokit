@@ -8,4 +8,10 @@
 
 #include "../../models/model.hpp"
 
+template <typename T>
+class KNN : public Model<T>
+{
+
+};
+
 #endif //SLOWMOKIT_KNN_HPP
