@@ -38,4 +38,4 @@ add_library(slowmokit
         slowmokit/svm/svm.h
         slowmokit/base.hpp
         slowmokit/core.hpp
-        slowmokit/prereqs.hpp slowmokit/neighbors/knn/knn.cpp slowmokit/neighbors/knn/knn.hpp)
+        slowmokit/prereqs.hpp slowmokit/neighbors/knn/knn.cpp slowmokit/neighbors/knn/knn.hpp slowmokit/ducks/ducks.hpp slowmokit/ducks/io/io.hpp slowmokit/ducks/io/io.cpp)
