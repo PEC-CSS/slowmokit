@@ -1,4 +1,4 @@
-#include<bits/stdc++.h>
+#include "core.hpp"
 #include "io.hpp"
 
 std::vector<std::vector<int>> IO::readCsv(std::string path)
