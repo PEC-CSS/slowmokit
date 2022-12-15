@@ -1,5 +1,5 @@
 /**
- * @file neighbors/knn/knn.cpp
+ * @file methods/neighbors/knn/knn.cpp
  *
  * Implementation of the KNN main program
  */
