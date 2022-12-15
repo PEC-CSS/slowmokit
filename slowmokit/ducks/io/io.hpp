@@ -1,3 +1,14 @@
+/**
+ * @file ducks/io/io.hpp
+ *
+ * Header file including the io module of ducks.
+ */
+
+#ifndef SLOWMOKIT_IO_HPP
+#define SLOWMOKIT_IO_HPP
+
+#include "core.hpp"
+
 class IO
 {
 public:
@@ -8,3 +19,6 @@ public:
      */
     static std::vector<std::vector<int>> readCsv(std::string path);
 };
+
+
+#endif //SLOWMOKIT_IO_HPP
