@@ -1,5 +1,4 @@
-
-#include "../slowmokit/ducks/ducks.hpp"
+#include "../src/slowmokit/ducks/ducks.hpp"
 
 int main()
 {

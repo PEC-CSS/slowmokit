@@ -28,6 +28,7 @@ std::vector<std::vector<int>> IO::readCsv(std::string path)
         temp.push_back(stoi(row));
         df.push_back(temp);
     }
+    
     file.close();
     return df;
 }
