@@ -1,10 +1,9 @@
-
-
 /**
- * @file methods/cluster/kMeans/kMeans.hpp
+ * @file methods/linear_models/linear_regression/linear_regression.hpp
  *
- * The header file including the kMeans
+ * The header file including the linear regression algorithm
  */
+ 
 #ifndef SLOWMOKIT_LINEAR_REGRESSION_HPP
 #define SLOWMOKIT_LINEAR_REGRESSION_HPP
 
