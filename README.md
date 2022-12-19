@@ -14,7 +14,7 @@ Following are the steps to start contributing to our beautiful library:
 
 1. Install an IDE, preferably [CLion](https://www.jetbrains.com/clion/download/).
 2. Fork this repo.
-3. Clone the forked repo, using `git clone https://github.com/Ishwarendra/slowmokit.git`.
+3. Clone the forked repo, using `git clone https://github.com/PEC-CSS/slowmokit`.
 4. Make the model directory you want to implement in the `src/slowmokit/methods/<model type>/<your_model>`.
     - `<model type>` is basically the class of your model, for example `linear_model` or `cluster`.
 5. Create two mandatory files using IDE **ONLY**! As this will automatically add the file to `CMakeLists.txt`:
