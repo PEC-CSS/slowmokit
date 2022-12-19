@@ -34,6 +34,9 @@
 # CLion
 .idea/
 
+# VSCode
+.vscode/
+
 # CMake
 cmake-build-debug
 
