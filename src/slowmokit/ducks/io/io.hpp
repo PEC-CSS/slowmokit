@@ -7,7 +7,7 @@
 #ifndef SLOWMOKIT_IO_HPP
 #define SLOWMOKIT_IO_HPP
 
-#include "core.hpp"
+#include "../../core.hpp"
 
 class IO
 {
