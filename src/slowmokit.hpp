@@ -15,4 +15,8 @@
 
 // Methods
 #include "slowmokit/methods/neighbors/knn/knn.hpp"
-#endif //SLOWMOKIT_HPP
+
+// Models
+#include "slowmokit/models/linear_models/linear_models.hpp"
+
+#endif // SLOWMOKIT_HPP
