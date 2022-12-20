@@ -3,12 +3,11 @@
  *
  * The header file including the linear regression algorithm
  */
- 
+
 #ifndef SLOWMOKIT_LINEAR_REGRESSION_HPP
 #define SLOWMOKIT_LINEAR_REGRESSION_HPP
 
-#include "../../../core.hpp"
-#include "../../model.hpp"
+#include "core.hpp"
 
 template <class T>
 class LinearRegression
@@ -26,4 +25,4 @@ public:
     void printCoefficients();
 };
 
-#endif // SLOWMOKIT_LINEAR_REGRESSION_HPP
+#endif //SLOWMOKIT_LINEAR_REGRESSION_HPP

@@ -8,7 +8,7 @@
 #ifndef SLOWMOKIT_MODEL_HPP
 #define SLOWMOKIT_MODEL_HPP
 
-#include "../core.hpp"
+#include "core.hpp"
 
 template <typename T>
 class Model

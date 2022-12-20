@@ -3,10 +3,11 @@
  *
  * The header file including the kMeans
  */
+
 #ifndef SLOWMOKIT_KMEANS_HPP
 #define SLOWMOKIT_KMEANS_HPP
 
-#include "../../../base.hpp"
+#include "core.hpp"
 
 template <class T>
 class kMeans

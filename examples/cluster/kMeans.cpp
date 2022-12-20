@@ -1,4 +1,4 @@
-#include "./../src/slowmokit/methods/cluster/kMeans.hpp"
+#include "methods/cluster/kMeans.hpp"
 
 int main()
 {
@@ -25,7 +25,7 @@ int main()
     // Number of cluster to be formed
     int k = 3;
 
-    // Inititate a kMeans object of type int
+    // Initiate a kMeans object of type int
     auto kmeans = kMeans<int>(k, 20);
 
     // Other initialisation
