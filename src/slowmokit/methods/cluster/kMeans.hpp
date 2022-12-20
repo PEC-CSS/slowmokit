@@ -1,7 +1,12 @@
 /**
  * @file methods/cluster/kMeans.hpp
  *
- * Includes all the sub modules in the ducks module for managing data
+ * Easy include for kMeans algorithm
  */
 
-#include "kMeans/kMeans.cpp"
+#ifndef SLOWMOKIT_KMEANS_HPP
+#define SLOWMOKIT_KMEANS_HPP
+
+#include "kMeans/kMeans.hpp"
+
+#endif //SLOWMOKIT_KMEANS_HPP

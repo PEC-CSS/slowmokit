@@ -1,3 +1,9 @@
+/**
+ * @file methods/linear_model/linear_regression/linear_regression.cpp
+ *
+ * Implementation of the Linear Regression main program
+ */
+
 #include "linear_regression.hpp"
 
 template <class T>
@@ -9,7 +15,7 @@ void LinearRegression<T>::fit(std::vector<std::vector<T>> x, std::vector<T> y)
         throw "Number of features and target must be equal";
     int trainExampleSize = x.size(), featureSize = x[0].size();
     if (featureSize == 0)
-        throw "Feature size should be atleast 1";
+        throw "Feature size should be at least 1";
     coefficients.clear();
     coefficients.resize(featureSize + 1);
 
