@@ -7,6 +7,13 @@
 #include "linear_regression.hpp"
 
 template <class T>
+LinearRegression<T>::LinearRegression(int epochs = 100, double learningRate = 0.01)
+{
+    this.epochs = epochs;
+    this.learningRate = learningRate;
+}
+
+template <class T>
 void LinearRegression<T>::fit(std::vector<std::vector<T>> x, std::vector<T> y)
 {
     if (x.size() == 0 || y.size() == 0)
