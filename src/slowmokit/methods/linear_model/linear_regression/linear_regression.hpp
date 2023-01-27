@@ -18,6 +18,8 @@ private:
     double learningRate = 0.01;
 
 public:
+    LinearRegression(int epochs, double learningRate);
+    
     void fit(std::vector<std::vector<T>> x, std::vector<T> y);
 
     std::vector<T> predict(std::vector<std::vector<T>> x);
