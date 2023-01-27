@@ -7,7 +7,7 @@
 #include "linear_regression.hpp"
 
 template <class T>
-LinearRegression<T>::LinearRegression(int epochs = 100, double learningRate = 0.01)
+LinearRegression<T>::LinearRegression(int epochs, double learningRate)
 {
     this.epochs = epochs;
     this.learningRate = learningRate;
