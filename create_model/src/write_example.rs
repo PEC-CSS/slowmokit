@@ -15,4 +15,6 @@ int main()
     );
     file.write_all(data.as_bytes())
         .expect("Error writing example file. Aborted");
+
+    println!("Example file added!")
 }

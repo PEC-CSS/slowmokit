@@ -28,4 +28,5 @@ List a few applications of algorithm here.
     );
     file.write_all(data.as_bytes())
         .expect("Error writing doc file. Aborted");
+    println!("Docs file added!");
 }

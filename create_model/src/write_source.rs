@@ -20,6 +20,8 @@ pub fn write_easy_import(mut file: File, name: String, type_name: String) {
     );
     file.write_all(data.as_bytes())
         .expect("Error creating files.");
+
+    println!("Easy import file added!");
 }
 
 fn pascal_case(name: String) -> String {
@@ -68,6 +70,8 @@ class {pascal_name}
     );
     file.write_all(data.as_bytes())
         .expect("Error creating files.");
+
+    println!("Model header file added!");
 }
 
 pub fn write_cpp(mut file: File, name: String, type_name: String) {
@@ -86,4 +90,5 @@ pub fn write_cpp(mut file: File, name: String, type_name: String) {
     );
     file.write_all(data.as_bytes())
         .expect("Error creating files.");
+    println!("Model implementation file added!");
 }
