@@ -13,6 +13,7 @@ fn main() {
     let mut stdout = stdout();
     
     let mut name_buffer = String::new();
+    println!("You need to enter the name of model in snake case. For example if you want to write \"Linear Regression\", write \"linear_regression\"");
     print!("Enter the Name of model: ");
     stdout.flush().unwrap();
     stdin.read_line(&mut name_buffer).expect("An error occured!");
@@ -20,15 +21,19 @@ fn main() {
 
     let mut type_buffer = String::new();
     print!("Enter the type of model. \n Supported types are: \n 1. linear_model \n 2. cluster \n 3. neighbors \n 4. svm \n");
-    print!("Select one from above (you can select number or full name.) \n");
+    print!("Select one from above (you need to write full name.) \n");
     stdout.flush().unwrap();
     stdin.read_line(&mut type_buffer).expect("An error occured!");
     let model_type = type_buffer.trim();
 
+    if model_type!="linear_model" && model_type!="cluster" && model_type!="neighbors" && model_type!="svm" {
+        panic!("Please use the supported types only");
+    }
 
-    let methods_folder = "src/slowmokit/methods"; // -> change to src
-    let examples_folder = "examples/";
-    let docs_folder = "docs/";
+
+    let methods_folder = "src/slowmokit/methods";
+    let examples_folder = "examples";
+    let docs_folder = "docs";
 
     create_dir_all(format!("{methods_folder}/{model_type}/{model_name}"))
         .expect("An Error occured while creating source code folder!");
@@ -49,6 +54,9 @@ fn main() {
     ))
     .expect("Error encountered while creating file!");
 
+    // main file
+
+
     // docs files
     let _docs_file = File::create(format!("{docs_folder}/{model_type}/{model_name}.md"))
         .expect("Error encountered while creating file!");
@@ -63,4 +71,7 @@ fn main() {
     write_source::write_easy_import(_easy_import_file, model_name.to_owned(), model_type.to_owned());
     write_source::write_cpp(_imple_file, model_name.to_owned(), model_type.to_owned());
     write_source::write_hpp(_header_file, model_name.to_owned(), model_type.to_owned());
+
+    println!("File structure created succesfully!");
+    println!("{}", format!("Note: You need to add #include \"slowmokit/methods/{model_type}/{model_name}.hpp\" in slowmokit/slowmokit.hpp"));
 }

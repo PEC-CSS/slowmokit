@@ -5,5 +5,5 @@ edition = "2021"
 
 [[bin]]
 edition = "2018"
-name = "create_model"
+name = "create"
 path = "src/main.rs"
