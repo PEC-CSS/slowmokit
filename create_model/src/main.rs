@@ -26,7 +26,7 @@ fn main() {
     let model_type = type_buffer.trim();
 
 
-    let methods_folder = "output/slowmokit/methods"; // -> change to src
+    let methods_folder = "src/slowmokit/methods"; // -> change to src
     let examples_folder = "examples/";
     let docs_folder = "docs/";
 
