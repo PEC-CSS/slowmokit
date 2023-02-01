@@ -18,6 +18,8 @@ add_library(slowmokit
         src/slowmokit/ducks/ducks.hpp
         src/slowmokit/ducks/io/io.hpp
         src/slowmokit/ducks/io/io.cpp
+        src/slowmokit/ducks/matrix/matrix.hpp
+        src/slowmokit/ducks/matrix/matrix.cpp
 
         # methods
         src/slowmokit/models/model.hpp

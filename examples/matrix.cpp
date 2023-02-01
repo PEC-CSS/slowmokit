@@ -1,8 +1,9 @@
-#include "../src/slowmokit/ducks/ducks.hpp"
+#include "..\src\slowmokit\ducks\matrix\matrix.hpp"
 
 int main()
 {
     int n = 3, m = 3;
-    Matrix<int> mat(n, m);
+
+
     return 0;
 }

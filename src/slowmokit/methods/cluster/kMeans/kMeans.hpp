@@ -7,7 +7,7 @@
 #ifndef SLOWMOKIT_KMEANS_HPP
 #define SLOWMOKIT_KMEANS_HPP
 
-#include "core.hpp"
+#include "../../../core.hpp"
 
 template <class T>
 class kMeans

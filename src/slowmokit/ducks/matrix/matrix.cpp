@@ -9,24 +9,29 @@
 template <class T>
 Matrix<T>::Matrix(int n, int m) : n(n), m(m)
 {
-    assert(n > 0 and m > 0 and "Matrix cannot have empty dimension");
+    if (n <= 0 or m <= 0)
+        throw std::out_of_range("\nCannot have non-positive dimension.");
+
     mat.resize(n, std::vector<T>(m, T(0)));
 }
 
-template <typename T>
+template <class T>
 Matrix<T>::Matrix(const std::vector<std::vector<T>> in)
 {
-    assert(std::size(in) > 0 and std::size(in[0]) > 0 and "Matrix cannot have empty dimension");
+    if (std::size(in) <= 0 or std::size(in[0]) <= 0)
+        throw std::out_of_range("\nCannot have non-positive dimension.");
+
     n = std::size(in);
     m = std::size(in[0]);
+    mat.resize(n, std::vector<T>(m));
 
     for (int i = 0; i < n; i++)
     {
+        if (std::size(in[i]) != m)
+            throw std::invalid_argument("\nAll rows must have same dimension");
+
         for (int j = 0; j < m; j++)
-        {
-            assert(std::size(in[0]) == m and "All rows must have same dimension");
-            this->mat[i][j] = T(in[i][j]);
-        }
+            this->mat[i][j] = in[i][j];
     }
 }
 
@@ -45,12 +50,15 @@ Matrix<T> &Matrix<T>::operator *=(const T &scalar)
 template <class T>
 Matrix<T> &Matrix<T>::operator *=(const Matrix<T> &rhs)
 {
-    assert(std::size(rhs) > 0 and std::size(rhs[0]) and "Cannot have empty dimension");
+    auto [n2, m2] = rhs.getShape();
 
-    int n2 = std::size(rhs), m2 = std::size(rhs[0]);
+    if (n2 <= 0 or m2 <= 0)
+        throw std::out_of_range("\nCannot have non-positive dimension.");
 
-    assert(m == n2 and "column dimension of matrix-1 must be equal to row dimension of matrix-2.");
+    if (m != n2)
+        throw std::invalid_argument("\nColumn dimension of matrix-1 must be equal to row dimension of matrix-2");
 
+    auto lhs = this->mat;
     std::vector res(n, std::vector<T>(m2, T(0)));
 
     for (int i = 0; i < n; i++)
@@ -58,38 +66,121 @@ Matrix<T> &Matrix<T>::operator *=(const Matrix<T> &rhs)
         for (int j = 0; j < m2; j++)
         {
             for (int k = 0; k < m; k++)
-                res[i][j] += mat[i][k] * mat[k][j];
+                res[i][j] += lhs[i][k] * rhs[k][j];
         }
     }
 
-    return res;
+    this->mat = res;
+    updateShape();
+
+    return *this;
 }
 
 template <class T>
-std::array<int, 2> Matrix<T>::getShape()
+Matrix<T> &Matrix<T>::operator +=(const Matrix<T> &rhs)
 {
-    return {this->n, this->m};
+    auto [n2, m2] = rhs.getShape();
+
+    if (n2 <= 0 or m2 <= 0)
+        throw std::out_of_range("\nCannot have non-positive dimension.");
+
+    if (n != n2 or m != m2)
+        throw std::invalid_argument("\nBoth Dimension of matrix-1 must be equal to that of matrix-2");
+
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < m; j++)
+            this->mat[i][j] += rhs[i][j];
+    }
+
+    return *this;
 }
 
 template <class T>
-void Matrix<T>::print()
+Matrix<T> &Matrix<T>::operator -=(const Matrix<T> &rhs)
 {
-    auto [n, m] = getShape();
+    auto [n2, m2] = rhs.getShape();
+
+    if (n2 <= 0 or m2 <= 0)
+        throw std::out_of_range("\nCannot have non-positive dimension.");
+
+    if (n != n2 or m != m2)
+        throw std::invalid_argument("\nBoth Dimension of matrix-1 must be equal to that of matrix-2");
+
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < m; j++)
+            this->mat[i][j] -= rhs[i][j];
+    }
+
+    return *this;
+}
+
+template <class T>
+std::array<int, 2> Matrix<T>::getShape() const
+{
+    return { this->n, this->m };
+}
+
+template <class T>
+T &Matrix<T>::operator() (int i, int j)
+{
+    if (i >= n or i < 0)
+        throw std::out_of_range("\ni should be between 0 and " + std::to_string(n - 1) + " inclusive");
+    if (j >= m or j < 0)
+        throw std::out_of_range("\nj should be between 0 and " + std::to_string(m - 1) + " inclusive"); 
+
+    return mat[i][j];
+}
+
+template <class T>
+const std::vector<T> &Matrix<T>::operator[] (int i) const
+{
+    if (i >= n or i < 0)
+        throw std::out_of_range("\ni should be between 0 and " + std::to_string(n - 1) + " inclusive");
+
+    return this->mat[i];
+}
+
+template <class T>
+std::ostream& operator<<(std::ostream &os, const Matrix<T> &matrix)
+{
+    int n = std::size(matrix);
+    int m = std::size(matrix[0]); 
+
     for (int i = 0; i < n; i++)
     {
         for (int j = 0; j < m; j++)
         {
             if (j > 0)
-                std::cout << " ";
-            std::cout << this->mat[i][j];
+                os << " ";
+            os << matrix[i][j];
         }
 
         if (i != n - 1)
-            std::cout << "\n";
+            os << "\n";
     }
+
+    return os;
 }
 
-int main()
+template <class T>
+Matrix<T> operator*(Matrix<T> lhs, const Matrix<T> &rhs)
 {
-    
+    lhs *= rhs;
+    return lhs;
+}
+
+template <class T>
+Matrix<T> operator+(Matrix<T> lhs, const Matrix<T> &rhs)
+{
+    lhs += rhs;
+    return lhs;
+}
+
+template <class T>
+Matrix<T> operator-(Matrix<T> lhs, const Matrix<T> &rhs)
+{
+    lhs -= rhs;
+    return lhs;
 }
