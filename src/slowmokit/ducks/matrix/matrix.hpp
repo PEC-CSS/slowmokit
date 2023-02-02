@@ -42,7 +42,7 @@ public:
 
 
     /**
-     * @constructor to initialise Matrix project
+     * @constructor to initialise Matrix Object
      * @param in: 2D vector used to initialise matrix
      * @throws std::out_of_range exception if any dimension is non-positive
      * @throws std::invalid_argument exception if row dimension is not consistent
@@ -54,8 +54,6 @@ public:
      * @brief Overloading *= to multiply a matrix with a scalar
      * @param scalar: Number with which you want to multiply matrix with
      * @returns: Matrix after multiplying current matrix with scalar
-     * @throws std::out_of_range exception if any dimension is non-positive
-     * @throws std::invalid_argument exception if dimension of `rhs` and this->mat are consistent
      */
     Matrix &operator *=(const T &);
 
@@ -64,7 +62,7 @@ public:
      * @brief Overloading *= operator to multiply matrix with another Matrix
      * @param rhs: Multiply this->mat with another Matrix: rhs
      * @returns: A New Matrix after multiplying with matrix `rhs`
-     * @throws std::out_of_range exception if any dimension is non-positive
+     * @throws: std::out_of_range exception if any dimension is non-positive
      * @throws: std::invalid_argument exception if dimensions of two matrices are not compatible for multiplication
      */
     Matrix &operator *=(const Matrix &);
@@ -95,7 +93,7 @@ public:
 
     /**
      * @brief overloading -= operator for subtracting another matrix from existing matrix
-     * @param1: Matrix `rhs` which is to be added
+     * @param rhs: Matrix `rhs` which is to be added
      * @throws: std::invalid_argument incase of incompatible dimensions
      */
     Matrix &operator -= (const Matrix &rhs);
