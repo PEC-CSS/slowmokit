@@ -75,12 +75,16 @@ public:
 
 
     /**
-     * @brief dot product of a matrix
+     * @brief Function for taking dot product of current matrix with another matrix
      * @param rhs: Take dot product of current Matrix with `rhs`
      * @returns: A New Matrix after taking dot product with matrix `rhs`
      * @throws: std::invalid_argument incase of incompatible dimensions
      */
     Matrix &dot(const Matrix &);
+
+    /**
+     * @brief 
+     */
     
 
     /**
