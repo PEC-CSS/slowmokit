@@ -11,7 +11,7 @@
 /**
  * Takes predicted and actual values
  * @param pred -> predicted values
- * @param true_labels -> true values
+ * @param trueLabels -> true values
  * @returns accuracy score
  * @throws domain_error exception when size of the two vectors is not equal
  */

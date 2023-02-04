@@ -5,9 +5,9 @@
  */
 #include "accuracy.hpp"
 template <class T>
-double accuracy(const std::vector<T> &pred, const std::vector<T> &true_labels)
+double accuracy(const std::vector<T> &pred, const std::vector<T> &trueLabels)
 {
-    if (pred.size() != true_labels.size())
+    if (pred.size() != trueLabels.size())
     {
         throw std :: domain_error("pred and true_labels must have same size");
     }
@@ -15,7 +15,7 @@ double accuracy(const std::vector<T> &pred, const std::vector<T> &true_labels)
     int total = pred.size();
     for (int i = 0; i < total; i++)
     {
-        if (pred[i] == true_labels[i])
+        if (pred[i] == trueLabels[i])
         {
             correct++;
         }
