@@ -28,4 +28,6 @@ add_library(slowmokit
         src/slowmokit/methods/linear_model/linear_regression/linear_regression.cpp
         src/slowmokit/methods/cluster/kMeans/kMeans.cpp
         src/slowmokit/methods/cluster/kMeans/kMeans.hpp
-        src/slowmokit/methods/cluster/kMeans.hpp)
+        src/slowmokit/methods/cluster/kMeans.hpp
+        src/slowmokit/methods/metrics/accuracy.hpp
+        src/slowmokit/methods/metrics/accuracy.cpp)
