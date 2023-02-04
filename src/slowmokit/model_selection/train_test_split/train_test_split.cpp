@@ -31,18 +31,18 @@ template <typename T>
 using is_iterable = decltype(detail::is_iterable_impl<T>(0));
 
 template <typename T, typename G>
-using test_train_quadruple = std::tuple<std::vector<T>, std::vector<G>, 
+using train_test_quadruple = std::tuple<std::vector<T>, std::vector<G>, 
                                                 std::vector<T>, std::vector<G>>;
 
 template <class T, class G>
  
-test_train_quadruple<T, G> trainTestSplit(const std::vector<T> &X, const std::vector<G> &y, 
+train_test_quadruple<T, G> trainTestSplit(const std::vector<T> &X, const std::vector<G> &y, 
     double testSize, double trainSize)
 {
     if (std::size(X) != std::size(y))
         throw std::invalid_argument("size of both iterables must be equal.");
 
-    test_train_quadruple<T, G> res;
+    train_test_quadruple<T, G> res;
     auto &[xTrain, xTest, yTrain, yTest] = res;
 
     std::vector<std::pair<T, G>> input;
