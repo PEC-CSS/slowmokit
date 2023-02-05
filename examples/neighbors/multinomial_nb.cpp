@@ -1,4 +1,4 @@
-// #include "../../src/slowmokit/methods/neighbors/bernoulli_nb.hpp"
+// #include "../../src/slowmokit/methods/neighbors/multinomial_nb.hpp"
 // #include "../../src/slowmokit/core.hpp"
 
 // signed main(){
@@ -14,10 +14,11 @@
 //         {1,0,1},
 //         {1,1,1}
 //     };
-//     std::vector<int> yTrain{0,0,1,1,0,0,1,1,1,0};
-//     std::vector<int> xTest{1,0,0};
-//     BernoulliNB<int> bernoulli;
-//     bernoulli.fit(xTrain,yTrain);
-//     std::cout<<bernoulli.fit_predict(xTest);
+//     std::vector<int> yTrain{2,2,2,2,1,2,2,1,2,0};
+//     std::vector<int> xTest{0,0,0};
+//     std::vector<int> classes{0,1,2};
+//     MultinomialNB<int> multinomial;
+//     multinomial.fit(xTrain,yTrain);
+//     std::cout<<multinomial.predict(xTest,classes);
 //     return 0;
 // }

@@ -12,12 +12,15 @@
 template<class T>
 class BernoulliNB{  
 private:
+    std::vector<std::vector<int>> xTrain;
+    std::vector<int> yTrain;
     double prior_prob(std::vector<T> yTrain,int label);
     double conditional_prob(std::vector<std::vector<T>> xTrain,std::vector<T> yTrain,int featureCol,int featureVal,int label);
 
 public:
     // returns predicted value for each test according to bernoulli naive bayes model
-    int fit(std::vector<std::vector<T>> xTrain,std::vector<T> yTrain,std::vector<T> xTest);
+    void fit(std::vector<std::vector<T>> xTrain,std::vector<T> yTrain)
+    int fit_predict(std::vector<T> xTest);
 };
 
 #endif

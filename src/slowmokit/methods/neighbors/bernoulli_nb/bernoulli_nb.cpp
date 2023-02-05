@@ -36,7 +36,13 @@ template<class T>
     }
 
 template<class T>
-    int fit(std::vector<std::vector<T>> xTrain,std::vector<T> yTrain,std::vector<T> xTest){
+    void fit(std::vector<std::vector<T>> xTrain,std::vector<T> yTrain){
+        this->xTrain = xTrain;
+        this->yTrain = yTrain;
+    }
+
+template<class T>
+    int fit_predict(std::vector<T> xTest){
         int nFeatures = xTrain[0].size();
 
         std::vector<double> postProbs;
