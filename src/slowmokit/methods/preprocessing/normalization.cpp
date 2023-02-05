@@ -7,8 +7,8 @@
 template <class T>
 void normalize(std::vector<T> &values)
 {
-    double minimum = *min_element(values.begin(), values.end());
-    double maximum = *max_element(values.begin(), values.end());
+    T minimum = *min_element(values.begin(), values.end());
+    T maximum = *max_element(values.begin(), values.end());
 
     int n = values.size();
 

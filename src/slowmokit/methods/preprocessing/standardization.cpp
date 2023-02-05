@@ -33,12 +33,3 @@ void standardize(std::vector<T> &values)
     }
 }
 
-int main(){
-    std::vector<double> values={3,3,3,3,3};
-    standardize(values);
-    for(auto i:values){
-        std::cout << i << " ";
-    }
-    std::cout << std::endl;
-    return 0;
-}
