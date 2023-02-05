@@ -11,7 +11,7 @@
 /**
  * Takes values to be normalized
  * @param values -> to be normalized
- * @throws runtime_error when maximum element is equal to minimum element
+ * @throws warning and sets all values of given column to 1 in case minimum element is equal to maximum element
  */
 
 template <class T>
