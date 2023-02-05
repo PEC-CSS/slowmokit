@@ -37,7 +37,7 @@ using train_test_quadruple = std::tuple<std::vector<T>, std::vector<G>,
 template <class T, class G>
  
 train_test_quadruple<T, G> trainTestSplit(const std::vector<T> &X, const std::vector<G> &y, 
-    double testSize, double trainSize)
+    double testSize, double trainSize, bool shuffle)
 {
     if (std::size(X) != std::size(y))
         throw std::invalid_argument("size of both iterables must be equal.");
@@ -50,7 +50,8 @@ train_test_quadruple<T, G> trainTestSplit(const std::vector<T> &X, const std::ve
         input.emplace_back(X[i], y[i]);
 
     std::mt19937 rng(seed);
-    std::shuffle(std::begin(input), std::end(input), rng);
+    if (shuffle == true)
+        std::shuffle(std::begin(input), std::end(input), rng);
 
     int n = std::size(input);
     int trainDataSize = n * trainSize;

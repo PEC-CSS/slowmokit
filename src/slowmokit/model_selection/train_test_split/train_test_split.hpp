@@ -21,6 +21,6 @@
 template <class T, class G>
 std::tuple<std::vector<T>, std::vector<G>, std::vector<T>, std::vector<G>> 
 trainTestSplit(const std::vector<T> &, 
-    const std::vector<G> &, double = 0.3, double = 0.7);
+    const std::vector<G> &, double = 0.3, double = 0.7, bool = true);
 
 #endif // SLOWMOKIT_TRAIN_TEST_SPLIT_HPP
