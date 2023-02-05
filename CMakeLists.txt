@@ -34,4 +34,6 @@ add_library(slowmokit
         src/slowmokit/methods/metrics/accuracy.hpp
         src/slowmokit/methods/metrics/accuracy.cpp
         src/slowmokit/methods/preprocessing/normalization.hpp
-        src/slowmokit/methods/preprocessing/normalization.cpp)
+        src/slowmokit/methods/preprocessing/normalization.cpp
+        src/slowmokit/methods/preprocessing/standardization.hpp
+        src/slowmokit/methods/preprocessing/standardization.cpp)
