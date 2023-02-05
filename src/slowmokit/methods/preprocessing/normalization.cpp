@@ -18,7 +18,7 @@ void normalize(std::vector<T> &values)
         {
             values[i] = 1;
         }
-        std::cerr << "All the values in the given column are equal" << std::endl;
+        std::cerr << "Warning: All the values in the given column are equal" << std::endl;
         return;   
     }
     for (int i = 0; i < n; i++)
