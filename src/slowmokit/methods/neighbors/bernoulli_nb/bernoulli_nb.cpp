@@ -6,57 +6,61 @@
 #include "bernoulli_nb.hpp"
 
 template<class T>
-    double prior_prob(std::vector<T> y_train,int label){   // Prior-Probability P(y)
+    double prior_prob(std::vector<T> yTrain,int label){   // Prior-Probability P(y)
         int sum=0;
-        for(int i=0;i<y_train.size();i++){
-            if(y_train[i]==label){
+        for(int i=0;i<yTrain.size();i++){
+            if(yTrain[i]==label){
                 sum += 1;
             }
         }
-        return sum/double(y_train.size());
+        return sum/double(yTrain.size());
     }
 
 template<class T>
-    double conditional_prob(std::vector<std::vector<T>> x_train,std::vector<T> y_train,int feature_col,int feature_val,int label){ // Conditional Probability
+    double conditional_prob(std::vector<std::vector<T>> xTrain,std::vector<T> yTrain,int featureCol,int featureVal,int label){ // Conditional Probability
     // P(x=f1 / y=class) 
         int denominator=0,numerator=0;
-        for(int i=0;i<y_train.size();i++){
-            if(y_train[i]==label){
+        for(int i=0;i<yTrain.size();i++){
+            if(yTrain[i]==label){
                 denominator++;
-                if(x_train[i][feature_col]==feature_val){
+                if(xTrain[i][featureCol]==featureVal){
                     numerator++;
                 }
             }
         }
-        return numerator/double(denominator);
+        if(denominator!=0){
+            return numerator/double(denominator);
+        }
+        return numerator;
+        
     }
 
 template<class T>
-    int predict(std::vector<std::vector<T>> x_train,std::vector<T> y_train,std::vector<T> x_test){
-        int n_features = x_train[0].size();
+    int fit(std::vector<std::vector<T>> xTrain,std::vector<T> yTrain,std::vector<T> xTest){
+        int nFeatures = xTrain[0].size();
 
-        std::vector<double> post_probs;
+        std::vector<double> postProbs;
 
         for(int label=0;label<2;label++){  // bernoulli Nb so labels will only be 0/1.
             double likelihood=1.0;
-            for(int i=0;i<n_features;i++){
-                double cond = conditional_prob(x_train,y_train,i,x_test[i],label);
+            for(int i=0;i<nFeatures;i++){
+                double cond = conditional_prob(xTrain,yTrain,i,xTest[i],label);
                 int b;
-                likelihood *= ((cond)*x_test[i] + (1-cond)*(1-x_test[i]));   // P(x=f1 / y=class)*(x[i]) + (1-P(x=f1 / y=class))*(1-x[i])
+                likelihood *= ((cond)*xTest[i] + (1-cond)*(1-xTest[i]));   // P(x=f1 / y=class)*(x[i]) + (1-P(x=f1 / y=class))*(1-x[i])
             }
 
-            double prior = prior_prob(y_train,label);
+            double prior = prior_prob(yTrain,label);
             double post = prior*likelihood;
-            post_probs.push_back(post);
+            postProbs.push_back(post);
         }
-        double sumprop_probs = 0.0;
+        double sumpropProbs = 0.0;
         int max=0;
-        for(int i=0;i<post_probs.size();i++){
-            sumprop_probs += post_probs[i];
+        for(int i=0;i<postProbs.size();i++){
+            sumpropProbs += postProbs[i];
         }
-        for(int i=0;i<post_probs.size();i++){
-            post_probs[i] /= sumprop_probs;
-            if(post_probs[i]>post_probs[max]){
+        for(int i=0;i<postProbs.size();i++){
+            postProbs[i] /= sumpropProbs;
+            if(postProbs[i]>postProbs[max]){
                 max = i;
             }
         }
