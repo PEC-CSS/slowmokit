@@ -1,29 +1,23 @@
 #include "one_hot_encoder.hpp"
 
 template<class T>
-
-// Function to one hot encode a vector of integers
-std::vector<std::vector<int>> one_hot_encoder(const std::vector<int> &data, int n_classes) {
-  // Created a map to store the mapping of each integer in the data to a different index
-  std::map<int, int> class_mapping;
-  int class_index = 0;
-  // added each integer to class mapping
-  for (int value : data) {
-    if (class_mapping.count(value) == 0) {
-      class_mapping[value] = class_index++;
+// Function to one hot encode 
+std::vector<std::vector<int>> oneHotEncoder(const std::vector<T> &data, int nClasses) {
+// Created a map to store the mapping of each integer in the data to a different index
+  std::map<T, int> classMapping;
+  int classIndex = 0;
+  for (const T &value : data) {
+    if (classMapping.count(value) == 0) {
+      classMapping[value] = classIndex++;
     }
   }
-
-  // Vector to store the one hot encoded data
-  std::vector<std::vector<int>> one_hot_encoded_data;
-  //created a one hot encoded representation for each value
-  for (int value : data) {
-    // Created a one hot encoded vector for each value in the data
-    std::vector<int> one_hot_encoded_row(n_classes, 0);
-    one_hot_encoded_row[class_mapping[value]] = 1;
-    one_hot_encoded_data.push_back(one_hot_encoded_row);
+ // Vector to store the one hot encoded data
+  std::vector<std::vector<int>> oneHotEncodedData(data.size(), std::vector<int>(nClasses, 0));
+//created a one hot encoded representation for each value
+  for (int i = 0; i < data.size(); i++) {
+    oneHotEncodedData[i][classMapping[data[i]]] = 1;
   }
-
-  // To Return the one hot encoded data
-  return one_hot_encoded_data;
+ // To Return the one hot encoded data
+  return oneHotEncodedData;
 }
+
