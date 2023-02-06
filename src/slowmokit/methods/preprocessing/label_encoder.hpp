@@ -16,6 +16,6 @@
  */
 
 template<class T>
-std::vector<int> labelEncoder(std::vector<T>& input )
+std::vector<int> labelEncoder(std::vector<T>& input );
 
 #endif //SLOWMOKIT_LABEL_ENCODER_HPP
