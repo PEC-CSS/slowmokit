@@ -7,14 +7,14 @@
 #include "classification_report.hpp"
 template <class T>
 
-ClassificationReport<T>::ClassificationReport(std::vector<T> &trueValue, std::vector<T> &predictedValue)
+classificationReport<T>::classificationReport(std::vector<T> &trueValue, std::vector<T> &predictedValue)
 {
     this->trueValue = trueValue;
     this->predictedValue = predictedValue;
 }
 
 template <class T>
-void ClassificationReport<T>::confusionMatrix(std::vector<T> &trueValue, std::vector<T> &predictedValue)
+void classificationReport<T>::confusionMatrix(std::vector<T> &trueValue, std::vector<T> &predictedValue)
 {
     int n = trueValue.size();
 
@@ -46,92 +46,96 @@ void ClassificationReport<T>::confusionMatrix(std::vector<T> &trueValue, std::ve
 }
 
 template <class T>
-std::map<T, double> ClassificationReport<T>::precision()
+std::map<T, double> classificationReport<T>::precision()
 {
     // True Positive / (True Positive + False Positive)
-    std::map<T, double> Precision;
+    std::map<T, double> precisionMap;
     // std::cout << "class size"<<classes.size() << std::endl;
     for (auto it : classes)
     {
         int classNumber = it.first;
         // std::cout << classNumber << std::endl;
-        Precision[classNumber] = (double)(truePositive[classNumber] / (double)(truePositive[classNumber] + falsePositive[classNumber]));
+        precisionMap[classNumber] = (double)(truePositive[classNumber] / (double)(truePositive[classNumber] + falsePositive[classNumber]));
 
         // Trick to make all numbers upto 2 decimal place
-        double x = Precision[classNumber];
+        double x = precisionMap[classNumber];
         float value = (int)(x * 100 + .5);
-        Precision[classNumber] = (float)value / 100;
+        precisionMap[classNumber] = (float)value / 100;
     }
-    return Precision;
+    return precisionMap;
 }
 
 template <class T>
-std::map<T, double> ClassificationReport<T>::recall()
+std::map<T, double> classificationReport<T>::recall()
 {
     // True Positive / (True Positive + False Negative)
-    std::map<T, double> Recall;
+    std::map<T, double> recallMap;
     for (auto it : classes)
     {
         int classNumber = it.first;
-        Recall[classNumber] = (double)((double)truePositive[classNumber] / ((double)truePositive[classNumber] + (double)falseNegative[classNumber]));
-        double x = Recall[classNumber];
+        recallMap[classNumber] = (double)((double)truePositive[classNumber] / ((double)truePositive[classNumber] + (double)falseNegative[classNumber]));
+        double x = recallMap[classNumber];
         float value = (int)(x * 100 + .5);
-        Recall[classNumber] = (float)value / 100;
+        recallMap[classNumber] = (float)value / 100;
     }
-    return Recall;
+    return recallMap;
 }
 
 template <class T>
-std::map<T, double> ClassificationReport<T>::f1_score()
+std::map<T, double> classificationReport<T>::f1Score()
 {
     // 2 * Precision * Recall / (Precision + Recall)
-    std::map<T, double> Precision, Recall;
-    Precision = precision();
-    Recall = recall();
-    std::map<T, double> F1_Score;
+    std::map<T, double> precisionMap, recallMap;
+    precisionMap = precision();
+    recallMap = recall();
+    std::map<T, double> f1ScoreMap;
     for (auto it : classes)
     {
         int classNumber = it.first;
-        if (Precision[classNumber] == 0 || Recall[classNumber] == 0)
+        if (precisionMap[classNumber] == 0 || recallMap[classNumber] == 0)
         {
-            F1_Score[classNumber] = 0;
+            f1ScoreMap[classNumber] = 0;
         }
         else
         {
-            F1_Score[classNumber] = (2 * (double)Precision[classNumber] * (double)Recall[classNumber]) / ((double)Precision[classNumber] + (double)Recall[classNumber]);
-            
-            double x = F1_Score[classNumber];
+            f1ScoreMap[classNumber] = (2 * (double)precisionMap[classNumber] * (double)recallMap[classNumber]) / ((double)precisionMap[classNumber] + (double)recallMap[classNumber]);
+
+            double x = f1ScoreMap[classNumber];
             float value = (int)(x * 100 + .5);
-            F1_Score[classNumber] = (float)value / 100;
+            f1ScoreMap[classNumber] = (float)value / 100;
         }
     }
-    return F1_Score;
+    return f1ScoreMap;
 }
 
 template <class T>
-std::map<T, double> ClassificationReport<T>::accuracy()
+std::map<T, double> classificationReport<T>::accuracy()
 {
     // (True Positive  + True Negative)/ (True Positive + False Positive + False Negative + True Negative)
-    std::map<T, double> Accuracy;
+    std::map<T, double> accuracyMap;
     for (auto it : classes)
     {
         int classNumber = it.first;
-        Accuracy[classNumber] = (double)(((double)truePositive[classNumber] + (double)trueNegative[classNumber]) / ((double)truePositive[classNumber] + (double)falseNegative[classNumber] + (double)falsePositive[classNumber] + (double)trueNegative[classNumber]));
+        accuracyMap[classNumber] = (double)(((double)truePositive[classNumber] + (double)trueNegative[classNumber]) / ((double)truePositive[classNumber] + (double)falseNegative[classNumber] + (double)falsePositive[classNumber] + (double)trueNegative[classNumber]));
+
+        double x = accuracyMap[classNumber];
+        float value = (int)(x * 100 + .5);
+        accuracyMap[classNumber] = (float)value / 100;
     }
-    return Accuracy;
+    return accuracyMap;
 }
 
 template <class T>
-void ClassificationReport<T>::PrintReport()
+void classificationReport<T>::printReport()
 {
     std::cout << "Class-No. Precision Accuracy  Recall   F1_Score\n";
-    std::map<int, double> Precision = precision();
-    std::map<int, double> Accuracy = accuracy();
-    std::map<int, double> Recall = recall();
-    std::map<int, double> F1_score = f1_score();
+    std::map<int, double> precisionMap = precision();
+    std::map<int, double> accuracyMap = accuracy();
+    std::map<int, double> recallMap = recall();
+    std::map<int, double> f1ScoreMap = f1Score();
     for (auto classNumber : classes)
     {
-        std::cout << std::setw(4) << classNumber.first << std::setw(10) << Precision[classNumber.first] << std::setw(10) << Accuracy[classNumber.first] << std::setw(11) << Recall[classNumber.first] << std::setw(10) << F1_score[classNumber.first] << std::endl;
+        std::cout << std::setw(4) << classNumber.first << std::setw(10) << precisionMap[classNumber.first] << std::setw(10) << accuracyMap[classNumber.first] << std::setw(11) << recallMap[classNumber.first] << std::setw(10) << f1ScoreMap[classNumber.first] << std::endl;
     }
 }
 
@@ -139,7 +143,7 @@ int main()
 {
     std::vector<int> trueValue = {0, 1, 2, 2, 2};
     std::vector<int> predictedValue = {0, 0, 2, 2, 1};
-    ClassificationReport Class(trueValue, predictedValue);
+    classificationReport Class(trueValue, predictedValue);
     Class.confusionMatrix(trueValue, predictedValue);
-    Class.PrintReport();
+    Class.printReport();
 }
