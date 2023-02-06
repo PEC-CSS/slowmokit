@@ -13,6 +13,8 @@ class KNN{
 private:
     std::vector<std::vector<T>> xTrain;
     std::vector<int> yTrain;
+    int k=1;
+    int classNums=1;
     double distance(std::vector<T> x1,std::vector<T> x2);
 public:
     void fit(std::vector<std::vector<T>> x,std::vector<int> y,int k,int classNums);

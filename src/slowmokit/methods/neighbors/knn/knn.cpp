@@ -15,7 +15,7 @@ double distance(std::vector<T> x1,std::vector<T> x2){
 }
 
 template<class T>
-void fit(std::vector<std::vector<T>> x,std::vector<int> y,int k,int classNums){
+void KNN<T>::fit(std::vector<std::vector<T>> x,std::vector<int> y,int k,int classNums){
     this->xTrain = x;
     this->yTrain = y;
     this->k = k;
@@ -23,7 +23,7 @@ void fit(std::vector<std::vector<T>> x,std::vector<int> y,int k,int classNums){
 }
 
 template<class T>
-int predict(std::vector<T> test){
+int KNN<T>::predict(std::vector<T> test){
     std::vector<int> nearestK(k);
     std::priority_queue<std::vector<double>> pq;
     for(int i=0;i<xTrain.size();i++){
