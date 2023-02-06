@@ -1,4 +1,4 @@
-#include "src/slowmokit/one_hot_encoder.hpp"
+#include "one_hot_encoder.hpp"
 
 #include <map>
 
