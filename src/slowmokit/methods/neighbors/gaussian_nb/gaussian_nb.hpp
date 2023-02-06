@@ -12,11 +12,11 @@
 template<class T>
 class GaussianNB{
 private:
-    double prior_prob(std::vector<int> y_train,int label);
-    double conditional_prob(int mean,int variance,int feature);
+    double priorProb(std::vector<int> yTrain,int label);
+    double conditionalProb(int mean,int variance,int feature);
 
 public:
-    int predict(std::vector<std::vector<T>> x_train,std::vector<int> y_train,std::vector<T> x_test,std::vector<int> classes);
+    int fitPredict(std::vector<std::vector<T>> xTrain,std::vector<int> yTrain,std::vector<T> xTest,std::vector<int> classes);
 };
 
 #endif //SLOWMOKIT_GAUSSIAN_NB_HPP

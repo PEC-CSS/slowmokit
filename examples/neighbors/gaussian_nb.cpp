@@ -16,6 +16,6 @@
 //     std::vector<double> x_test{6,130,8};
 //     std::vector<int> classes{0,1};
 //     GaussianNB<double> gaussian;
-//     std::cout<<gaussian.predict(x_train,y_train,x_test,classes);
+//     std::cout<<gaussian.fitPredict(x_train,y_train,x_test,classes);
 //     return 0;
 // }
