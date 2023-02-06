@@ -7,14 +7,14 @@
 #include "classification_report.hpp"
 template <class T>
 
-classificationReport<T>::classificationReport(std::vector<T> &trueValue, std::vector<T> &predictedValue)
+ClassificationReport<T>::ClassificationReport(std::vector<T> &trueValue, std::vector<T> &predictedValue)
 {
     this->trueValue = trueValue;
     this->predictedValue = predictedValue;
 }
 
 template <class T>
-void classificationReport<T>::confusionMatrix(std::vector<T> &trueValue, std::vector<T> &predictedValue)
+void ClassificationReport<T>::confusionMatrix(std::vector<T> &trueValue, std::vector<T> &predictedValue)
 {
     int n = trueValue.size();
 
@@ -46,7 +46,7 @@ void classificationReport<T>::confusionMatrix(std::vector<T> &trueValue, std::ve
 }
 
 template <class T>
-std::map<T, double> classificationReport<T>::precision()
+std::map<T, double> ClassificationReport<T>::precision()
 {
     // True Positive / (True Positive + False Positive)
     std::map<T, double> precisionMap;
@@ -66,7 +66,7 @@ std::map<T, double> classificationReport<T>::precision()
 }
 
 template <class T>
-std::map<T, double> classificationReport<T>::recall()
+std::map<T, double> ClassificationReport<T>::recall()
 {
     // True Positive / (True Positive + False Negative)
     std::map<T, double> recallMap;
@@ -82,7 +82,7 @@ std::map<T, double> classificationReport<T>::recall()
 }
 
 template <class T>
-std::map<T, double> classificationReport<T>::f1Score()
+std::map<T, double> ClassificationReport<T>::f1Score()
 {
     // 2 * Precision * Recall / (Precision + Recall)
     std::map<T, double> precisionMap, recallMap;
@@ -109,7 +109,7 @@ std::map<T, double> classificationReport<T>::f1Score()
 }
 
 template <class T>
-std::map<T, double> classificationReport<T>::accuracy()
+std::map<T, double> ClassificationReport<T>::accuracy()
 {
     // (True Positive  + True Negative)/ (True Positive + False Positive + False Negative + True Negative)
     std::map<T, double> accuracyMap;
@@ -126,7 +126,7 @@ std::map<T, double> classificationReport<T>::accuracy()
 }
 
 template <class T>
-void classificationReport<T>::printReport()
+void ClassificationReport<T>::printReport()
 {
     std::cout << "Class-No. Precision Accuracy  Recall   F1_Score\n";
     std::map<int, double> precisionMap = precision();
@@ -143,7 +143,7 @@ int main()
 {
     std::vector<int> trueValue = {0, 1, 2, 2, 2};
     std::vector<int> predictedValue = {0, 0, 2, 2, 1};
-    classificationReport Class(trueValue, predictedValue);
+    ClassificationReport Class(trueValue, predictedValue);
     Class.confusionMatrix(trueValue, predictedValue);
     Class.printReport();
 }
