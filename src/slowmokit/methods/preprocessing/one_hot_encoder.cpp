@@ -1,6 +1,6 @@
 #include "one_hot_encoder.hpp"
 
-#include <map>
+template<class T>
 
 // Function to one hot encode a vector of integers
 std::vector<std::vector<int>> one_hot_encoder(const std::vector<int> &data, int n_classes) {
