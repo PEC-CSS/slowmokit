@@ -39,4 +39,7 @@ add_library(slowmokit
         src/slowmokit/methods/preprocessing/standardization.cpp
         src/slowmokit/methods/neighbors/bernoulli_nb.hpp
         src/slowmokit/methods/neighbors/bernoulli_nb/bernoulli_nb.hpp
-        src/slowmokit/methods/neighbors/bernoulli_nb/bernoulli_nb.cpp)
+        src/slowmokit/methods/neighbors/bernoulli_nb/bernoulli_nb.cpp
+        src/slowmokit/methods/linear_model/logistic_regression.hpp
+        src/slowmokit/methods/linear_model/logistic_regression/logistic_regression.hpp
+        src/slowmokit/methods/linear_model/logistic_regression/logistic_regression.cpp)
