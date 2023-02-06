@@ -12,15 +12,32 @@
 template<class T>
 class BernoulliNB{  
 private:
-    std::vector<std::vector<int>> xTrain;
-    std::vector<int> yTrain;
-    double prior_prob(std::vector<T> yTrain,int label);
-    double conditional_prob(std::vector<std::vector<T>> xTrain,std::vector<T> yTrain,int featureCol,int featureVal,int label);
+    /**
+    @brief Function Prior probability
+    @param yTrain to compute P(y=y1) and label y1
+    @returns double value of prior Probability
+    */
+    double priorProb(std::vector<T> yTrain,int label);
+    /**
+    @brief Function conditional Probabilty
+    @param xTrain 2-d all x training values
+    @param yTrain all 1-d y training values
+    @param featureCol for which feature column we are finding conditional prob
+    @param featureVal for what value in that feature we are looking for conditional prob
+    @param label y value looking for
+    @returns double value of conditional probability
+    */
+    double conditionalProb(std::vector<std::vector<T>> xTrain,std::vector<T> yTrain,int featureCol,int featureVal,int label);
 
 public:
-    // returns predicted value for each test according to bernoulli naive bayes model
-    void fit(std::vector<std::vector<T>> xTrain,std::vector<T> yTrain)
-    int fit_predict(std::vector<T> xTest);
+    /**
+    @brief Function fit and predict the output
+    @param xTrain 2-d training values
+    @param yTrain 1-d y training values
+    @param xTest testing values
+    @returns predicted value for each test according to bernoulli naive bayes model
+    */
+    int fitPredict(std::vector<std::vector<T>> xTrain,std::vector<T> yTrain,std::vector<T> xTest);
 };
 
 #endif

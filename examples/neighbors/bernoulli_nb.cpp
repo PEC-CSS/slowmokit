@@ -17,7 +17,6 @@
 //     std::vector<int> yTrain{0,0,1,1,0,0,1,1,1,0};
 //     std::vector<int> xTest{1,0,0};
 //     BernoulliNB<int> bernoulli;
-//     bernoulli.fit(xTrain,yTrain);
-//     std::cout<<bernoulli.fit_predict(xTest);
+//     std::cout<<bernoulli.fitPredict(xTrain,yTrain,xTest);
 //     return 0;
 // }

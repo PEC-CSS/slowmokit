@@ -18,7 +18,6 @@
 //     std::vector<int> xTest{0,0,0};
 //     std::vector<int> classes{0,1,2};
 //     MultinomialNB<int> multinomial;
-//     multinomial.fit(xTrain,yTrain);
-//     std::cout<<multinomial.predict(xTest,classes);
+//     std::cout<<multinomial.predict(xTrain,yTrain,classes,xTest);
 //     return 0;
 // }

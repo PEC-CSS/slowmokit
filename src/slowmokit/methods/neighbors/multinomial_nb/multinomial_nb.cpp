@@ -6,7 +6,7 @@
 #include "multinomial_nb.hpp"
 
 template<class T>
-    double priorProb(std::vector<T> yTrain,int label){  // Prior-Probability P(y)
+    double MultinomialNB<T>::priorProb(std::vector<T> yTrain,int label){  // Prior-Probability P(y)
         int sum=0;
         for(int i=0;i<yTrain.size();i++){
             if(yTrain[i]==label){
@@ -17,7 +17,7 @@ template<class T>
     }
 
 template<class T>
-    double conditionalProb(std::vector<std::vector<T>> xTrain,std::vector<T> yTrain,int featureCol,int featureVal,int label){  // Conditional-Probabilty P(x=f1 / y=class)
+    double MultinomialNB<T>::conditionalProb(std::vector<std::vector<T>> xTrain,std::vector<T> yTrain,int featureCol,int featureVal,int label){  // Conditional-Probabilty P(x=f1 / y=class)
         int denominator=0,numerator=0;
         std::set<int> varies_values;
         for(int i=0;i<yTrain.size();i++){
@@ -35,14 +35,7 @@ template<class T>
     }
 
 template<class T>
-    void fit(std::vector<std::vector<T>> xTrain,std::vector<T> yTrain,std::vector<T> classes){
-        this->xTrain = xTrain;
-        this->yTrain = yTrain;
-        this->classes = classes;
-    }
-
-template<class T>
-    int fit_predict(std::vector<T> xTest){
+    int MultinomialNB<T>::fit_predict(std::vector<std::vector<T>> xTrain,std::vector<T> yTrain,std::vector<T> classes,std::vector<T> xTest){
         int n_features = xTrain[0].size();
 
         std::vector<double> postProbs;
@@ -76,25 +69,3 @@ template<class T>
         }
         return max;
     };
-
-signed main(){
-    std::vector<std::vector<int>> x_train{
-        {0,0,0},
-        {1,0,0},
-        {1,0,1},
-        {1,0,0},
-        {0,1,1},
-        {1,0,0},
-        {1,1,0},
-        {0,1,1},
-        {1,0,1},
-        {1,1,1}
-    };
-    std::vector<int> y_train{2,2,2,2,1,2,2,1,2,0};
-    std::vector<int> x_test{0,0,0};
-    std::vector<int> classes{0,1,2};
-    MultinomialNB<int> multinomial;
-    multinomial.fit(x_train,y_train,classes);
-    std::cout<<multinomial.fit_predict(x_test);
-    return 0;
-}
