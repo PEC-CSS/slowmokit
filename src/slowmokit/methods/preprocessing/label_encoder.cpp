@@ -5,26 +5,25 @@
  */
 
 #include "label_encoder.hpp"
-
 template<class T>
-std::vector<int> label_encoder(std::vector<T>& input ){
+std::vector<int> labelEncoder(std::vector<T>& input ){
     std::map<T,int> indices;
-    int curr_index =0;
+    int currIndex =0;
     for(auto e : input){
         if(indices.count(e)!=0){
             continue;
         }
-        indices[e]=curr_index;
-        curr_index++;
+        indices[e]=currIndex;
+        currIndex++;
     }
-    std::vector<int> encoded_data (input.size());
+    std::vector<int> encodedData (input.size());
     int i=0;
     for(auto e : input){
         int curr = indices[e];
-        encoded_data[i]=curr;
+        encodedData[i]=curr;
         i++;
     }
-    return encoded_data;
+    return encodedData;
 }
 
 
