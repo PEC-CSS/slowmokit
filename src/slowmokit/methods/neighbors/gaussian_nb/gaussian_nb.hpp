@@ -12,8 +12,7 @@
 template<class T>
 class GaussianNB{
 private:
-    T priorProb(std::vector<int> yTrain,int label);
-    T conditionalProb(int mean,int variance,int feature);
+    double conditionalProb(int mean,int variance,int feature);
 
 public:
     int fitPredict(std::vector<std::vector<T>> xTrain,std::vector<int> yTrain,std::vector<T> xTest,std::vector<int> classes);
