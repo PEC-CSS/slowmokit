@@ -1,3 +1,9 @@
+/**
+ * @file methods/preprocessing/one_hot_encoder.cpp
+ *
+ * Implementation of one hot encoder
+ */
+
 #include "one_hot_encoder.hpp"
 template<class T>
 std::vector<std::vector<int>> oneHotEncoder(const std::vector<T> &data, int nClasses) {
