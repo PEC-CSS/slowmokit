@@ -20,7 +20,7 @@ private:
     int depth=0;
     int minSamplesLeaf=1;
     int target=-1;
-    int max Features;
+    int maxFeatures;
     std::set<int> features;
     double entropy(std::vector<double> col);
     std::vector<std::vector<std::vector<double>>> divideData(std::vector<std::vector<double>> x_data,int fkey,int fval);

@@ -7,7 +7,7 @@
 #include "decision_tree.hpp"
 
 template<class T>
-    double entropy(std::vector<double> col){
+    double DecisionTree<T>::entropy(std::vector<double> col){
         std::set<double> unique;
         for(int i=0;i<col.size();i++){
             unique.insert(col[i]);
@@ -28,7 +28,7 @@ template<class T>
     }
 
 template<class T>
-    std::vector<std::vector<std::vector<double>>> divideData(std::vector<std::vector<double>> xData,int fkey,int fval){
+    std::vector<std::vector<std::vector<double>>> DecisionTree<T>::divideData(std::vector<std::vector<double>> xData,int fkey,int fval){
         std::vector<std::vector<double>> xLeft;
         std::vector<std::vector<double>> xRight;
         for(int i=0;i<xData.size();i++){
@@ -46,7 +46,7 @@ template<class T>
     }
 
 template<class T>
-    double infoGain(std::vector<std::vector<double>> xData,int fkey,int fval){
+    double DecisionTree<T>::infoGain(std::vector<std::vector<double>> xData,int fkey,int fval){
         // Splitting data
         std::vector<std::vector<double>> left,right;
         std::vector<std::vector<std::vector<double>>> temp = divideData(xData,fkey,fval);
@@ -68,30 +68,30 @@ template<class T>
         for(int i=0;i<right.size();i++){
             rY.push_back(xData[i][y]);
         }
-        double i_gain = entropy(y_data) - (l*entropy(lY) + r*entropy(rY));
-        return i_gain;
+        double iGain = entropy(y_data) - (l*entropy(lY) + r*entropy(rY));
+        return iGain;
     }
 
 template<class T>
     DecisionTree<T>::DecisionTree(int maxD,int minSamplesL,int maxF){
-        maxDepth = maxD;
-        minSamplesLeaf = minSamplesL;
-        max Features = maxF;
+        this->maxDepth = maxD;
+        this->minSamplesLeaf = minSamplesL;
+        this->maxFeatures = maxF;
     }
 
 template<class T>
-    void train(std::vector<std::vector<double>> xData){
+    void DecisionTree<T>::train(std::vector<std::vector<double>> xData){
         int max = xData[0].size()-2;
         int range = max+1;
 
         features.clear();
 
-        while(features.size()!=max Features){
+        while(features.size()!=maxFeatures){
             features.insert(rand()%range);
         }
 
-        std::vector<double> infoGains(max Features);
-        std::vector<double> mean(max Features);
+        std::vector<double> infoGains(maxFeatures);
+        std::vector<double> mean(maxFeatures);
         int cnt=0;
         for(int i=0;i<xData[0].size()-1;i++){
             if(i==*features.cbegin()){
@@ -99,13 +99,13 @@ template<class T>
                 for(int j=0;j<xData.size();j++){
                     mean[cnt] += xData[j][i];
                 }
-                double i_gain=infoGain(xData,i,mean[cnt]/double(xData.size()));
-                infoGains[cnt] = i_gain;
+                double iGain=infoGain(xData,i,mean[cnt]/double(xData.size()));
+                infoGains[cnt] = iGain;
                 cnt++;
             }
         }
         max=0;
-        for(int i=0;i<max Features;i++){
+        for(int i=0;i<maxFeatures;i++){
             if(infoGains[i]>infoGains[max]){
                 max=i;
             }
@@ -148,10 +148,10 @@ template<class T>
             return;
         }
 
-        left = new DecisionTree(maxDepth,minSamplesLeaf,max Features);
+        left = new DecisionTree(maxDepth,minSamplesLeaf,maxFeatures);
         left->depth = depth+1;
         left->train(dataLeft);
-        right = new DecisionTree(maxDepth,minSamplesLeaf,max Features);
+        right = new DecisionTree(maxDepth,minSamplesLeaf,maxFeatures);
         right->depth = depth+1;
         right->train(dataRight);
 
@@ -170,7 +170,7 @@ template<class T>
     }
 
 template<class T>
-    int predict(std::vector<double> test){
+    int DecisionTree<T>::predict(std::vector<double> test){
         if(test[fkey]>fval){
             if(right==NULL){
                 return target;
