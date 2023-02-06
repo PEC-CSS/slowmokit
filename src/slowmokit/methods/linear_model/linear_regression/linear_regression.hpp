@@ -7,7 +7,7 @@
 #ifndef SLOWMOKIT_LINEAR_REGRESSION_HPP
 #define SLOWMOKIT_LINEAR_REGRESSION_HPP
 
-#include "core.hpp"
+#include "../../../core.hpp"
 
 template <class T>
 class LinearRegression
@@ -18,11 +18,11 @@ private:
     double learningRate = 0.01;
 
 public:
-    LinearRegression(int epochs, double learningRate);
+    LinearRegression(int = 100, double = 0.01);
     
-    void fit(std::vector<std::vector<T>> x, std::vector<T> y);
+    void fit(std::vector<std::vector<T>>, std::vector<T> );
 
-    std::vector<T> predict(std::vector<std::vector<T>> x);
+    std::vector<T> predict(std::vector<std::vector<T>>);
 
     void printCoefficients();
 };
