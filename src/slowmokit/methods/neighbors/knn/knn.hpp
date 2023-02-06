@@ -8,9 +8,15 @@
 
 #include "../../../models/model.hpp"
 
-template <typename T>
-class KNN : public Model<T>
-{
+template <class T>
+class KNN{
+private:
+    std::vector<std::vector<T>> xTrain;
+    std::vector<int> yTrain;
+    double distance(std::vector<T> x1,std::vector<T> x2);
+public:
+    void fit(std::vector<std::vector<T>> x,std::vector<int> y,int k,int classNums);
+    int predict(std::vector<T> test);
 };
 
 #endif // SLOWMOKIT_KNN_HPP
