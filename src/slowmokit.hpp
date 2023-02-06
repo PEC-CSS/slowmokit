@@ -19,5 +19,6 @@
 #include "slowmokit/methods/linear_model/linear_regression.hpp"
 #include "slowmokit/methods/neighbors/bernoulli_nb.hpp"
 #include "slowmokit/methods/neighbors/gaussian_nb.hpp"
+#include "slowmokit/methods/neighbors/decision_tree.hpp"
 
 #endif // SLOWMOKIT_HPP
