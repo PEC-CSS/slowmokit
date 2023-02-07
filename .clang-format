@@ -1,7 +1,7 @@
 ---
 BasedOnStyle: LLVM
 AccessModifierOffset: '0'
-BreakBeforeBraces: GNU
+BreakBeforeBraces: Allman
 BreakStringLiterals: 'true'
 CompactNamespaces: 'false'
 Cpp11BracedListStyle: 'true'
