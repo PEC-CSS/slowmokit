@@ -11,6 +11,7 @@ ClassificationReport<T>::ClassificationReport(std::vector<T> &trueValue, std::ve
 {
     this->trueValue = trueValue;
     this->predictedValue = predictedValue;
+    ClassificationReport<T>::printReport();
 }
 
 template <class T>
@@ -53,7 +54,14 @@ std::map<T, double> ClassificationReport<T>::precision()
     for (auto it : classes)
     {
         T classNumber = it.first;
-        precisionMap[classNumber] = (double)(truePositive[classNumber] / (double)(truePositive[classNumber] + falsePositive[classNumber]));
+        if (truePositive[classNumber] > 0 || falsePositive[classNumber] > 0)
+        {
+            precisionMap[classNumber] = (double)(truePositive[classNumber] / (double)(truePositive[classNumber] + falsePositive[classNumber]));
+        }
+        else
+        {
+            precisionMap[classNumber] = 0.0;
+        }
 
         // Trick to make all numbers upto 2 decimal place
         double x = precisionMap[classNumber];
@@ -71,7 +79,14 @@ std::map<T, double> ClassificationReport<T>::recall()
     for (auto it : classes)
     {
         T classNumber = it.first;
-        recallMap[classNumber] = (double)((double)truePositive[classNumber] / ((double)truePositive[classNumber] + (double)falseNegative[classNumber]));
+        if (truePositive[classNumber] > 0 || falseNegative[classNumber] > 0)
+        {
+            recallMap[classNumber] = (double)((double)truePositive[classNumber] / ((double)truePositive[classNumber] + (double)falseNegative[classNumber]));
+        }
+        else
+        {
+            recallMap[classNumber] = 0.0;
+        }
         double x = recallMap[classNumber];
         float value = (int)(x * 100 + .5);
         recallMap[classNumber] = (float)value / 100;
@@ -135,13 +150,4 @@ void ClassificationReport<T>::printReport()
     {
         std::cout << std::setw(4) << classNumber.first << std::setw(10) << precisionMap[classNumber.first] << std::setw(10) << accuracyMap[classNumber.first] << std::setw(11) << recallMap[classNumber.first] << std::setw(10) << f1ScoreMap[classNumber.first] << std::endl;
     }
-}
-
-int main()
-{
-    std::vector<int> trueValue = {0, 1, 2, 2, 2};
-    std::vector<int> predictedValue = {0, 0, 2, 2, 1};
-    ClassificationReport Class(trueValue, predictedValue);
-    Class.confusionMatrix(trueValue, predictedValue);
-    Class.printReport();
 }
