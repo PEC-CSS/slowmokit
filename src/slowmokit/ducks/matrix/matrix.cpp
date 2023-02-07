@@ -36,12 +36,39 @@ Matrix<T>::Matrix(const std::vector<std::vector<T>> in)
 }
 
 template <class T>
-Matrix<T> &Matrix<T>::operator*=(const T &scalar)
+template <class G>
+Matrix<T> &Matrix<T>::operator*=(const G &scalar)
 {
     for (int i = 0; i < n; i++)
     {
         for (int j = 0; j < m; j++)
             mat[i][j] *= scalar;
+    }
+
+    return *this;
+}
+
+template <class T>
+template <class G>
+Matrix<T> &Matrix<T>::operator+=(const G &scalar)
+{
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < m; j++)
+            mat[i][j] += scalar;
+    }
+
+    return *this;
+}
+
+template <class T>
+template <class G>
+Matrix<T> &Matrix<T>::operator-=(const G &scalar)
+{
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < m; j++)
+            mat[i][j] -= scalar;
     }
 
     return *this;
@@ -145,8 +172,7 @@ const std::vector<T> &Matrix<T>::operator[](int i) const
 template <class T>
 std::ostream &operator<<(std::ostream &os, const Matrix<T> &matrix)
 {
-    int n = std::size(matrix);
-    int m = std::size(matrix[0]);
+    auto [n, m] = matrix.getShape();
 
     for (int i = 0; i < n; i++)
     {
@@ -185,94 +211,49 @@ Matrix<T> operator-(Matrix<T> lhs, const Matrix<T> &rhs)
     return lhs;
 }
 
-template <class G, class T>
+template <class T, class G>
 Matrix<T> operator+(G num, const Matrix<T> &matrix)
 {
-    int n = std::size(matrix);
-    int m = std::size(matrix[0]);
-    for (int i = 0; i < n; i++)
-    {
-        for (int j = 0; j < m; j++)
-        {
-            matrix[i][j] += num;
-        }
-    }
-    return matrix;
+    Matrix<T> res = matrix;
+    res += num;
+    return res;
 }
 
-template <class G, class T>
+template <class T, class G>
 Matrix<T> operator-(G num, const Matrix<T> &matrix)
 {
-    int n = std::size(matrix);
-    int m = std::size(matrix[0]);
-    for (int i = 0; i < n; i++)
-    {
-        for (int j = 0; j < m; j++)
-        {
-            matrix[i][j] -= num;
-        }
-    }
-    return matrix;
+    Matrix<T> res = matrix;
+    res -= num;
+    return res;
 }
 
-template <class G, class T>
+template <class T, class G>
 Matrix<T> operator*(G num, const Matrix<T> &matrix)
 {
-    int n = std::size(matrix);
-    int m = std::size(matrix[0]);
-    for (int i = 0; i < n; i++)
-    {
-        for (int j = 0; j < m; j++)
-        {
-            matrix[i][j] *= num;
-        }
-    }
+    Matrix<T> res = matrix;
+    res *= num;
+    return res;
+}
+
+
+template <class T, class G>
+Matrix<T> operator+(Matrix<T> matrix, const G &num)
+{
+    matrix += num;
+    return matrix;
+}
+
+template <class T, class G>
+Matrix<T> operator-(Matrix<T> matrix, const G &num)
+{
+    matrix -= num;
     return matrix;
 }
 
 
 template <class T, class G>
-Matrix<T> operator+(const Matrix<T> &matrix, G num)
+Matrix<T> operator*(Matrix<T> matrix, const G &num)
 {
-    int n = std::size(matrix);
-    int m = std::size(matrix[0]);
-    for (int i = 0; i < n; i++)
-    {
-        for (int j = 0; j < m; j++)
-        {
-            matrix[i][j] += num;
-        }
-    }
-    return matrix;
-}
-
-template <class T, class G>
-Matrix<T> operator-(const Matrix<T> &matrix, G num)
-{
-    int n = std::size(matrix);
-    int m = std::size(matrix[0]);
-    for (int i = 0; i < n; i++)
-    {
-        for (int j = 0; j < m; j++)
-        {
-            matrix[i][j] -= num;
-        }
-    }
-    return matrix;
-}
-
-
-template <class T, class G>
-Matrix<T> operator*(const Matrix<T> &matrix, G num)
-{
-    int n = std::size(matrix);
-    int m = std::size(matrix[0]);
-    for (int i = 0; i < n; i++)
-    {
-        for (int j = 0; j < m; j++)
-        {
-            matrix[i][j] *= num;
-        }
-    }
+    matrix *= num;
     return matrix;
 }
