@@ -1,5 +1,5 @@
 /**
- * @file methods/preprocessing/label_encoder.hpp
+ * @file methods/preprocessing/label_encoder.cpp
  *
  * Implementation of label encoder
  */
