@@ -40,6 +40,8 @@ add_library(slowmokit
         src/slowmokit/methods/neighbors/bernoulli_nb.hpp
         src/slowmokit/methods/neighbors/bernoulli_nb/bernoulli_nb.hpp
         src/slowmokit/methods/neighbors/bernoulli_nb/bernoulli_nb.cpp
+        src/slowmokit/methods/metrics/classification_report.hpp
+        src/slowmokit/methods/metrics/classification_report.cpp
         src/slowmokit/methods/neighbors/gaussian_nb.hpp
         src/slowmokit/methods/neighbors/gaussian_nb/gaussian_nb.cpp
         src/slowmokit/methods/neighbors/gaussian_nb/gaussian_nb.hpp)
