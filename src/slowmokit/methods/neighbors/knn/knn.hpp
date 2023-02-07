@@ -13,10 +13,10 @@ class KNN{
 private:
     std::vector<std::vector<T>> xTrain;
     std::vector<int> yTrain;
-    int classNums=1;
+    int classNums;
     std::string distType;
     /**
-     * @brief Calculates distance euclidean/else
+     * @brief Calculates distance euclidean/manhattan
      * 
      * @param x1 first point
      * @param x2 second point
@@ -32,14 +32,15 @@ public:
      * @param k minimum number of nearest neighbors
      * @param classNums number of classes
      */
-    void fit(std::vector<std::vector<T>> x,std::vector<int> y,int classNums,std::string distType);
+    void fit(std::vector<std::vector<T>> x,std::vector<int> y,int classNums);
     /**
      * @brief predict to which class it belongs
      * 
      * @param test testing value
+     * @param distType distance type euclidean/manhattan
      * @return int class number to which it belongs
      */
-    int predict(std::vector<T> test,int k);
+    int predict(std::vector<T> test,int k,std::string distType);
 };
 
 #endif // SLOWMOKIT_KNN_HPP
