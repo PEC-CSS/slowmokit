@@ -18,5 +18,6 @@
 #include "slowmokit/methods/cluster/kMeans.hpp"
 #include "slowmokit/methods/linear_model/linear_regression.hpp"
 #include "slowmokit/methods/neighbors/bernoulli_nb.hpp"
+#include "slowmokit/methods/neighbors/gaussian_nb.hpp"
 
 #endif // SLOWMOKIT_HPP
