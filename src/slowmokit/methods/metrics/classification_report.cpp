@@ -50,11 +50,9 @@ std::map<T, double> ClassificationReport<T>::precision()
 {
     // True Positive / (True Positive + False Positive)
     std::map<T, double> precisionMap;
-    // std::cout << "class size"<<classes.size() << std::endl;
     for (auto it : classes)
     {
         T classNumber = it.first;
-        // std::cout << classNumber << std::endl;
         precisionMap[classNumber] = (double)(truePositive[classNumber] / (double)(truePositive[classNumber] + falsePositive[classNumber]));
 
         // Trick to make all numbers upto 2 decimal place
