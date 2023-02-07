@@ -17,8 +17,6 @@ SpaceBeforeCpp11BracedList: 'true'
 SpaceBeforeInheritanceColon: 'false'
 SpaceBeforeParens: ControlStatements
 SpaceInEmptyParentheses: 'false'
-SpacesInSquareBrackets: 'true'
+SpacesInSquareBrackets: 'false'
 Standard: Cpp11
 TabWidth: '4'
-
-...
