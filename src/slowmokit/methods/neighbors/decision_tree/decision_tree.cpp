@@ -46,7 +46,7 @@ template<class T>
     }
 
 template<class T>
-    double DecisionTree<T>::infoGain(std::vector<std::vector<double>> xData,int fkey,int fval){
+    double DecisionTree<T>::infoGain(std::vector<std::vector<double>> xData,int fkey,int fval){  // fkey refers to the feature/column index; fval refers to the mean value/splitting value
         // Splitting data
         std::vector<std::vector<double>> left,right;
         std::vector<std::vector<std::vector<double>>> temp = divideData(xData,fkey,fval);
@@ -76,7 +76,7 @@ template<class T>
     DecisionTree<T>::DecisionTree(int maxD,int minSamplesL,int maxF){
         this->maxDepth = maxD;
         this->minSamplesLeaf = minSamplesL;
-        this->maxFeatures = maxF;
+        this->maxFeatures = maxF;  // maxFeatures is the number of features to be considered to do splitting at each node
     }
 
 template<class T>
@@ -84,10 +84,10 @@ template<class T>
         int max = xData[0].size()-2;
         int range = max+1;
 
-        features.clear();
+        features.clear();  // clearing features set to select features to be considered 
 
         while(features.size()!=maxFeatures){
-            features.insert(rand()%range);
+            features.insert(rand()%range);  // Inserting features 
         }
 
         std::vector<double> infoGains(maxFeatures);
