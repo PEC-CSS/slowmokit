@@ -134,6 +134,29 @@ public:
      */
     const std::vector<T> &operator[] (int) const;
 
+
+     /**
+     * @brief This function will multiply two matrix
+     * @param rhs: This is the matrix which will be multiplied with the main matrix
+     * @throw: whatever operator *= throws
+     */
+    Matrix matmul(const Matrix);
+
+
+    /**
+     * @brief This function will add 2 matrix
+     * @param rhs: This is the matrix which will be added with the main matrix
+     * @throw: whatever operator *= throws
+     */
+    Matrix add(const Matrix);
+
+
+    /**
+     * @brief This function will subtract 2 matrix
+     * @param rhs: This is the matrix which will be subtracted from the main matrix
+     * @throw: whatever operator *= throws
+     */
+    Matrix subtract(const Matrix); 
 };
 
 

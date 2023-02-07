@@ -235,7 +235,6 @@ Matrix<T> operator*(G num, const Matrix<T> &matrix)
     return res;
 }
 
-
 template <class T, class G>
 Matrix<T> operator+(Matrix<T> matrix, const G &num)
 {
@@ -250,10 +249,33 @@ Matrix<T> operator-(Matrix<T> matrix, const G &num)
     return matrix;
 }
 
-
 template <class T, class G>
 Matrix<T> operator*(Matrix<T> matrix, const G &num)
 {
     matrix *= num;
     return matrix;
+}
+
+template <class T>
+Matrix<T> Matrix<T>::matmul(const Matrix<T> rhs)
+{
+    Matrix<T> res = *this;
+    res *= rhs;
+    return res;
+}
+
+template <class T>
+Matrix<T> Matrix<T>::add(const Matrix<T> rhs)
+{
+    Matrix<T> res = *this;
+    res += rhs;
+    return res;
+}
+
+template <class T>
+Matrix<T> Matrix<T>::subtract(const Matrix<T> rhs)
+{
+    Matrix<T> res = *this;
+    res -= rhs;
+    return res;
 }
