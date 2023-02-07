@@ -45,3 +45,6 @@ cmake-build-debug
 
 # Binary Executive
 **/*.bin
+
+# build
+build
