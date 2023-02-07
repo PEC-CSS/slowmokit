@@ -13,7 +13,7 @@
 #endif
 #include <cctype>
 #include <cerrno>
-#include <cfloat>
+// #include <cfloat>
 #include <ciso646>
 #include <climits>
 #include <clocale>
