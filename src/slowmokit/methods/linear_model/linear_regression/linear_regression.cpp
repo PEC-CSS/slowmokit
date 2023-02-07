@@ -9,8 +9,8 @@
 template <class T>
 LinearRegression<T>::LinearRegression(int epochs, double learningRate)
 {
-    this.epochs = epochs;
-    this.learningRate = learningRate;
+    this->epochs = epochs;
+    this->learningRate = learningRate;
 }
 
 template <class T>

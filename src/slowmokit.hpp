@@ -14,7 +14,6 @@
 #include "slowmokit/prereqs.hpp"
 
 // Methods
-#include "slowmokit/methods/neighbors/knn/knn.hpp"
 #include "slowmokit/methods/cluster/kMeans.hpp"
 #include "slowmokit/methods/linear_model/linear_regression.hpp"
 
