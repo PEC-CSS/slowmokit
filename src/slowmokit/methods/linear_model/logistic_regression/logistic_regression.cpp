@@ -7,7 +7,7 @@
 #include "logistic_regression.hpp"
 
 template<class T>
-    std::vector<double> softmax(std::vector<double> x){ // Softmax function
+    std::vector<double> LogisticRegression<T>::softmax(std::vector<T> x){ // Softmax function
         std::vector<double> exps(x.size());
         double sum = 0.0;
         for(int i=0;i<x.size();i++){  // Iterating over vector to compute sum of all exponential values in vector
@@ -22,7 +22,7 @@ template<class T>
     };
 
 template<class T>
-    double crossEntropy(std::vector<int> y,std::vector<double> qi){  // Gives gradient descent -(d(z)/d(theta))
+    double LogisticRegression<T>::crossEntropy(std::vector<int> y,std::vector<T> qi){  // Gives gradient descent -(d(z)/d(theta))
         double l = 0.0;
         for(int i=0;i<y.size();i++){
             l += (y[i]*qi[i]);
@@ -31,7 +31,7 @@ template<class T>
     };
 
 template<class T>
-    double EvalL(std::vector<std::vector<double>> x,std::vector<std::vector<int>>y,std::vector<std::vector<double>>  beta){  // Computing overall loss in single epoch
+    double LogisticRegression<T>::EvalL(std::vector<std::vector<T>> x,std::vector<std::vector<int>>y,std::vector<std::vector<T>>  beta){  // Computing overall loss in single epoch
         int n = x.size();
         double loss = 0.0;
         for(int i=0;i<n;i++){
@@ -50,7 +50,7 @@ template<class T>
     };
 
 template<class T>
-    std::vector<std::vector<double>> logRegSgd(std::vector<std::vector<double>> x,std::vector<std::vector<int>> y,double alpha,int numEpochs,bool verbose){  // PERFORMS MULTICLASS LOGISTIC REGRESSION
+    std::vector<std::vector<double>> LogisticRegression<T>::logRegSgd(std::vector<std::vector<double>> x,std::vector<std::vector<int>> y,double alpha,int numEpochs,bool verbose){  // PERFORMS MULTICLASS LOGISTIC REGRESSION
         int n = x.size();  // Rows in training vector
         int d = x[0].size();   // Columns
         int numClasses = y[0].size();  // Output classes
@@ -101,12 +101,12 @@ template<class T>
     };
 
 template<class T>
-    void train(std::vector<std::vector<double>> x,std::vector<std::vector<int>> y,double alpha,int numEpochs,bool verbose){
-        beta = logRegSgd(x,y,alpha,numEpochs,verbose);
+    void LogisticRegression<T>::train(std::vector<std::vector<T>> x,std::vector<std::vector<int>> y,double alpha,int numEpochs,bool verbose){
+        this->beta = logRegSgd(x,y,alpha,numEpochs,verbose);
     };
     
 template<class T>    
-    std::vector<double> predict(std::vector<double> x){ //Predict probabilities of each class
+    std::vector<double> LogisticRegression<T>::predict(std::vector<T> x){ //Predict probabilities of each class
         std::vector<double> probs(beta.size(),0.0);
         for(int i=0;i<beta.size();i++){
             for(int j=0;j<x.size();j++){
