@@ -1,7 +1,7 @@
 name: clang-format check
 on:
   push:
-    branches: [ "main", "cpp-linter" ]
+    branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
 jobs:
