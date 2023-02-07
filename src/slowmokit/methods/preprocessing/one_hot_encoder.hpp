@@ -16,6 +16,6 @@
  */
 
 template<class T>
-std::vector<std::vector<int>> one_hot_encoder(const std::vector<int> &, int );
+std::vector<std::vector<int>> oneHotEncoder(const std::vector<int> &, int );
 
 #endif // ONE_HOT_ENCODER_HPP
