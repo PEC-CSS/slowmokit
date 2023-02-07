@@ -51,4 +51,8 @@ add_library(slowmokit
         src/slowmokit/methods/neighbors/knn/knn.hpp
         src/slowmokit/methods/neighbors/knn/knn.cpp
         src/slowmokit/methods/preprocessing/one_hot_encoder.hpp
-        src/slowmokit/methods/preprocessing/one_hot_encoder.cpp)
+        src/slowmokit/methods/preprocessing/one_hot_encoder.cpp
+        src/slowmokit/methods/metrics/precision.hpp
+        src/slowmokit/methods/metrics/precision.cpp
+        src/slowmokit/methods/metrics/recall.hpp
+        src/slowmokit/methods/metrics/recall.cpp)
