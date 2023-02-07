@@ -22,7 +22,7 @@ class ClassificationReport
 private:
     std::vector<T> trueValue;
     std::vector<T> predictedValue;
-    std::map<T, T> classes, truePositive, falsePositive, trueNegative, falseNegative;
+    std::map<T, int> classes, truePositive, falsePositive, trueNegative, falseNegative;
 
 public:
     ClassificationReport(std::vector<T> &x, std::vector<T> &y);

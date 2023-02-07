@@ -34,7 +34,7 @@ void ClassificationReport<T>::confusionMatrix(std::vector<T> &trueValue, std::ve
     // For True Negative, had to do it separately :crycatok:
     for (auto it : classes)
     {
-        int classNumber = it.first;
+        T classNumber = it.first;
         for (int i = 0; i < n; i++)
         {
             if (trueValue[i] != classNumber && predictedValue[i] != classNumber)
@@ -53,7 +53,7 @@ std::map<T, double> ClassificationReport<T>::precision()
     // std::cout << "class size"<<classes.size() << std::endl;
     for (auto it : classes)
     {
-        int classNumber = it.first;
+        T classNumber = it.first;
         // std::cout << classNumber << std::endl;
         precisionMap[classNumber] = (double)(truePositive[classNumber] / (double)(truePositive[classNumber] + falsePositive[classNumber]));
 
@@ -72,7 +72,7 @@ std::map<T, double> ClassificationReport<T>::recall()
     std::map<T, double> recallMap;
     for (auto it : classes)
     {
-        int classNumber = it.first;
+        T classNumber = it.first;
         recallMap[classNumber] = (double)((double)truePositive[classNumber] / ((double)truePositive[classNumber] + (double)falseNegative[classNumber]));
         double x = recallMap[classNumber];
         float value = (int)(x * 100 + .5);
@@ -91,7 +91,7 @@ std::map<T, double> ClassificationReport<T>::f1Score()
     std::map<T, double> f1ScoreMap;
     for (auto it : classes)
     {
-        int classNumber = it.first;
+        T classNumber = it.first;
         if (precisionMap[classNumber] == 0 || recallMap[classNumber] == 0)
         {
             f1ScoreMap[classNumber] = 0;
@@ -115,7 +115,7 @@ std::map<T, double> ClassificationReport<T>::accuracy()
     std::map<T, double> accuracyMap;
     for (auto it : classes)
     {
-        int classNumber = it.first;
+        T classNumber = it.first;
         accuracyMap[classNumber] = (double)(((double)truePositive[classNumber] + (double)trueNegative[classNumber]) / ((double)truePositive[classNumber] + (double)falseNegative[classNumber] + (double)falsePositive[classNumber] + (double)trueNegative[classNumber]));
 
         double x = accuracyMap[classNumber];
