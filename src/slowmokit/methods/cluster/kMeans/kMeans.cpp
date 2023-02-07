@@ -5,11 +5,11 @@
  */
 #include "kMeans.hpp"
 
-template<class T> 
-void kMeans<T>::fit(std::vector<std::vector<T>> X)
+template<class T> void kMeans<T>::fit(std::vector<std::vector<T>> X)
 {
   int n = std::size(X);
-  if (std::ssize(centroids) != k) {
+  if (std::ssize(centroids) != k)
+  {
     auto id = getKDistinctIndices<int>(k, 0, n - 1);
     assert(std::ssize(id) == k);
     centroids.clear();
