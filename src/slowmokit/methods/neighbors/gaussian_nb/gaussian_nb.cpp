@@ -7,17 +7,6 @@
 #include "gaussian_nb.hpp"
 
 template<class T>
-    double priorProb(std::vector<int> yTrain,int label){  //Prior Probability
-        int sum=0;
-        for(int i=0;i<yTrain.size();i++){
-            if(yTrain[i]==label){
-                sum += 1;
-            }
-        }
-        return sum/double(yTrain.size());
-    }
-
-template<class T>
     double conditionalProb(int mean,int variance,int feature){ 
         //Conditional probabilty  P(x=f1 / y=class) = __________1____________ * e^( -_____(feature-mean)^2_____)
         //                                           ((2*pi*variance^2)^(1/2))    (        2 * variance^2      )
@@ -26,7 +15,7 @@ template<class T>
         insideExp /= (2*variance*variance);
         double num = exp(insideExp);
         return num/den;
-    }
+    };
 
 template<class T>
     int fitPredict(std::vector<std::vector<T>> xTrain,std::vector<int> yTrain,std::vector<T> xTest,std::vector<int> classes){
@@ -57,16 +46,22 @@ template<class T>
             sum = 0.0;
         }
 
-        std::vector<int> ::iterator label;
         double sumpropProbs = 0.0;
-        for(label=classes.begin();label!=classes.end();label++){
+        for(int j=0;j<classes.size();j++){
             double likelihood=1.0;
             for(int i=0;i<nFeatures;i++){
                 double cond = conditionalProb(means[i],variances[i],xTest[i]);  // Conditional prob of each column
                 likelihood *= cond;
             }
 
-            double prior = priorProb(yTrain,*label);
+            int sum=0;
+            for(int i=0;i<yTrain.size();i++){
+                if(yTrain[i]==classes[j]){
+                    sum += 1;
+                }
+            }
+            double prior =  sum/double(yTrain.size());
+
             double post = prior*likelihood;
             postProbs.push_back(post);
             sumpropProbs += post;

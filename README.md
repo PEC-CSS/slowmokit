@@ -29,6 +29,8 @@ More details [here](./create_model/README.md)
     - `<model>.hpp` : the header file for the model, create the class of model here and include all the stuff required
       for the model here.
         - Include `src/slowmokit.core.hpp` for all the basic functionalities already added.
+        - Make sure to add **doc comments above each function signature** (refer other files for the format)
+        - Variable and function names should be in **camel case** and class names should be in **pascal case** in **all files**.
     - `<model>.cpp` : implement the functions of the class here.
 6. If your IDE does not automatically add the files to Cmake, add them manually in the `CMakeLists.txt`, under
    the `add_libraries`.
