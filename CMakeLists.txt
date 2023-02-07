@@ -43,3 +43,6 @@ add_library(slowmokit
         src/slowmokit/methods/neighbors/multinomial_nb.hpp
         src/slowmokit/methods/neighbors/multinomial_nb/multinomial_nb.hpp
         src/slowmokit/methods/neighbors/multinomial_nb/multinomial_nb.cpp)
+        src/slowmokit/methods/neighbors/gaussian_nb.hpp
+        src/slowmokit/methods/neighbors/gaussian_nb/gaussian_nb.cpp
+        src/slowmokit/methods/neighbors/gaussian_nb/gaussian_nb.hpp)
