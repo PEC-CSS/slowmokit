@@ -42,3 +42,6 @@ cmake-build-debug
 
 # CHelper
 **/*__tests
+
+# build
+build
