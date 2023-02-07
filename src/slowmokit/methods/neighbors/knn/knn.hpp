@@ -29,14 +29,14 @@ public:
      * 
      * @param x all x training values
      * @param y all y training values
-     * @param k minimum number of nearest neighbors
      * @param classNums number of classes
      */
     void fit(std::vector<std::vector<T>> x,std::vector<int> y,int classNums);
     /**
      * @brief predict to which class it belongs
      * 
-     * @param test testing value
+     * @param test vector containing the test input
+     * @param k minimum number of nearest neighbors
      * @param distType distance type euclidean/manhattan
      * @return int class number to which it belongs
      */
