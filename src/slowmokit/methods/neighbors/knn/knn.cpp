@@ -6,25 +6,34 @@
 #include "knn.hpp"
 
 template<class T>
-double distance(std::vector<T> x1,std::vector<T> x2){
+double KNN<T>::distance(std::vector<T> x1,std::vector<T> x2){
     double dist=0;
     for(int i=0;i<x1.size();i++){
-        dist += pow(x1[i]-x2[i],2);
+        if(distType=="euclidean"){
+            dist += pow(x1[i]-x2[i],2);
+        }
+        else if(distType=="manhattan"){
+            dist += abs(x1[i]-x2[i]);
+        }
     }
-    return pow(dist,0.5);
+    if(distType=="euclidean"){
+        return pow(dist,0.5);
+    }
+    else{
+        return dist;
+    }
 }
 
 template<class T>
-void KNN<T>::fit(std::vector<std::vector<T>> x,std::vector<int> y,int k,int classNums){
+void KNN<T>::fit(std::vector<std::vector<T>> x,std::vector<int> y,int classNums,std::string distType){
     this->xTrain = x;
     this->yTrain = y;
-    this->k = k;
     this->classNums = classNums;
+    this->distType = distType;
 }
 
 template<class T>
-int KNN<T>::predict(std::vector<T> test){
-    std::vector<int> nearestK(k);
+int KNN<T>::predict(std::vector<T> test,int k){
     std::priority_queue<std::vector<double>> pq;
     for(int i=0;i<xTrain.size();i++){
         double dist = distance(xTrain[i],test);
@@ -34,7 +43,7 @@ int KNN<T>::predict(std::vector<T> test){
             temp[1] = double(yTrain[i]);
             pq.push(temp);
         }
-        else if(pq.size()<5){
+        else if(pq.size()<k){
             std::vector<double> temp(2);
             temp[0] = dist;
             temp[1] = double(yTrain[i]);
