@@ -34,35 +34,35 @@ public:
 
 
     /**
-     * @finding precision values for all the classes 
+     * @brief tells us precision values for all the classes 
      * @returns the map with all the precision values
      */
     std::map<T, double> precision();
 
 
     /**
-     * @finding recall values for all the classes 
+     * @brief tells us recall values for all the classes 
      * @returns the map with all the recall values
      */
     std::map<T, double> recall();
 
 
     /**
-     * @finding f1scores value for all the classes 
+     * @brief tells us fiScore values for all the classes 
      * @returns the map with all the f1scores values
      */
     std::map<T, double> f1Score();
 
 
     /**
-     * @finding accuracy  for all the classes 
+     * @brief tells us accuracy values for all the classes 
      * @returns the map with all the accuracy values
      */
     std::map<T, double> accuracy();
 
 
     /**
-     * @printing all the report paramenters in the form of table 
+     * @brief Prints all the classification report parameters in the form of table  
      * @returns nothing except happiness 
      */
     void printReport();
