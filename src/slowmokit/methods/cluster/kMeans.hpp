@@ -9,4 +9,4 @@
 
 #include "kMeans/kMeans.hpp"
 
-#endif //SLOWMOKIT_KMEANS_HPP
+#endif // SLOWMOKIT_KMEANS_HPP

@@ -10,4 +10,4 @@
 
 #include "bernoulli_nb/bernoulli_nb.hpp"
 
-#endif //SLOWMOKIT_BERNOULLI_NB_HPP
+#endif // SLOWMOKIT_BERNOULLI_NB_HPP
