@@ -9,8 +9,7 @@
 
 #include "../../core.hpp"
 
-template <class T = int>
-class Matrix
+template<class T = int> class Matrix
 {
 private:
     /**
@@ -157,7 +156,6 @@ public:
      * @throw: whatever operator *= throws
      */
     Matrix subtract(const Matrix); 
-
 };
 
 
@@ -173,9 +171,11 @@ std::ostream& operator<<(std::ostream &, const Matrix<T> &);
  * @param rhs: A number (only if lhs is not a number) or a Matrix
  * @returns Matrix Object
  */
+
 template <class T, class G> Matrix<T> operator*(G, const Matrix<T> &);
 template <class T, class G> Matrix<T> operator*(Matrix<T>, const G &);
 template <class T> Matrix<T> operator*(Matrix<T>, const Matrix<T> &);
+
 
 /**
  * @brief Free Function to add a matrix to a number or another matrix
@@ -183,9 +183,12 @@ template <class T> Matrix<T> operator*(Matrix<T>, const Matrix<T> &);
  * @param rhs: A number (only if lhs is not a number) or a Matrix
  * @returns Matrix Object
  */
-template <class T, class G> Matrix<T> operator+(G, const Matrix<T> &);
-template <class T, class G> Matrix<T> operator+(Matrix<T>, const G &);
-template <class T> Matrix<T> operator+(Matrix<T>, const Matrix<T> &);
+
+
+template<class T> Matrix<T> operator+(T, const Matrix<T> &);
+template<class T> Matrix<T> operator+(Matrix<T>, const T &);
+template<class T> Matrix<T> operator+(Matrix<T> lhs, const Matrix<T> &rhs);
+
 
 /**
  * @brief Free Function to subtract a matrix to a number or another matrix
@@ -193,9 +196,11 @@ template <class T> Matrix<T> operator+(Matrix<T>, const Matrix<T> &);
  * @param rhs: A number (only if lhs is not a number) or a Matrix
  * @returns Matrix Object
  */
-template <class T, class G> Matrix<T> operator-(G, const Matrix<T> &);
-template <class T, class G > Matrix<T> operator-(Matrix<T>, const G &);
-template <class T> Matrix<T> operator-(Matrix<T>, const Matrix<T> &);
 
 
-#endif //SLOWMOKIT_IO_HPP
+template<class T> Matrix<T> operator-(T, const Matrix<T> &);
+template<class T> Matrix<T> operator-(Matrix<T>, const T &);
+template<class T> Matrix<T> operator-(Matrix<T> lhs, const Matrix<T> &rhs);
+
+
+#endif // SLOWMOKIT_IO_HPP
