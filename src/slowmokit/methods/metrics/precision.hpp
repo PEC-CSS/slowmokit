@@ -12,11 +12,12 @@
  * Takes predicted and actual values
  * @param pred -> predicted values
  * @param actual -> actual values
- * @throws exception invalid_argument in case size of the two vectors is not equal
+ * @throws exception invalid_argument in case size of the two vectors is not
+ * equal
  * @returns map of precision values
  */
 
-template <class T>
+template<class T>
 std::map<T, double> precision(std::vector<T> &, std::vector<T> &);
 
 

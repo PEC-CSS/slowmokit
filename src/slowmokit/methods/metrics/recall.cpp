@@ -4,50 +4,52 @@
  * Implementation of the recall main program
  */
 #include "recall.hpp"
-template <class T>
+template<class T>
 std::map<T, double> recall(std::vector<T> &pred, std::vector<T> &actual)
 {
-    if (pred.size() != actual.size())
+  if (pred.size() != actual.size())
+  {
+    throw std::invalid_argument(
+        "Predicted and actual vectors must have same size");
+  }
+  int n = actual.size();
+  std::set<T> s;
+  for (int i = 0; i < n; i++)
+  {
+    s.insert(actual[i]);
+  }
+  int numClasses = s.size();
+  std::map<T, double> recallMap;
+  std::map<T, int> truePosMap, falseNegMap;
+  for (int i = 0; i < n; i++)
+  {
+    if (pred[i] == actual[i])
     {
-        throw std::invalid_argument("Predicted and actual vectors must have same size");
+      truePosMap[actual[i]]++;
     }
-    int n = actual.size();
-    std::set<T> s;
-    for (int i = 0; i < n; i++)
+    else
     {
-        s.insert(actual[i]);
+      falseNegMap[actual[i]]++;
     }
-    int numClasses=s.size();
-    std::map<T, double> recallMap;
-    std::map<T, int> truePosMap, falseNegMap;
-    for (int i = 0; i < n; i++)
-    {
-        if (pred[i] == actual[i])
-        {
-            truePosMap[actual[i]]++;
-        }
-        else
-        {
-            falseNegMap[actual[i]]++;
-        }
-    }
+  }
 
-    for (int i=0;i<numClasses;i++)
+  for (int i = 0; i < numClasses; i++)
+  {
+    if (truePosMap[i] > 0 || falseNegMap[i] > 0)
     {
-       if (truePosMap[i] > 0 || falseNegMap[i] > 0)
-        {
-            recallMap[i] = (double)(truePosMap[i] / (double)(truePosMap[i] + falseNegMap[i]));
-        }
-        else
-        {
-            recallMap[i] = 0.0;
-        }
-
-        double x = recallMap[i];
-        float value = (int)(x * 100 + .5);
-        recallMap[i] = (float)value / 100;
+      recallMap[i] =
+          (double) (truePosMap[i] / (double) (truePosMap[i] + falseNegMap[i]));
+    }
+    else
+    {
+      recallMap[i] = 0.0;
     }
 
+    double x = recallMap[i];
+    float value = (int) (x * 100 + .5);
+    recallMap[i] = (float) value / 100;
+  }
 
-    return recallMap;
+
+  return recallMap;
 }

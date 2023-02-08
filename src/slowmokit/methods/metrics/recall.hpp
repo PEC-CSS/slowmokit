@@ -12,10 +12,11 @@
  * Takes predicted and actual values
  * @param pred -> predicted values
  * @param actual -> actual values
- * @throws exception invalid_argument in case size of the two vectors is not equal
- * @returns map of recall values 
+ * @throws exception invalid_argument in case size of the two vectors is not
+ * equal
+ * @returns map of recall values
  */
 
-template <class T>
+template<class T>
 std::map<T, double> recall(std::vector<T> &, std::vector<T> &);
 #endif // SLOWMOKIT_RECALL_HPP
