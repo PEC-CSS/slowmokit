@@ -17,8 +17,8 @@ Bernoulli Naive Bayes computes likelihood/conditional Prob as log(y)*x + (1-x)(1
 | Name                                    | Definition                                            | Return value      |
 | -------------------------------         | ----------------------------------------------------- | ----------------- |
 | `priorProb(vector<T> yTrain,int label)` | Compute prior prob.                                   | double            |
-| `conditionalProb(vector<vector<T>>,vector<T>,int,int,int)` |Conditional Probability.            | `vector<T> yPred` |
-| `fitPredict(vector<vector<T>>,vector<T>,vector<T>)`        | fit and predict the traing and testing values | void      |
+| `conditionalProb(vector<vector<T>>,vector<T>,int,int,int)` |Conditional Probability.            | double            |
+| `fitPredict(vector<vector<T>>,vector<T>,vector<T>)`        | fit and predict the traing and testing values | int    |
 
 ## Example
 
