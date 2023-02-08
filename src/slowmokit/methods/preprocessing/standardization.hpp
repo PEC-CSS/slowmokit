@@ -11,10 +11,9 @@
 /**
  * Takes values to be standardized
  * @param values -> to be standardized
- * @throws runtime_error when standard deviation is equal to zero 
+ * @throws runtime_error when standard deviation is equal to zero
  */
 
-template <class T>
-void standardize(std::vector<T> &);
+template<class T> void standardize(std::vector<T> &);
 
 #endif // SLOWMOKIT_STANDARDIZATION_HPP

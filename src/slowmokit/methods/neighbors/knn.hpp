@@ -10,4 +10,4 @@
 
 #include "knn/knn.hpp"
 
-#endif //SLOWMOKIT_KNN_HPP
+#endif // SLOWMOKIT_KNN_HPP
