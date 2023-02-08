@@ -10,4 +10,4 @@
 
 #include "linear_regression/linear_regression.hpp"
 
-#endif //SLOWMOKIT_LINEAR_REGRESSION_HPP
+#endif // SLOWMOKIT_LINEAR_REGRESSION_HPP

@@ -10,4 +10,4 @@
 
 #include "gaussian_nb/gaussian_nb.hpp"
 
-#endif //SLOWMOKIT_GAUSSIAN_NB_HPP
+#endif // SLOWMOKIT_GAUSSIAN_NB_HPP
