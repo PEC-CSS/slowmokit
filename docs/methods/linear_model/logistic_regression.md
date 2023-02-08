@@ -1,6 +1,6 @@
 # Logistic Regression
 
-Logistic Regression model using stocastic gradient descent.
+Logistic Regression model using stochastic gradient descent.
 
 LogisticRegression fits a linear model with coefficients $w\  =\  [(w_1, w_2, … , w_p),(w_1, w_2, … , w_p)..]$, where $p$ is number of features and height will be equals to number of classes, to minimize the residual sum of squares between the observed targets in the dataset, and the probabilities predicted by the logistic approximation.
 
@@ -9,7 +9,8 @@ LogisticRegression fits a linear model with coefficients $w\  =\  [(w_1, w_2, �
 | Name          | Definition                                                                                  | Defaults | Type     |
 | ------------- | ------------------------------------------------------------------------------------------- | -------- | ---------|
 | Epochs        | Number of times that the learning algorithm will work through the entire training dataset   | 100      | `int`    |
-| Learning rate | Determines the step size at each iteration while trying to minimize the loss function       | 0.01     | `double` |
+| alpha         | Determines the step size at each iteration while trying to minimize the loss function       | 0.01     | `double` |
+| Batch size    |  Number of x values in batch over which loss will be computed and weights will be updated   | 5        | `int`    |
 
 ## Attributes
 

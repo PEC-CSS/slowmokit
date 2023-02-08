@@ -51,7 +51,7 @@ template<class T> class LogisticRegression
   std::vector<std::vector<double>> logRegSgd(std::vector<std::vector<double>> x,
                                              std::vector<std::vector<int>> y,
                                              double alpha, int numEpochs,
-                                             bool verbose);
+                                             bool verbose, int batchSize);
 
   public:
   /**
@@ -63,8 +63,8 @@ template<class T> class LogisticRegression
    * @param numEpochs number of epochs
    * @param verbose require to print which epoch is going on
    */
-  void train(std::vector<std::vector<T>> x, std::vector<std::vector<int>> y,
-             double alpha, int numEpochs, bool verbose);
+  void train(std::vector<std::vector<T>> x, std::vector<int> y, double alpha,
+             int numEpochs, bool verbose, int batchSize);
   /**
    * @brief Predict value for testing
    *

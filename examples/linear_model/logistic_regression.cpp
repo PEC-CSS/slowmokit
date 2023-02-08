@@ -24,7 +24,7 @@
 //         {0,0,1},
 //         {0,0,1},
 //     };
-//     logisticregression.train(x,y,0.0001,2000,false);
+//     logisticregression.train(x,y,0.0001,2000,false,5);
 //     std::vector<double> test{1,1,0.64,0.6};
 //     std::vector<double> trained = logisticregression.predict(test);
 //     for(int i=0;i<trained.size();i++){

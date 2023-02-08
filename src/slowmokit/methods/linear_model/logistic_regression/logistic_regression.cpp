@@ -16,7 +16,6 @@ std::vector<double> LogisticRegression<T>::softmax(std::vector<T> x)
     exps[i] = exp(x[i]);
     sum += exps[i];
   }
-  std::vector<double> values(x.size());
   for (int i = 0; i < x.size(); i++)
   { // Now computing actual values after applying softmax
     exps[i] /= double(sum);
@@ -31,7 +30,7 @@ double LogisticRegression<T>::crossEntropy(std::vector<int> y,
   double l = 0.0;
   for (int i = 0; i < y.size(); i++)
   {
-    l += (y[i] * qi[i]);
+    l += (y[i] * log10(qi[i]));
   }
   return -1 * l;
 };
@@ -80,7 +79,7 @@ template<class T>
 std::vector<std::vector<double>>
 LogisticRegression<T>::logRegSgd(std::vector<std::vector<double>> x,
                                  std::vector<std::vector<int>> y, double alpha,
-                                 int numEpochs, bool verbose)
+                                 int numEpochs, bool verbose, int batchSize)
 {                               // PERFORMS MULTICLASS LOGISTIC REGRESSION
   int n = x.size();             // Rows in training vector
   int d = x[0].size();          // Columns
@@ -117,9 +116,19 @@ LogisticRegression<T>::logRegSgd(std::vector<std::vector<double>> x,
     std::random_shuffle(prm.begin(),
                         prm.end()); // random shuffling of prm vector
 
+    int countCompleted = 0;
+
+    std::vector<std::vector<double>> gradLi( // Initializing gradient descent
+        numClasses, std::vector<double>(x[0].size(), 0.0));
+
     while (!prm.empty()) // till prm not becomes empty keep iterating over the
                          // while loop
     {
+      if ((prm.size() + countCompleted) < batchSize)
+      {
+        break;
+      }
+
       int frnt = prm.back(); // gives last value of vector "prm"
       std::vector<double> xiHat =
           x[frnt]; // now we take random value of x according to the frnt value
@@ -144,17 +153,36 @@ LogisticRegression<T>::logRegSgd(std::vector<std::vector<double>> x,
       zi = softmax(zi); // Now we are computing here the softmax of all one hot
                         // encoded values obtained for particular xiHat
 
-      std::vector<std::vector<double>> gradLi( // Initializing gradient descent
-          numClasses, std::vector<double>(xiHat.size()));
       for (int j = 0; j < numClasses; j++) // iterating over all classes
       {
         for (int k = 0; k < xiHat.size();
              k++) // iterating over all xiHat values
         {
-          gradLi[j][k] = (zi[j] - yi[j]) *
-                         xiHat[k]; // here we are computing gradient descent
-          beta[j][k] -= alpha * gradLi[j][k]; // Changing value of beta
-                                              // according to the computed loss
+          gradLi[j][k] += (zi[j] - yi[j]) *
+                          xiHat[k]; // here we are computing gradient descent
+        }
+      }
+
+      countCompleted++;
+
+      if (countCompleted == batchSize)
+      {
+        for (int j = 0; j < numClasses; j++)
+        {
+          for (int k = 0; k < xiHat.size(); k++)
+          {
+            beta[j][k] -=
+                alpha * gradLi[j][k]; // Changing value of beta
+                                      // according to the computed loss
+          }
+        }
+        countCompleted = 0;
+        for (int j = 0; j < numClasses; j++)
+        {
+          for (int k = 0; k < x[0].size(); k++)
+          {
+            gradLi[j][k] = 0.0;
+          }
         }
       }
 
@@ -173,10 +201,22 @@ template<class T>
 // numEpochs -> number of epochs
 // verbose -> whether to show which epoch is going on
 void LogisticRegression<T>::train(std::vector<std::vector<T>> x,
-                                  std::vector<std::vector<int>> y, double alpha,
-                                  int numEpochs, bool verbose)
+                                  std::vector<int> y, double alpha,
+                                  int numEpochs, bool verbose, int batchSize)
 {
-  this->beta = logRegSgd(x, y, alpha, numEpochs, verbose);
+  std::set<int> uniqueYValues;
+  for (int i = 0; i < y.size(); i++)
+  {
+    uniqueYValues.insert(y[i]);
+  }
+  std::vector<std::vector<int>> oneHotEncodedY(
+      y.size(), std::vector<int>(uniqueYValues.size(), 0));
+  for (int i = 0; i < y.size(); i++)
+  {
+    oneHotEncodedY[i][y[i]] = 1;
+  }
+  this->beta =
+      logRegSgd(x, oneHotEncodedY, alpha, numEpochs, verbose, batchSize);
 };
 
 template<class T>
