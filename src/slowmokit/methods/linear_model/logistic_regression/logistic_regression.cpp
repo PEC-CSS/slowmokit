@@ -83,7 +83,7 @@ LogisticRegression<T>::logRegSgd(std::vector<std::vector<double>> x,
                                  int numEpochs, bool verbose)
 {                               // PERFORMS MULTICLASS LOGISTIC REGRESSION
   int n = x.size();             // Rows in training vector
-  int d = x[0].size();          // Columns
+  int d = x[0].size();          // Number of features
   int numClasses = y[0].size(); // Output classes
   std::vector<std::vector<double>> beta(
       numClasses,
