@@ -8,8 +8,8 @@ LinearRegression fits a linear model with coefficients w = (w1, …, wp) to mini
 
 | Name          | Definition                                                                                  | Defaults | Type   |
 | ------------- | ------------------------------------------------------------------------------------------- | -------- | ------ |
-| Epochs        | Number times that the learning algorithm will work through the entire training dataset      | 100      | INT    |
-| Learning rate | Determines the step size at each iteration while moving toward a minimum of a loss function | 0.01     | DOUBLE |
+| Epochs        | Number of times that the learning algorithm will work through the entire training dataset   | 100      | INT    |
+| Learning rate | Determines the step size at each iteration while trying to minimize the loss function       | 0.01     | DOUBLE |
 
 ## Attributes
 
