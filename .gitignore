@@ -44,4 +44,4 @@ cmake-build-debug
 **/*__tests
 
 # build
-build/
+build

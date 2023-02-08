@@ -29,6 +29,8 @@ More details [here](./create_model/README.md)
     - `<model>.hpp` : the header file for the model, create the class of model here and include all the stuff required
       for the model here.
         - Include `src/slowmokit.core.hpp` for all the basic functionalities already added.
+        - Make sure to add **doc comments above each function signature** (refer other files for the format)
+        - Variable and function names should be in **camel case** and class names should be in **pascal case** in **all files**.
     - `<model>.cpp` : implement the functions of the class here.
 6. If your IDE does not automatically add the files to Cmake, add them manually in the `CMakeLists.txt`, under
    the `add_libraries`.
@@ -37,6 +39,10 @@ More details [here](./create_model/README.md)
 
 7. Add the header file `<model>.hpp` in `src/slowmokit.hpp` under the documentation block as shown [here](./src/slowmokit/ducks/io/io.hpp). More on [documentation block](https://developer.lsst.io/cpp/api-docs.html#multi-line-documentation-delimiters-should-be-on-their-own-lines).
 8. Test the working by building in IDE.
+
+> This step is mandatory
+
+9. Format the files according to the convention. For simplicity, run `./clang-format-all src/` in gitbash(if on widnows) or in terminal(if on linux/macos)
 
 > **NOTE:** Do **NOT** use `#include <bits/stdc++.h>` in any file, all the major header files are already included in `core.hpp`.]
 

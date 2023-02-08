@@ -13,4 +13,4 @@
 // standard model class
 //#include "models/model.hpp"
 
-#endif //SLOWMOKIT_CORE_HPP
+#endif // SLOWMOKIT_CORE_HPP

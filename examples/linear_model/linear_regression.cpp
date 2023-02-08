@@ -1,5 +1,5 @@
-#include "methods/linear_model/linear_regression.hpp"
-#include "base.hpp"
+#include "../../src/slowmokit/methods/linear_model/linear_regression.hpp"
+#include "../../src/slowmokit/core.hpp"
 
 int main()
 {
