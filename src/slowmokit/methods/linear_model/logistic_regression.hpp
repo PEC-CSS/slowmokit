@@ -10,4 +10,4 @@
 
 #include "logistic_regression/logistic_regression.hpp"
 
-#endif //SLOWMOKIT_LOGISTIC_REGRESSION_HPP
+#endif // SLOWMOKIT_LOGISTIC_REGRESSION_HPP
