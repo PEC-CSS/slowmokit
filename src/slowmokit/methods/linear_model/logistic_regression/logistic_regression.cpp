@@ -19,7 +19,7 @@ std::vector<double> LogisticRegression<T>::softmax(std::vector<T> x)
   std::vector<double> values(x.size());
   for (int i = 0; i < x.size(); i++)
   { // Now computing actual values after applying softmax
-     exps[i] /= double(sum);
+    exps[i] /= double(sum);
   }
   return exps;
 };
