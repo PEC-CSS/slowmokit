@@ -1,4 +1,4 @@
-# Linear Regression
+# Bernoulli Naive Bayes
 
 Bernoulli Naive Bayes model.
 
