@@ -124,7 +124,7 @@ LogisticRegression<T>::logRegSgd(std::vector<std::vector<double>> x,
     while (!prm.empty()) // till prm not becomes empty keep iterating over the
                          // while loop
     {
-      if ((prm.size() + countCompleted) < batchSize)
+      if ((prm.size() + countCompleted) < batchSize)  // if we left with x values less than batch size then we will break
       {
         break;
       }
@@ -159,11 +159,11 @@ LogisticRegression<T>::logRegSgd(std::vector<std::vector<double>> x,
              k++) // iterating over all xiHat values
         {
           gradLi[j][k] += (zi[j] - yi[j]) *
-                          xiHat[k]; // here we are computing gradient descent
+                          xiHat[k]; // here we are computing gradient descent of batch
         }
       }
 
-      countCompleted++;
+      countCompleted++;  // updating countCompleted means we added loss of this many values
 
       if (countCompleted == batchSize)
       {
@@ -173,7 +173,7 @@ LogisticRegression<T>::logRegSgd(std::vector<std::vector<double>> x,
           {
             beta[j][k] -=
                 alpha * gradLi[j][k]; // Changing value of beta
-                                      // according to the computed loss
+                                      // according to the computed batch loss
           }
         }
         countCompleted = 0;
@@ -181,7 +181,7 @@ LogisticRegression<T>::logRegSgd(std::vector<std::vector<double>> x,
         {
           for (int k = 0; k < x[0].size(); k++)
           {
-            gradLi[j][k] = 0.0;
+            gradLi[j][k] = 0.0;   // again set value of loss to 0.0
           }
         }
       }
