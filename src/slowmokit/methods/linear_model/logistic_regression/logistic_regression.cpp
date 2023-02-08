@@ -30,7 +30,7 @@ double LogisticRegression<T>::crossEntropy(std::vector<int> y,
   double l = 0.0;
   for (int i = 0; i < y.size(); i++)
   {
-    l += (y[i] * log10(qi[i]));
+    l += (y[i] * log(qi[i]));
   }
   return -1 * l;
 };
