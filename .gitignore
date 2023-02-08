@@ -43,5 +43,8 @@ cmake-build-debug
 # CHelper
 **/*__tests
 
+# Binary Executive
+**/*.bin
+
 # build
 build
