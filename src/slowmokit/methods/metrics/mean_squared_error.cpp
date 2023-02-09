@@ -10,7 +10,7 @@ double meanSquaredError(std::vector<T> &actual, std::vector<T> &pred)
   if (actual.size() != pred.size())
   {
     throw std::invalid_argument(
-        "Predicted and actual vectors must have same size");
+        "Actual and Predicted vectors must have same size");
   }
 
   double sum = 0.0;
@@ -20,4 +20,3 @@ double meanSquaredError(std::vector<T> &actual, std::vector<T> &pred)
   }
   return sum / actual.size();
 }
-
