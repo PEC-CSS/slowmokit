@@ -1,13 +1,13 @@
 /**
- * @file methods/metrics/silhoutte_score.cpp
+ * @file methods/metrics/silhouette_score.cpp
  *
- * Implementation of the Silhoutte Score main program
+ * Implementation of the Silhouette Score main program
  */
 
-#include "silhoutte_score.hpp"
+#include "silhouette_score.hpp"
 template<class T>
-double SilhoutteScore(std::vector<std::vector<T>> x, std::vector<int> y,
-                      int numClusters, std::string typeDist)
+double SilhouetteScore(std::vector<std::vector<T>> x, std::vector<int> y,
+                       int numClusters, std::string typeDist)
 {
   std::vector<std::vector<double>> distances(x.size(),
                                              std::vector<double>(x.size()));

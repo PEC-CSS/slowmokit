@@ -1,7 +1,7 @@
-# Silhoutte Score
+# Silhouette Score
 
-The Silhoutte score is calculated as the average of all points si, where si is the difference of minimum of inter cluster distance to average of intra cluster distance divided by maximum of both.
-The silhoutte score reflects how good the value of k is, where k is the number of clusters.
+The Silhouette score is calculated as the average of all points si, where si is the difference of minimum of inter cluster distance to average of intra cluster distance divided by maximum of both.
+The silhouette score reflects how good the value of k is, where k is the number of clusters.
 
 ## Parameters
 
@@ -15,7 +15,7 @@ The silhoutte score reflects how good the value of k is, where k is the number o
 
 | Name                                           | Definition                                            | Return value      |
 | -----------------------------------------------| ----------------------------------------------------- | ----------------- |
-| `SilhoutteScore(vector<vector<T>>x,vector<int> y,int numClusters,string typeDist)`|To find the silhoutte score|  `double`  |
+| `SilhouetteScore(vector<vector<T>>x,vector<int> y,int numClusters,string typeDist)`|To find the silhoutte score|  `double`  |
 
 ## Example
 
