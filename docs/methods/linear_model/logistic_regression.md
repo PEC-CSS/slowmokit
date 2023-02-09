@@ -10,7 +10,7 @@ LogisticRegression fits a linear model with coefficients $w\  =\  [(w_1, w_2, â€
 | ------------- | ------------------------------------------------------------------------------------------- | -------- | ---------|
 | Epochs        | Number of times that the learning algorithm will work through the entire training dataset   | 100      | `int`    |
 | alpha         | Determines the step size at each iteration while trying to minimize the loss function       | 0.01     | `double` |
-| Batch size    |  Number of x values in batch over which loss will be computed and weights will be updated   | 5        | `int`    |
+| Batch size    |  Number of x values in batch over which loss will be computed and weights will be updated   | 10%         | `int`    |
 
 ## Attributes
 
