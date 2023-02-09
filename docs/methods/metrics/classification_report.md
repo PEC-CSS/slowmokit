@@ -31,3 +31,4 @@ A Classification report is used to measure the quality of predictions from a cla
      Class.confusionMatrix(trueValue, predictedValue);
      Class.printReport();
 ```
+<img width="502" alt="Screenshot 2023-02-06 at 11 05 55 PM" src="https://user-images.githubusercontent.com/89138051/217835964-eb10ced4-8b15-4122-843e-516c6f79c751.png">
