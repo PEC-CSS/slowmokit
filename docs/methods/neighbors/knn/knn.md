@@ -18,7 +18,7 @@ KNN fits the inputs that is store them and when we provide a testing value it co
 | ------------------------------- | ----------------------------------------------------- | ----------------- |
 | `distance(vector<T>x1,vector<T>x2)` | Computes distance b/w points                                     | DOUBLE            |
 | `fit(vector<vector<T>> x,vector<int> y,int classNums)`          | Fit the model.                       | void |
-| `predict(vector<T> test,int k,string distType)`           | Predict the class output for testing value. | void              |
+| `predict(vector<T> test,int k,string distType)`           | Predict the class output for testing value. | INT              |
 
 ## Example
 
