@@ -1,6 +1,6 @@
 # Logistic Regression
 
-Logistic Regression model using stochastic gradient descent.
+Logistic Regression model using mini batch gradient descent.
 
 LogisticRegression fits a linear model with coefficients $w\  =\  [(w_1, w_2, … , w_p),(w_1, w_2, … , w_p)..]$, where $p$ is number of features and height will be equals to number of classes, to minimize the residual sum of squares between the observed targets in the dataset, and the probabilities predicted by the logistic approximation.
 
@@ -23,10 +23,10 @@ LogisticRegression fits a linear model with coefficients $w\  =\  [(w_1, w_2, �
 | Name                            | Definition                                            | Return value      |
 | ------------------------------- | ----------------------------------------------------- | ----------------- |
 | `softmax(vector<T> x)`          | Computes softmax                                      | `vector<T>`       |
-| `crossEntropy(vector<int>y,vector<T>qi)` | actual*predicted value                       | DOUBLE       |
+| `crossEntropy(vector<int>y,vector<T>qi)` | actual*log(predicted value)                       | DOUBLE       |
 | `EvalL(vector<vector<T>>x,vector<vector<int>>y,vector<vector<T>>beta)`| Computes loss  |      DOUBLE       |
 | `logRegSgd(vector<vector<double>>x,vector<vector<int>>y,double alpha,int numEpochs,bool verbose)`| Performs logistic regression  |      `vector<vector<T>>`      |
-| `train(vector<vector<T>>x,vector<vector<int>>y,double alpha,int numEpochs,bool verbose)`| Training of model |      void      |
+| `fit(vector<vector<T>>x,vector<vector<int>>y,double alpha,int numEpochs,bool verbose)`| Training of model |      void      |
 | `predict(std::vector<T> x)`| Gives probability of testing values |      `vector<double> T`      |
 
 ## Example

@@ -5,6 +5,7 @@
  */
 
 #include "logistic_regression.hpp"
+#include "../../preprocessing/one_hot_encoder.hpp"
 
 template<class T>
 std::vector<double> LogisticRegression<T>::softmax(std::vector<T> x)
@@ -87,7 +88,18 @@ LogisticRegression<T>::logRegSgd(std::vector<std::vector<double>> x,
   std::vector<std::vector<double>> beta(
       numClasses,
       std::vector<double>(
-          d, 0.0)); // Initializing weights (output_classes * features)
+          d)); // Initializing weights (output_classes * features)
+  
+  // Initialization of beta with random values between 0-1;
+  std::random_device rd;
+  std::uniform_real_distribution<double> unif(0,1);
+  std::default_random_engine re(rd());
+  for(int i=0;i<numClasses;i++){
+    for(int j=0;j<d;j++){
+      beta[i][j] = unif(re);
+    }
+  }
+
   std::vector<double> lVals(numEpochs);
   for (int i = 0; i < numEpochs;
        i++) // loop running for number of epochs specified
@@ -175,6 +187,7 @@ LogisticRegression<T>::logRegSgd(std::vector<std::vector<double>> x,
         {
           for (int k = 0; k < xiHat.size(); k++)
           {
+            gradLi[j][k] /= batchSize;
             beta[j][k] -=
                 alpha * gradLi[j][k]; // Changing value of beta
                                       // according to the computed batch loss
@@ -204,21 +217,20 @@ template<class T>
 // alpha -> double which is going to be multiply with gradient descent
 // numEpochs -> number of epochs
 // verbose -> whether to show which epoch is going on
-void LogisticRegression<T>::train(std::vector<std::vector<T>> x,
+void LogisticRegression<T>::fit(std::vector<std::vector<T>> x,
                                   std::vector<int> y, double alpha,
                                   int numEpochs, bool verbose, int batchSize)
 {
+  this->batchSize = batchSize;
   std::set<int> uniqueYValues;
   for (int i = 0; i < y.size(); i++)
   {
     uniqueYValues.insert(y[i]);
   }
-  std::vector<std::vector<int>> oneHotEncodedY(
-      y.size(), std::vector<int>(uniqueYValues.size(), 0));
-  for (int i = 0; i < y.size(); i++)
-  {
-    oneHotEncodedY[i][y[i]] = 1;
-  }
+
+  std::vector<std::vector<int>> oneHotEncodedY;
+  oneHotEncodedY = oneHotEncoder(y,uniqueYValues.size());
+
   this->beta =
       logRegSgd(x, oneHotEncodedY, alpha, numEpochs, verbose, batchSize);
 };
