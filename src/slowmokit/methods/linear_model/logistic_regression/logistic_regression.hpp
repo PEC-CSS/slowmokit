@@ -11,7 +11,7 @@
 
 template<class T> class LogisticRegression
 {
-  int batchSize;
+  int batchSize = -1;
 
   private:
   std::vector<std::vector<T>> beta; // Initializing beta i.e weights ->
@@ -30,7 +30,7 @@ template<class T> class LogisticRegression
    * @param qi predicted values
    * @return double cross entropy
    */
-  double crossEntropy(std::vector<int> y, std::vector<T> qi);
+  double crossLogEntropy(std::vector<int> y, std::vector<T> qi);
   /**
    * @brief computes loss
    *
@@ -41,7 +41,7 @@ template<class T> class LogisticRegression
   double EvalL(std::vector<std::vector<T>> x, std::vector<std::vector<int>> y,
                std::vector<std::vector<T>> beta);
   /**
-   * @brief Logistic regression
+   * @brief Mini-batch gradient descent
    *
    * @param x training x values
    * @param y training output values
@@ -50,10 +50,10 @@ template<class T> class LogisticRegression
    * @param verbose require to print which epoch is going on
    * @return std::vector<std::vector<double>>
    */
-  std::vector<std::vector<double>> logRegSgd(std::vector<std::vector<double>> x,
-                                             std::vector<std::vector<int>> y,
-                                             double alpha, int numEpochs,
-                                             bool verbose, int batchSize);
+  std::vector<std::vector<double>>
+  logRegMbgd(std::vector<std::vector<double>> x,
+             std::vector<std::vector<int>> y, double alpha, int numEpochs,
+             bool verbose);
 
   public:
   /**
@@ -63,10 +63,11 @@ template<class T> class LogisticRegression
    * @param y training y values
    * @param alpha double value which multiplied with gradient descent
    * @param numEpochs number of epochs
+   * @param batchSize size of match
    * @param verbose require to print which epoch is going on
    */
   void fit(std::vector<std::vector<T>> x, std::vector<int> y, double alpha,
-           int numEpochs, bool verbose, int batchSize);
+           int numEpochs, bool verbose, int batchSize = -1);
   /**
    * @brief Predict value for testing
    *

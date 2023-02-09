@@ -25,8 +25,8 @@ std::vector<double> LogisticRegression<T>::softmax(std::vector<T> x)
 };
 
 template<class T>
-double LogisticRegression<T>::crossEntropy(std::vector<int> y,
-                                           std::vector<T> qi)
+double LogisticRegression<T>::crossLogEntropy(std::vector<int> y,
+                                              std::vector<T> qi)
 { // Gives gradient descent -(d(z)/d(theta))
   double l = 0.0;
   for (int i = 0; i < y.size(); i++)
@@ -45,7 +45,7 @@ double LogisticRegression<T>::EvalL(std::vector<std::vector<T>> x,
   // Inputs :-
   // x -> all training x values
   // y -> all training y values
-  // beta -> weights computed in logRegSgd
+  // beta -> weights computed in logRegMbgd
 
   int n = x.size();           // number of x values
   double loss = 0.0;          // initializing loss with 0.0
@@ -68,9 +68,9 @@ double LogisticRegression<T>::EvalL(std::vector<std::vector<T>> x,
         qi[j] += beta[j][k] * xiHat[k];
       }
     }
-    qi = softmax(qi);             // qi = z[i] = x[i]*beta[i];
-    loss += crossEntropy(yi, qi); // Computing loss using z[i](computed values)
-                                  // and y[i](actual values)
+    qi = softmax(qi);                // qi = z[i] = x[i]*beta[i];
+    loss += crossLogEntropy(yi, qi); // Computing loss using z[i](computed
+                                     // values) and y[i](actual values)
   }
   return loss; // finally returning loss
 };
@@ -78,9 +78,9 @@ double LogisticRegression<T>::EvalL(std::vector<std::vector<T>> x,
 template<class T>
 // This function performs logistic regression stochastic gradient descent
 std::vector<std::vector<double>>
-LogisticRegression<T>::logRegSgd(std::vector<std::vector<double>> x,
-                                 std::vector<std::vector<int>> y, double alpha,
-                                 int numEpochs, bool verbose, int batchSize)
+LogisticRegression<T>::logRegMbgd(std::vector<std::vector<double>> x,
+                                  std::vector<std::vector<int>> y, double alpha,
+                                  int numEpochs, bool verbose)
 {                               // PERFORMS MULTICLASS LOGISTIC REGRESSION
   int n = x.size();             // Rows in training vector
   int d = x[0].size();          // Number of features
@@ -223,7 +223,14 @@ void LogisticRegression<T>::fit(std::vector<std::vector<T>> x,
                                 std::vector<int> y, double alpha, int numEpochs,
                                 bool verbose, int batchSize)
 {
-  this->batchSize = batchSize;
+  if (batchSize != -1)
+  {
+    this->batchSize = batchSize;
+  }
+  else
+  {
+    this->batchSize = x.size() / 10;
+  }
   std::set<int> uniqueYValues;
   for (int i = 0; i < y.size(); i++)
   {
@@ -234,7 +241,7 @@ void LogisticRegression<T>::fit(std::vector<std::vector<T>> x,
   oneHotEncodedY = oneHotEncoder(y, uniqueYValues.size());
 
   this->beta =
-      logRegSgd(x, oneHotEncodedY, alpha, numEpochs, verbose, batchSize);
+      logRegMbgd(x, oneHotEncodedY, alpha, numEpochs, verbose, batchSize);
 };
 
 template<class T>

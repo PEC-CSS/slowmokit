@@ -23,10 +23,10 @@ LogisticRegression fits a linear model with coefficients $w\  =\  [(w_1, w_2, â€
 | Name                            | Definition                                            | Return value      |
 | ------------------------------- | ----------------------------------------------------- | ----------------- |
 | `softmax(vector<T> x)`          | Computes softmax                                      | `vector<T>`       |
-| `crossEntropy(vector<int>y,vector<T>qi)` | actual*log(predicted value)                       | DOUBLE       |
+| `crossLogEntropy(vector<int>y,vector<T>qi)` | actual*log(predicted value)                       | DOUBLE       |
 | `EvalL(vector<vector<T>>x,vector<vector<int>>y,vector<vector<T>>beta)`| Computes loss  |      DOUBLE       |
-| `logRegSgd(vector<vector<double>>x,vector<vector<int>>y,double alpha,int numEpochs,bool verbose)`| Performs gradient descent  |      `vector<vector<T>>`      |
-| `train(vector<vector<T>>x,vector<vector<int>>y,double alpha,int numEpochs,bool verbose)`| Training of model |      void      |
+| `logRegMbgd(vector<vector<double>>x,vector<vector<int>>y,double alpha,int numEpochs,bool verbose)`| Performs gradient descent  |      `vector<vector<T>>`      |
+| `fit(vector<vector<T>>x,vector<vector<int>>y,double alpha,int numEpochs,bool verbose,int batchSize)`| Training of model |      void      |
 | `predict(std::vector<T> x)`| Gives probability for the testing values to belong to a specific class |      `vector<double> T`      |
 
 ## Example
@@ -35,9 +35,9 @@ LogisticRegression fits a linear model with coefficients $w\  =\  [(w_1, w_2, â€
 LogisticRegression<int> logisticregression;
      std::vector<std::vector<double>> x = {{1,1,1,1},{1,1.87,1.12,0.86},{1,1.09,1.11,0.99},{1,5,4,4.98},{1,4.07,4.76,5.34},     {1,5.65,5.23,4.99},{1,9.98,8.87,8.76},{1,9.83,8.90,8.97}};
 
-     std::vector<std::vector<int>> y = {{1,0,0},{1,0,0},{1,0,0},{0,1,0},{0,1,0},{0,1,0},{0,0,1},{0,0,1}};
+     std::vector<std::vector<int>> y = {0,0,0,1,1,1,2,2};
 
-     logisticregression.train(x,y,0.0001,2000,false);
+     logisticregression.fit(x,y,0.0001,2000,false,5);
 
      std::vector<double> test{1,1,0.64,0.6};
 
