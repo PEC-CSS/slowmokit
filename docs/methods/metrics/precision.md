@@ -25,5 +25,6 @@ std::vector<int> actual = {0, 0, 2, 1, 0, 2, 1, 0, 1, 2};
 std::map<int, double> precisionValue = precision(pred, actual);
 for(int i = 0; i < precisionValue.size(); i++){
   std::cout << "Class " << i << " precision: " << precisionValue[i] << std::endl; 
+}
 
 ```
