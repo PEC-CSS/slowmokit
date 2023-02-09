@@ -89,13 +89,15 @@ LogisticRegression<T>::logRegSgd(std::vector<std::vector<double>> x,
       numClasses,
       std::vector<double>(
           d)); // Initializing weights (output_classes * features)
-  
+
   // Initialization of beta with random values between 0-1;
   std::random_device rd;
-  std::uniform_real_distribution<double> unif(0,1);
+  std::uniform_real_distribution<double> unif(0, 1);
   std::default_random_engine re(rd());
-  for(int i=0;i<numClasses;i++){
-    for(int j=0;j<d;j++){
+  for (int i = 0; i < numClasses; i++)
+  {
+    for (int j = 0; j < d; j++)
+    {
       beta[i][j] = unif(re);
     }
   }
@@ -218,8 +220,8 @@ template<class T>
 // numEpochs -> number of epochs
 // verbose -> whether to show which epoch is going on
 void LogisticRegression<T>::fit(std::vector<std::vector<T>> x,
-                                  std::vector<int> y, double alpha,
-                                  int numEpochs, bool verbose, int batchSize)
+                                std::vector<int> y, double alpha, int numEpochs,
+                                bool verbose, int batchSize)
 {
   this->batchSize = batchSize;
   std::set<int> uniqueYValues;
@@ -229,7 +231,7 @@ void LogisticRegression<T>::fit(std::vector<std::vector<T>> x,
   }
 
   std::vector<std::vector<int>> oneHotEncodedY;
-  oneHotEncodedY = oneHotEncoder(y,uniqueYValues.size());
+  oneHotEncodedY = oneHotEncoder(y, uniqueYValues.size());
 
   this->beta =
       logRegSgd(x, oneHotEncodedY, alpha, numEpochs, verbose, batchSize);

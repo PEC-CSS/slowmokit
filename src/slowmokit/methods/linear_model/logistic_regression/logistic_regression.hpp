@@ -12,6 +12,7 @@
 template<class T> class LogisticRegression
 {
   int batchSize;
+
   private:
   std::vector<std::vector<T>> beta; // Initializing beta i.e weights ->
                                     // (output_classes * numbers_of_features)
@@ -65,7 +66,7 @@ template<class T> class LogisticRegression
    * @param verbose require to print which epoch is going on
    */
   void fit(std::vector<std::vector<T>> x, std::vector<int> y, double alpha,
-             int numEpochs, bool verbose, int batchSize);
+           int numEpochs, bool verbose, int batchSize);
   /**
    * @brief Predict value for testing
    *
