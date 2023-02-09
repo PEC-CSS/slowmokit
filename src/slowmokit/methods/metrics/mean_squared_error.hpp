@@ -13,8 +13,8 @@
  * @param pred -> predicted values
  * @param actual -> true values
  * @returns mean squared error
- * @throws warning and returns -1 in case length of true and predicted vectors
- * is not same
+ * @throws exception invalid_argument in case size of the two vectors is not
+ * equal
  */
 
 template<class T> double meanSquaredError(std::vector<T> &, std::vector<T> &);
