@@ -63,7 +63,7 @@ template<class T> class LogisticRegression
    * @param y training y values
    * @param alpha double value which multiplied with gradient descent
    * @param numEpochs number of epochs
-   * @param batchSize size of match
+   * @param batchSize size of batch
    * @param verbose require to print which epoch is going on
    */
   void fit(std::vector<std::vector<T>> x, std::vector<int> y, double alpha,
@@ -72,7 +72,7 @@ template<class T> class LogisticRegression
    * @brief Predict value for testing
    *
    * @param x testing value
-   * @return std::vector<double> one hot encoded probobabilities for each class
+   * @return std::vector<double> one hot encoded probabilities for each class
    */
   std::vector<double> predict(std::vector<T> x);
 };
