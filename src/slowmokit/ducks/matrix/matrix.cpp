@@ -33,12 +33,40 @@ template<class T> Matrix<T>::Matrix(const std::vector<std::vector<T>> in)
   }
 }
 
-template<class T> Matrix<T> &Matrix<T>::operator*=(const T &scalar)
+template<class T>
+template<class G>
+Matrix<T> &Matrix<T>::operator*=(const G &scalar)
 {
   for (int i = 0; i < n; i++)
   {
     for (int j = 0; j < m; j++)
       mat[i][j] *= scalar;
+  }
+
+  return *this;
+}
+
+template<class T>
+template<class G>
+Matrix<T> &Matrix<T>::operator+=(const G &scalar)
+{
+  for (int i = 0; i < n; i++)
+  {
+    for (int j = 0; j < m; j++)
+      mat[i][j] += scalar;
+  }
+
+  return *this;
+}
+
+template<class T>
+template<class G>
+Matrix<T> &Matrix<T>::operator-=(const G &scalar)
+{
+  for (int i = 0; i < n; i++)
+  {
+    for (int j = 0; j < m; j++)
+      mat[i][j] -= scalar;
   }
 
   return *this;
@@ -142,8 +170,7 @@ template<class T> const std::vector<T> &Matrix<T>::operator[](int i) const
 template<class T>
 std::ostream &operator<<(std::ostream &os, const Matrix<T> &matrix)
 {
-  int n = std::size(matrix);
-  int m = std::size(matrix[0]);
+  auto [n, m] = matrix.getShape();
 
   for (int i = 0; i < n; i++)
   {
@@ -177,4 +204,64 @@ template<class T> Matrix<T> operator-(Matrix<T> lhs, const Matrix<T> &rhs)
 {
   lhs -= rhs;
   return lhs;
+}
+
+template<class T, class G> Matrix<T> operator+(G num, const Matrix<T> &matrix)
+{
+  Matrix<T> res = matrix;
+  res += num;
+  return res;
+}
+
+template<class T, class G> Matrix<T> operator-(G num, const Matrix<T> &matrix)
+{
+  Matrix<T> res = matrix;
+  res -= num;
+  return res;
+}
+
+template<class T, class G> Matrix<T> operator*(G num, const Matrix<T> &matrix)
+{
+  Matrix<T> res = matrix;
+  res *= num;
+  return res;
+}
+
+template<class T, class G> Matrix<T> operator+(Matrix<T> matrix, const G &num)
+{
+  matrix += num;
+  return matrix;
+}
+
+template<class T, class G> Matrix<T> operator-(Matrix<T> matrix, const G &num)
+{
+  matrix -= num;
+  return matrix;
+}
+
+template<class T, class G> Matrix<T> operator*(Matrix<T> matrix, const G &num)
+{
+  matrix *= num;
+  return matrix;
+}
+
+template<class T> Matrix<T> Matrix<T>::matmul(const Matrix<T> rhs)
+{
+  Matrix<T> res = *this;
+  res *= rhs;
+  return res;
+}
+
+template<class T> Matrix<T> Matrix<T>::add(const Matrix<T> rhs)
+{
+  Matrix<T> res = *this;
+  res += rhs;
+  return res;
+}
+
+template<class T> Matrix<T> Matrix<T>::subtract(const Matrix<T> rhs)
+{
+  Matrix<T> res = *this;
+  res -= rhs;
+  return res;
 }

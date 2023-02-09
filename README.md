@@ -1,6 +1,6 @@
 <p align="center">
     <img width="69" src="https://user-images.githubusercontent.com/52048551/206870724-e4c71d93-fbaf-420c-8a64-cfd8ba05d27e.png" alt="slowmoKIT logo">
-    <h1 align="center">Slomokit</h1>
+    <h1 align="center">Slowmokit</h1>
 </p>
 
 ## ML kit in C++.
@@ -17,7 +17,7 @@ Following are the steps to start contributing to our beautiful library:
 
 After this,
 
-You can directly use the execuatable file by running `./create` in the root folder of library, to do the required configurations. 
+You can directly use the execuatable file by running `./create` in the root folder of library, to do the required configurations.
 
 More details [here](./create_model/README.md)
 
@@ -43,6 +43,22 @@ More details [here](./create_model/README.md)
 > This step is mandatory
 
 9. Format the files according to the convention. For simplicity, run `./clang-format-all src/` in gitbash(if on widnows) or in terminal(if on linux/macos)
+
+_For this you need to have `clang-format` binaries installed in the machine._
+
+To do that, run the fllowing in the terminal
+
+```bash
+# with npm (windows)
+npm install -g clang-format
+# you have to restart terminal in case of windows
+
+# with homebrew (macos)
+brew install clang-format
+
+# linux (Ubuntu)
+sudo apt install clang-format
+```
 
 > **NOTE:** Do **NOT** use `#include <bits/stdc++.h>` in any file, all the major header files are already included in `core.hpp`.]
 
