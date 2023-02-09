@@ -6,7 +6,8 @@ The Mean Squared Error (MSE) or Mean Squared Deviation (MSD) of an estimator mea
 | Name          | Definition                                                                                  | Type            |
 | ------------- | ------------------------------------------------------------------------------------------- | ----------------|
 | Pred          | Takes a vector of predicted values                                                          | `int,double`    |
-| Actual        | Determines the step size at each iteration while trying to minimize the loss function       | `int,double`    |
+| Actual        | Takes a vector of actual values                                                             | `int,double`    |
+
 
 
 ## Methods
