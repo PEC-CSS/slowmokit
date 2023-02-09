@@ -1,15 +1,21 @@
 # Label Encoder
 
-Encode target labels with value between 0 and n_classes-1.
+Encodes the target labels into numeric form, ranging between 0 and the number of unique labels in the target vector.
 
 This transformer should be used to encode target values, i.e. y, and not the input X.
 
 ## Parameters
 
-| Name         | Definition                                 | Type   |
-|--------------|--------------------------------------------|--------|
-| targetVector | The target labels which need to be encoded | Vector |
+| Name         | Definition                                 | Type         |
+|--------------|--------------------------------------------|--------------|
+| targetVector | The target labels which need to be encoded | `vector<int>` |
 
+
+## Methods
+
+| Name                                   | Definition                                    | Return value  |
+|----------------------------------------|-----------------------------------------------|---------------|
+| `labelEncoder(vector<T> targetVector)` | To encode the target labels into numeric form | `vector<int>` |
 
 ## Example
 
