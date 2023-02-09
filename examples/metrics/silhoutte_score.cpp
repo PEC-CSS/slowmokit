@@ -11,7 +11,7 @@
 //     std::vector<int> y{0,0,1,1};
 //     int numClusters=2;
 //     std::string s = "euclidean";
-    // SilhoutteScore score;
-    // std::cout<<score.calculate(x,y,numClusters,s)<<std::endl;
+//     double score = SilhoutteScore(x,y,numClusters,s);
+    // std::cout<<score<<std::endl;
     // return 0;
 // }
