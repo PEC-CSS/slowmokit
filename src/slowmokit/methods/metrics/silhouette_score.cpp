@@ -9,6 +9,9 @@ template<class T>
 double SilhouetteScore(std::vector<std::vector<T>> x, std::vector<int> y,
                        int numClusters, std::string typeDist)
 {
+  std::transform(typeDist.begin(), typeDist.end(), typeDist.begin(),
+                 [](unsigned char c) { return std::tolower(c); });
+
   std::vector<std::vector<double>> distances(x.size(),
                                              std::vector<double>(x.size()));
   for (int i = 0; i < x.size(); i++)
@@ -48,35 +51,36 @@ double SilhouetteScore(std::vector<std::vector<T>> x, std::vector<int> y,
       x.size()); // Minimum Distance of each point to other clusters
   for (int i = 0; i < x.size(); i++)
   {
-    int sumnum = 0;
+    int sumNum = 0;
     std::vector<double> interClusters(
         numClusters,
         0.0); // For computing values of point to each cluster points
-    std::vector<int> sumsofparticular(numClusters, 0);
+    std::vector<int> sumsOfParticular(numClusters, 0);
     for (int j = 0; j < x.size(); j++)
     {
       if (y[j] == y[i])
       {
         intraClusters[i] += distances[i][j]; // Sum of distance of point to each
                                              // other point in same cluster
-        sumnum++;
+        sumNum++;
       }
       else
       {
         interClusters[y[j]] += distances[i][j]; // Sum of distance of point to
                                                 // points in different clusters
-        sumsofparticular[y[j]]++; // computes points in that cluster
+        sumsOfParticular[y[j]]++; // computes points in that cluster
       }
     }
     intraClusters[i] /=
-        sumnum; // Mean of sum values of distances b/w points of same cluster
-    double minimumOfall = INT_MAX;
+        sumNum; // Mean of sum values of distances b/w points of same cluster
+    double minimumOfall = std::numeric_limits<int>::max();
+    ;
     for (int j = 0; j < numClusters; j++)
     {
       if (j != y[i])
       {
         interClusters[j] /=
-            sumsofparticular[j]; // Mean of values of interclusters distances
+            sumsOfParticular[j]; // Mean of values of interclusters distances
         if (interClusters[j] < minimumOfall)
         { // computing minimum value of means of intercluster distances
           minimumOfall = interClusters[j];
