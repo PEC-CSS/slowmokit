@@ -1,5 +1,5 @@
 // #include "../../src/slowmokit/methods/cluster/silhouette_score.hpp"
-// #include <bits/stdc++.h>
+// #include "../../../core.hpp"
 
 // signed main(){
 //     std::vector<std::vector<double>> x{
@@ -11,7 +11,7 @@
 //     std::vector<int> y{0,0,1,1};
 //     int numClusters=2;
 //     std::string s = "euclidean";
-//     double score = SilhouetteScore(x,y,numClusters,s);
+//     double score = silhouetteScore(x,y,numClusters,s);
     // std::cout<<score<<std::endl;
     // return 0;
 // }

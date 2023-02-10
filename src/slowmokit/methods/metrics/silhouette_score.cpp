@@ -1,12 +1,12 @@
 /**
  * @file methods/metrics/silhouette_score.cpp
  *
- * Implementation of the Silhouette Score main program
+ * Implementation of the silhouette Score main program
  */
 
 #include "silhouette_score.hpp"
 template<class T>
-double SilhouetteScore(std::vector<std::vector<T>> x, std::vector<int> y,
+double silhouetteScore(std::vector<std::vector<T>> x, std::vector<int> y,
                        int numClusters, std::string typeDist)
 {
   std::transform(typeDist.begin(), typeDist.end(), typeDist.begin(),
