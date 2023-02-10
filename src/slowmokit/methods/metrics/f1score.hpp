@@ -13,6 +13,8 @@
  * @param pred -> predicted values
  * @param trueLabels -> true values
  * @returns f1score score
+ * @throws exception invalid_argument in case size of the two vectors is not
+ * equal
  */
 
 template<class T>
