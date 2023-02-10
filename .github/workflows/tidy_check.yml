@@ -2,7 +2,7 @@ name: clang-tidy check
 
 on:
   push:
-    branches: [ "main", "clang-tidy" ]
+    branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
 
