@@ -153,6 +153,16 @@ CheckOptions:
     value:           '4294967295'
   - key:             readability-identifier-naming.IgnoreFailedSplit
     value:           '0'
+  - key:             readability-identifier-naming.FunctionCase
+    value:           'CamelCase'
+  - key:             readability-identifier-naming.ClassCase
+    value:           'CamelCase'
+  - key:             readability-identifier-naming.StructCase
+    value:           'CamelCase'
+  - key:             readability-identifier-naming.NamespaceCase
+    value:           'lower_case'
+  - key:             readability-identifier-naming.GlobalConstantCase
+    value:           'UPPER_CASE'
   - key:             readability-implicit-bool-conversion.AllowIntegerConditions
     value:           '0'
   - key:             readability-implicit-bool-conversion.AllowPointerConditions
