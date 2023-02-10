@@ -57,20 +57,20 @@ public:
      * @param minSamples minimum number of points that should lie in the vicinity of a point for it to be considered a core point, default is 5
      * @throws invalid_argument exception when eps or minSamples is less than 0
      */
-    DBSCAN(long double eps = 0.5, int minSamples = 5);
+    DBSCAN(long double = 0.5, int = 5);
 
     /**
      * Fits and clusters the given training set
      * @param x list of feature vectors to be clustered
      */
-    void fit(std::vector<std::vector<T>> x);
+    void fit(std::vector<std::vector<T>>);
 
     /**
      * Fits and clusters the given training set and returns the labels assigned to each data point
      * @param x list of feature vectors
      * @return vector of labels assigned to each data point
      */
-    std::vector<int> fitPredict(std::vector<std::vector<T>> x);
+    std::vector<int> fitPredict(std::vector<std::vector<T>>);
 
     /**
      * Returns the labels assigned to each data point of the training set fitted into the model
