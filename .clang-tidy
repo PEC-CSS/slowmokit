@@ -81,13 +81,13 @@ CheckOptions:
     value:           '1'
   - key:             cppcoreguidelines-non-private-member-variables-in-classes.IgnoreClassesWithAllMemberVariablesBeingPublic
     value:           '1'
-  - key:             google-readability-braces-around-statements.ShortStatementLines
-    value:           '1'
-  - key:             google-readability-function-size.StatementThreshold
+  - key:             readability-braces-around-statements.ShortStatementLines
+    value:           '2'
+  - key:             readability-function-size.StatementThreshold
     value:           '800'
-  - key:             google-readability-namespace-comments.ShortNamespaceLines
+  - key:             readability-namespace-comments.ShortNamespaceLines
     value:           '10'
-  - key:             google-readability-namespace-comments.SpacesBeforeComments
+  - key:             readability-namespace-comments.SpacesBeforeComments
     value:           '2'
   - key:             misc-definitions-in-headers.HeaderFileExtensions
     value:           ',h,hh,hpp,hxx'
