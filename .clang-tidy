@@ -23,6 +23,10 @@ CheckOptions:
     value:           '0'
   - key:             bugprone-argument-comment.StrictMode
     value:           '0'
+  - key:             bugprone-narrowing-conversions.WarnOnIntegerNarrowingConversion
+    value:           'false'
+  - key:             bugprone-narrowing-conversions.WarnOnIntegerToFloatingPointNarrowingConversion
+    value:           'false'
   - key:             bugprone-assert-side-effect.AssertMacros
     value:           assert
   - key:             bugprone-assert-side-effect.CheckFunctionCalls
