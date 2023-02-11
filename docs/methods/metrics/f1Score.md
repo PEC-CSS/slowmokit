@@ -7,8 +7,8 @@ The F1-score combines the precision and recall of a classifier into a single met
 
 | Name          | Definition                                                                                  | Type            |
 | ------------- | ------------------------------------------------------------------------------------------- | ----------------|
-| Pred          | Takes a vector of predicted values                                                          | `T,double`    |
-| Actual        | Takes a vector of actual values                                                             | `T,double`    |
+| Pred          | Takes a vector of predicted values                                                          | `int,double`    |
+| Actual        | Takes a vector of actual values                                                             | `int,double`    |
 
 
 ## Methods
