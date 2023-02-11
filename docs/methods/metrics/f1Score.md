@@ -2,6 +2,11 @@
 
 The F1-score combines the precision and recall of a classifier into a single metric by taking their harmonic mean. It is primarily used to compare the performance of two classifiers.
 
+Some advantages of F1-score:  
+1)Very small precision or recall will result in lower overall score. Thus it helps balance the two metrics.  
+2)If you choose your positive class as the one with fewer samples, F1-score can help balance the metric across positive/negative samples.
+
+
 
 ## Parameters
 
