@@ -154,7 +154,7 @@ CheckOptions:
   - key:             readability-identifier-naming.IgnoreFailedSplit
     value:           '0'
   - key:             readability-identifier-naming.FunctionCase
-    value:           'CamelCase'
+    value:           'camelBack'
   - key:             readability-identifier-naming.ClassCase
     value:           'CamelCase'
   - key:             readability-identifier-naming.StructCase
@@ -193,3 +193,5 @@ CheckOptions:
     value:           '1'
   - key:             readability-uppercase-literal-suffix.NewSuffixes
     value:           ''
+  - key:             readability-identifier-length.MinimumVariableNameLength
+    value:           '2'
