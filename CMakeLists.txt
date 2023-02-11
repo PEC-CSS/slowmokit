@@ -60,4 +60,6 @@ add_library(slowmokit
         src/slowmokit/methods/metrics/recall.hpp
         src/slowmokit/methods/metrics/recall.cpp
         src/slowmokit/methods/metrics/mean_squared_error.hpp
-        src/slowmokit/methods/metrics/mean_squared_error.cpp)
+        src/slowmokit/methods/metrics/mean_squared_error.cpp
+        src/slowmokit/methods/activation_functions.cpp
+        src/slowmokit/methods/activation_functions.hpp)
