@@ -194,4 +194,4 @@ CheckOptions:
   - key:             readability-uppercase-literal-suffix.NewSuffixes
     value:           ''
   - key:             readability-identifier-length.MinimumVariableNameLength
-    value:           '2'
+    value:           '1'
