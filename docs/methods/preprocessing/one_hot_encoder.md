@@ -9,14 +9,14 @@ One hot encoding makes our training data more useful and expressive, and it can 
 
 | Name         | Definition                                 | Type         |
 |--------------|--------------------------------------------|--------------|
-|   data       | The data that has to be encoded is passed as the data parameter in the oneHotEncoder function. | `vector<int>` |
+|   data       | The data that has to be encoded is passed as the data parameter in the oneHotEncoder function. | `vector<string>` |
 |   nClasses      | This parameter is an integer that specifies the number of classes or categories in the input data. | `int` |
 
 ## Methods
 
 | Name                                   | Definition                                    | Return value  |
 |----------------------------------------|-----------------------------------------------|---------------|
-| `oneHotEncoder(vector<T> data, nClasses)` | To encode the data into numerical values. | `vector<int>` |
+| `oneHotEncoder(vector<T> data, nClasses)` | To encode the data into numerical values. | `vector<vector<int>>` |
 
 ## Example
 
