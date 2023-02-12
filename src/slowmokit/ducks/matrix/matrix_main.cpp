@@ -1,11 +1,3 @@
-/**
- * @file ducks/matrix/matrix.cpp
- *
- * Implementation of the matrix main program
- */
-
-#include "matrix.hpp"
-
 template<class T> Matrix<T>::Matrix(int n, int m) : n(n), m(m)
 {
   if (n <= 0 or m <= 0)
@@ -33,12 +25,40 @@ template<class T> Matrix<T>::Matrix(const std::vector<std::vector<T>> in)
   }
 }
 
-template<class T> Matrix<T> &Matrix<T>::operator*=(const T &scalar)
+template<class T>
+template<class G>
+Matrix<T> &Matrix<T>::operator*=(const G &scalar)
 {
   for (int i = 0; i < n; i++)
   {
     for (int j = 0; j < m; j++)
       mat[i][j] *= scalar;
+  }
+
+  return *this;
+}
+
+template<class T>
+template<class G>
+Matrix<T> &Matrix<T>::operator+=(const G &scalar)
+{
+  for (int i = 0; i < n; i++)
+  {
+    for (int j = 0; j < m; j++)
+      mat[i][j] += scalar;
+  }
+
+  return *this;
+}
+
+template<class T>
+template<class G>
+Matrix<T> &Matrix<T>::operator-=(const G &scalar)
+{
+  for (int i = 0; i < n; i++)
+  {
+    for (int j = 0; j < m; j++)
+      mat[i][j] -= scalar;
   }
 
   return *this;
@@ -142,8 +162,7 @@ template<class T> const std::vector<T> &Matrix<T>::operator[](int i) const
 template<class T>
 std::ostream &operator<<(std::ostream &os, const Matrix<T> &matrix)
 {
-  int n = std::size(matrix);
-  int m = std::size(matrix[0]);
+  auto [n, m] = matrix.getShape();
 
   for (int i = 0; i < n; i++)
   {
@@ -159,22 +178,4 @@ std::ostream &operator<<(std::ostream &os, const Matrix<T> &matrix)
   }
 
   return os;
-}
-
-template<class T> Matrix<T> operator*(Matrix<T> lhs, const Matrix<T> &rhs)
-{
-  lhs *= rhs;
-  return lhs;
-}
-
-template<class T> Matrix<T> operator+(Matrix<T> lhs, const Matrix<T> &rhs)
-{
-  lhs += rhs;
-  return lhs;
-}
-
-template<class T> Matrix<T> operator-(Matrix<T> lhs, const Matrix<T> &rhs)
-{
-  lhs -= rhs;
-  return lhs;
 }

@@ -55,7 +55,7 @@ template<class T = int> class Matrix
    * @param scalar: Number with which you want to multiply matrix with
    * @returns: Matrix after multiplying current matrix with scalar
    */
-  Matrix &operator*=(const T &);
+  template<class G> Matrix &operator*=(const G &);
 
 
   /**
@@ -67,6 +67,22 @@ template<class T = int> class Matrix
    * not compatible for multiplication
    */
   Matrix &operator*=(const Matrix &);
+
+
+  /**
+   * @brief Overloading += to add a matrix with a scalar
+   * @param scalar: Number with which you want to add matrix with
+   * @returns: Matrix after adding current matrix with scalar
+   */
+  template<class G> Matrix &operator+=(const G &);
+
+
+  /**
+   * @brief Overloading -= to subtract a matrix with a scalar
+   * @param scalar: Number with which you want to subtract matrix with
+   * @returns: Matrix after subtracting scalar from current matrix
+   */
+  template<class G> Matrix &operator-=(const G &);
 
 
   /**
@@ -83,10 +99,6 @@ template<class T = int> class Matrix
    * @throws: std::invalid_argument incase of incompatible dimensions
    */
   Matrix &dot(const Matrix &);
-
-  /**
-   * @brief
-   */
 
 
   /**
@@ -122,11 +134,38 @@ template<class T = int> class Matrix
    */
   const std::vector<T> &operator[](int) const;
 
+
   /**
-   * @brief overloading << for easy printing of Matrix
+   * @brief This function will multiply two matrix
+   * @param rhs: This is the matrix which will be multiplied with the main
+   * matrix
+   * @throw: whatever operator *= throws
    */
-  friend std::ostream &operator<<(std::ostream &, const Matrix &);
+  Matrix matmul(const Matrix);
+
+
+  /**
+   * @brief This function will add 2 matrix
+   * @param rhs: This is the matrix which will be added with the main matrix
+   * @throw: whatever operator *= throws
+   */
+  Matrix add(const Matrix);
+
+
+  /**
+   * @brief This function will subtract 2 matrix
+   * @param rhs: This is the matrix which will be subtracted from the main
+   * matrix
+   * @throw: whatever operator *= throws
+   */
+  Matrix subtract(const Matrix);
 };
+
+
+/**
+ * @brief overloading << for easy printing of Matrix
+ */
+template<class T> std::ostream &operator<<(std::ostream &, const Matrix<T> &);
 
 /**
  * @brief Free Function to multiply a matrix to a number or another matrix
@@ -134,9 +173,9 @@ template<class T = int> class Matrix
  * @param rhs: A number (only if lhs is not a number) or a Matrix
  * @returns Matrix Object
  */
-template<class T> Matrix<T> operator*(T, const Matrix<T> &);
-template<class T> Matrix<T> operator*(Matrix<T>, const T &);
-template<class T> Matrix<T> operator*(Matrix<T> lhs, const Matrix<T> &rhs);
+template<class T, class G> Matrix<T> operator*(G, const Matrix<T> &);
+template<class T, class G> Matrix<T> operator*(Matrix<T>, const G &);
+template<class T> Matrix<T> operator*(Matrix<T>, const Matrix<T> &);
 
 /**
  * @brief Free Function to add a matrix to a number or another matrix
@@ -144,9 +183,9 @@ template<class T> Matrix<T> operator*(Matrix<T> lhs, const Matrix<T> &rhs);
  * @param rhs: A number (only if lhs is not a number) or a Matrix
  * @returns Matrix Object
  */
-template<class T> Matrix<T> operator+(T, const Matrix<T> &);
-template<class T> Matrix<T> operator+(Matrix<T>, const T &);
-template<class T> Matrix<T> operator+(Matrix<T> lhs, const Matrix<T> &rhs);
+template<class T, class G> Matrix<T> operator+(G, const Matrix<T> &);
+template<class T, class G> Matrix<T> operator+(Matrix<T>, const G &);
+template<class T> Matrix<T> operator+(Matrix<T>, const Matrix<T> &);
 
 /**
  * @brief Free Function to subtract a matrix to a number or another matrix
@@ -154,9 +193,9 @@ template<class T> Matrix<T> operator+(Matrix<T> lhs, const Matrix<T> &rhs);
  * @param rhs: A number (only if lhs is not a number) or a Matrix
  * @returns Matrix Object
  */
-template<class T> Matrix<T> operator-(T, const Matrix<T> &);
-template<class T> Matrix<T> operator-(Matrix<T>, const T &);
-template<class T> Matrix<T> operator-(Matrix<T> lhs, const Matrix<T> &rhs);
+template<class T, class G> Matrix<T> operator-(G, const Matrix<T> &);
+template<class T, class G> Matrix<T> operator-(Matrix<T>, const G &);
+template<class T> Matrix<T> operator-(Matrix<T>, const Matrix<T> &);
 
 
 #endif // SLOWMOKIT_IO_HPP
