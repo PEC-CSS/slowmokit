@@ -60,7 +60,6 @@ std::string fitPredict(std::vector<std::vector<T>> xTrain,
     probs[curr.first] = curr.second;
     for (auto feature : xTest)
     {
-      // if(likelihoods[curr.first][feature]==0){ continue;}
       probs[curr.first] *= likelihoods[curr.first][feature];
     }
   }
