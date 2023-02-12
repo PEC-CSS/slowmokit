@@ -34,18 +34,17 @@ std::map<T, double> precision(std::vector<T> &pred, std::vector<T> &actual)
 		}
 	}
 
-	for (int i = 0; i < numClasses; i++)
-	{
-		if (truePosMap[i] > 0 || falsePosMap[i] > 0)
-		{
-			precisionMap[i] =
-			    (double) (truePosMap[i] /
-			              (double) (truePosMap[i] + falsePosMap[i]));
-		}
-		else
-		{
-			precisionMap[i] = 0.0;
-		}
+  for (int i = 0; i < numClasses; i++)
+  {
+    if (truePosMap[i] > 0 || falsePosMap[i] > 0)
+    {
+      precisionMap[i] =
+          (double) (truePosMap[i] / (double) (truePosMap[i] + falsePosMap[i]));
+    }
+    else
+    {
+      precisionMap[i] = 1.0;
+    }
 
 		double x = precisionMap[i];
 		float value = (int) (x * 100 + .5);
