@@ -97,6 +97,8 @@ CheckOptions:
     value:           '10'
   - key:             readability-namespace-comments.SpacesBeforeComments
     value:           '2'
+  - key:             readability-function-cognitive-complexity.Threshold
+    value:           '50'
   - key:             misc-definitions-in-headers.HeaderFileExtensions
     value:           ',h,hh,hpp,hxx'
   - key:             misc-definitions-in-headers.UseHeaderFileExtension
@@ -180,9 +182,9 @@ CheckOptions:
   - key:             readability-inconsistent-declaration-parameter-name.Strict
     value:           '0'
   - key:             readability-magic-numbers.IgnoredFloatingPointValues
-    value:           '1.0;100.0;0.5;'
+    value:           '1.0;'
   - key:             readability-magic-numbers.IgnoredIntegerValues
-    value:           '1;2;3;4;10;11;100'
+    value:           '1;2;100'
   - key:             readability-redundant-member-init.IgnoreBaseInCopyConstructors
     value:           '0'
   - key:             readability-redundant-smartptr-get.IgnoreMacros
