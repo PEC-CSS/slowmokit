@@ -39,7 +39,7 @@ double LogisticRegression<T>::crossLogEntropy(std::vector<int> y,
 
 template <class T>
 //
-double LogisticRegression<T>::EvalL(std::vector<std::vector<T>> x,
+double LogisticRegression<T>::evalL(std::vector<std::vector<T>> x,
                                     std::vector<std::vector<int>> y,
                                     std::vector<std::vector<T>> beta)
 { // Computing overall loss in single epoch
@@ -108,14 +108,14 @@ LogisticRegression<T>::logRegMbgd(std::vector<std::vector<double>> x,
 	for (int i = 0; i < numEpochs;
 	     i++) // loop running for number of epochs specified
 	{
-		double l = EvalL(x, y, beta); // computes the loss when beta is
+		double l = evalL(x, y, beta); // computes the loss when beta is
 		// [__,__,......]
 		// [__,__,......]
 		// [__,__,......]
 		lVals.push_back(l);
 
 		if (verbose) // decides whether to print epoch number and current loss
-		             // computed by EvalL
+		             // computed by evalL
 		{
 			std::cout << "Epoch: " << i << " "
 			          << "Loss: " << l << std::endl;
@@ -233,13 +233,14 @@ void LogisticRegression<T>::fit(std::vector<std::vector<T>> x,
                                 std::vector<int> y, double alpha, int numEpochs,
                                 bool verbose, int batchSize)
 {
+	const int BATCHES=10;
 	if (batchSize != -1)
 	{
 		this->batchSize = batchSize;
 	}
 	else
 	{
-		this->batchSize = x.size() / 10;
+		this->batchSize = x.size() / BATCHES;
 	}
 	std::set<int> uniqueYValues;
 	for (int i = 0; i < y.size(); i++)

@@ -39,7 +39,7 @@ class LogisticRegression
 	 * @param beta weights
 	 * @return double loss value
 	 */
-	double EvalL(std::vector<std::vector<T>> x, std::vector<std::vector<int>> y,
+	double evalL(std::vector<std::vector<T>> x, std::vector<std::vector<int>> y,
 	             std::vector<std::vector<T>> beta);
 	/**
 	 * @brief Mini-batch gradient descent

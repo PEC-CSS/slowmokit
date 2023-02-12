@@ -9,16 +9,19 @@
 
 #include "../../../core.hpp"
 
+
+const double LEARNING_RATE=0.01;
+const int EPOCHS=100;
 template <class T>
 class LinearRegression
 {
 	private:
 	std::vector<T> coefficients;
-	int epochs = 100;
-	double learningRate = 0.01;
+	int epochs = EPOCHS;
+	double learningRate = LEARNING_RATE;
 
 	public:
-	LinearRegression(int = 100, double = 0.01);
+	LinearRegression(int = EPOCHS, double = LEARNING_RATE);
 
 	void fit(std::vector<std::vector<T>>, std::vector<T>);
 

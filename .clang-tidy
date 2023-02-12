@@ -184,7 +184,7 @@ CheckOptions:
   - key:             readability-magic-numbers.IgnoredFloatingPointValues
     value:           '1.0;'
   - key:             readability-magic-numbers.IgnoredIntegerValues
-    value:           '1;2;100'
+    value:           '1;2;3;4;100'
   - key:             readability-redundant-member-init.IgnoreBaseInCopyConstructors
     value:           '0'
   - key:             readability-redundant-smartptr-get.IgnoreMacros

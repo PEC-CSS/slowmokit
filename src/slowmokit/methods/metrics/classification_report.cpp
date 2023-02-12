@@ -20,6 +20,7 @@ void ClassificationReport<T>::confusionMatrix(std::vector<T> &trueValue,
                                               std::vector<T> &predictedValue)
 {
 	int n = trueValue.size();
+	const double HALF = 0.5;
 
 	for (int i = 0; i < n; i++)
 	{
@@ -70,7 +71,7 @@ std::map<T, double> ClassificationReport<T>::precision()
 
 		// Trick to make all numbers upto 2 decimal place
 		double x = precisionMap[classNumber];
-		float value = (int) (x * 100 + .5);
+		float value = std::lround(x * 100 + HALF);
 		precisionMap[classNumber] = (float) value / 100;
 	}
 	return precisionMap;
@@ -96,7 +97,7 @@ std::map<T, double> ClassificationReport<T>::recall()
 			recallMap[classNumber] = 0.0;
 		}
 		double x = recallMap[classNumber];
-		float value = (int) (x * 100 + .5);
+		float value = std::lround(x * 100 + HALF);
 		recallMap[classNumber] = (float) value / 100;
 	}
 	return recallMap;
@@ -106,7 +107,8 @@ template <class T>
 std::map<T, double> ClassificationReport<T>::f1Score()
 {
 	// 2 * Precision * Recall / (Precision + Recall)
-	std::map<T, double> precisionMap, recallMap;
+	std::map<T, double> precisionMap;
+	std::map<T, double> recallMap;
 	precisionMap = precision();
 	recallMap = recall();
 	std::map<T, double> f1ScoreMap;
@@ -125,7 +127,7 @@ std::map<T, double> ClassificationReport<T>::f1Score()
 			     (double) recallMap[classNumber]);
 
 			double x = f1ScoreMap[classNumber];
-			float value = (int) (x * 100 + .5);
+			float value = std::lround(x * 100 + HALF);
 			f1ScoreMap[classNumber] = (float) value / 100;
 		}
 	}
@@ -150,7 +152,7 @@ std::map<T, double> ClassificationReport<T>::accuracy()
 		               (double) trueNegative[classNumber]));
 
 		double x = accuracyMap[classNumber];
-		float value = (int) (x * 100 + .5);
+		float value = std::lround(x * 100 + HALF);
 		accuracyMap[classNumber] = (float) value / 100;
 	}
 	return accuracyMap;
