@@ -60,4 +60,7 @@ add_library(slowmokit
         src/slowmokit/methods/metrics/recall.hpp
         src/slowmokit/methods/metrics/recall.cpp
         src/slowmokit/methods/metrics/mean_squared_error.hpp
-        src/slowmokit/methods/metrics/mean_squared_error.cpp)
+        src/slowmokit/methods/metrics/mean_squared_error.cpp
+        src/slowmokit/methods/cluster/DBSCAN/DBSCAN.cpp
+        src/slowmokit/methods/cluster/DBSCAN/DBSCAN.hpp
+        src/slowmokit/methods/cluster/DBSCAN.hpp)
