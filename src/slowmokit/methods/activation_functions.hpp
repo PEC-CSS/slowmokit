@@ -19,7 +19,6 @@ double sigmoid(double);
  * @brief To calculate tan(x)
  * @param x: Number whose tan value is to be calculated
  * @return a double value representing tan(x)
->>>>>>> 5eebc29054fab6686e728aca29e64e1c53dd7a8c
  */
 
 double tanh(double);
