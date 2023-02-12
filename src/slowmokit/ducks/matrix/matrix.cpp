@@ -9,7 +9,8 @@
 template <class T>
 Matrix<T>::Matrix(int n, int m) : n(n), m(m)
 {
-	if (n <= 0 or m <= 0) {
+	if (n <= 0 or m <= 0)
+	{
 		throw std::out_of_range("\nCannot have non-positive dimension.");
 	}
 
@@ -19,7 +20,8 @@ Matrix<T>::Matrix(int n, int m) : n(n), m(m)
 template <class T>
 Matrix<T>::Matrix(const std::vector<std::vector<T>> in)
 {
-	if (std::size(in) <= 0 or std::size(in[0]) <= 0) {
+	if (std::size(in) <= 0 or std::size(in[0]) <= 0)
+	{
 		throw std::out_of_range("\nCannot have non-positive dimension.");
 	}
 
@@ -29,11 +31,13 @@ Matrix<T>::Matrix(const std::vector<std::vector<T>> in)
 
 	for (int i = 0; i < n; i++)
 	{
-		if (std::size(in[i]) != m) {
+		if (std::size(in[i]) != m)
+		{
 			throw std::invalid_argument("\nAll rows must have same dimension");
 		}
 
-		for (int j = 0; j < m; j++) {
+		for (int j = 0; j < m; j++)
+		{
 			this->mat[i][j] = in[i][j];
 		}
 	}
@@ -45,7 +49,8 @@ Matrix<T> &Matrix<T>::operator*=(const G &scalar)
 {
 	for (int i = 0; i < n; i++)
 	{
-		for (int j = 0; j < m; j++) {
+		for (int j = 0; j < m; j++)
+		{
 			mat[i][j] *= scalar;
 		}
 	}
@@ -59,7 +64,8 @@ Matrix<T> &Matrix<T>::operator+=(const G &scalar)
 {
 	for (int i = 0; i < n; i++)
 	{
-		for (int j = 0; j < m; j++) {
+		for (int j = 0; j < m; j++)
+		{
 			mat[i][j] += scalar;
 		}
 	}
@@ -73,7 +79,8 @@ Matrix<T> &Matrix<T>::operator-=(const G &scalar)
 {
 	for (int i = 0; i < n; i++)
 	{
-		for (int j = 0; j < m; j++) {
+		for (int j = 0; j < m; j++)
+		{
 			mat[i][j] -= scalar;
 		}
 	}
@@ -86,11 +93,13 @@ Matrix<T> &Matrix<T>::operator*=(const Matrix<T> &rhs)
 {
 	auto [n2, m2] = rhs.getShape();
 
-	if (n2 <= 0 or m2 <= 0) {
+	if (n2 <= 0 or m2 <= 0)
+	{
 		throw std::out_of_range("\nCannot have non-positive dimension.");
 	}
 
-	if (m != n2) {
+	if (m != n2)
+	{
 		throw std::invalid_argument(
 		    "\nColumn dimension of matrix-1 must be equal "
 		    "to row dimension of matrix-2");
@@ -103,7 +112,8 @@ Matrix<T> &Matrix<T>::operator*=(const Matrix<T> &rhs)
 	{
 		for (int j = 0; j < m2; j++)
 		{
-			for (int k = 0; k < m; k++) {
+			for (int k = 0; k < m; k++)
+			{
 				res[i][j] += lhs[i][k] * rhs[k][j];
 			}
 		}
@@ -120,18 +130,21 @@ Matrix<T> &Matrix<T>::operator+=(const Matrix<T> &rhs)
 {
 	auto [n2, m2] = rhs.getShape();
 
-	if (n2 <= 0 or m2 <= 0) {
+	if (n2 <= 0 or m2 <= 0)
+	{
 		throw std::out_of_range("\nCannot have non-positive dimension.");
 	}
 
-	if (n != n2 or m != m2) {
+	if (n != n2 or m != m2)
+	{
 		throw std::invalid_argument(
 		    "\nBoth Dimension of matrix-1 must be equal to that of matrix-2");
 	}
 
 	for (int i = 0; i < n; i++)
 	{
-		for (int j = 0; j < m; j++) {
+		for (int j = 0; j < m; j++)
+		{
 			this->mat[i][j] += rhs[i][j];
 		}
 	}
@@ -144,18 +157,21 @@ Matrix<T> &Matrix<T>::operator-=(const Matrix<T> &rhs)
 {
 	auto [n2, m2] = rhs.getShape();
 
-	if (n2 <= 0 or m2 <= 0) {
+	if (n2 <= 0 or m2 <= 0)
+	{
 		throw std::out_of_range("\nCannot have non-positive dimension.");
 	}
 
-	if (n != n2 or m != m2) {
+	if (n != n2 or m != m2)
+	{
 		throw std::invalid_argument(
 		    "\nBoth Dimension of matrix-1 must be equal to that of matrix-2");
 	}
 
 	for (int i = 0; i < n; i++)
 	{
-		for (int j = 0; j < m; j++) {
+		for (int j = 0; j < m; j++)
+		{
 			this->mat[i][j] -= rhs[i][j];
 		}
 	}
@@ -172,11 +188,13 @@ std::array<int, 2> Matrix<T>::getShape() const
 template <class T>
 T &Matrix<T>::operator()(int i, int j)
 {
-	if (i >= n or i < 0) {
+	if (i >= n or i < 0)
+	{
 		throw std::out_of_range("\ni should be between 0 and " +
 		                        std::to_string(n - 1) + " inclusive");
 	}
-	if (j >= m or j < 0) {
+	if (j >= m or j < 0)
+	{
 		throw std::out_of_range("\nj should be between 0 and " +
 		                        std::to_string(m - 1) + " inclusive");
 	}
