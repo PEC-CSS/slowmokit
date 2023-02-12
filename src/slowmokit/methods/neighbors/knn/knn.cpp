@@ -5,6 +5,8 @@
  */
 #include "knn.hpp"
 
+const double HALF = 0.5;
+
 template <class T>
 double KNN<T>::distance(std::vector<T> x1, std::vector<T> x2)
 {
@@ -22,12 +24,9 @@ double KNN<T>::distance(std::vector<T> x1, std::vector<T> x2)
 	}
 	if (distType == "euclidean")
 	{
-		return pow(dist, 0.5);
+		return std::pow(dist, HALF);
 	}
-	else
-	{
-		return dist;
-	}
+	return dist;
 }
 
 template <class T>

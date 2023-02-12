@@ -4,6 +4,9 @@
  * Implementation of the recall main program
  */
 #include "recall.hpp"
+
+const double HALF = 0.5;
+
 template <class T>
 std::map<T, double> recall(std::vector<T> &pred, std::vector<T> &actual)
 {
@@ -20,7 +23,8 @@ std::map<T, double> recall(std::vector<T> &pred, std::vector<T> &actual)
 	}
 	int numClasses = s.size();
 	std::map<T, double> recallMap;
-	std::map<T, int> truePosMap, falseNegMap;
+	std::map<T, int> truePosMap;
+	std::map<T, int>falseNegMap;
 	for (int i = 0; i < n; i++)
 	{
 		if (pred[i] == actual[i])
@@ -46,7 +50,7 @@ std::map<T, double> recall(std::vector<T> &pred, std::vector<T> &actual)
 		}
 
 		double x = recallMap[i];
-		float value = (int) (x * 100 + .5);
+		float value = std::lround(x * 100 + HALF);
 		recallMap[i] = (float) value / 100;
 	}
 

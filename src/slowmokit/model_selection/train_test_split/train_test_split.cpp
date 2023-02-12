@@ -42,24 +42,24 @@ train_test_quadruple<T, G> trainTestSplit(const std::vector<T> &X,
                                           double testSize, double trainSize)
 {
 	if (std::size(X) != std::size(y))
-		throw std::invalid_argument("size of both iterables must be equal.");
+		{throw std::invalid_argument("size of both iterables must be equal.");}
 
 	train_test_quadruple<T, G> res;
 	auto &[xTrain, xTest, yTrain, yTest] = res;
 
 	std::vector<std::pair<T, G>> input;
 	for (int i = 0; i < std::size(X); i++)
-		input.emplace_back(X[i], y[i]);
+		{input.emplace_back(X[i], y[i]);}
 
 	std::mt19937 rng(seed);
 	std::shuffle(std::begin(input), std::end(input), rng);
 
 	int n = std::size(input);
-	int trainDataSize = n * trainSize;
+	int trainDataSize = std::lround(n * trainSize);
 	int testDataSize = n - trainDataSize;
 
 	if (trainDataSize == 0 || testDataSize <= 0)
-		throw std::invalid_argument("Dataset too small");
+		{throw std::invalid_argument("Dataset too small");}
 
 	auto xData = std::vector<std::pair<T, G>>(
 	    std::begin(input), std::begin(input) + trainDataSize);

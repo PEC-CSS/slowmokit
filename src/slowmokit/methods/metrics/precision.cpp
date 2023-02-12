@@ -4,6 +4,9 @@
  * Implementation of the precision main program
  */
 #include "precision.hpp"
+
+const double HALF = 0.5;
+
 template <class T>
 std::map<T, double> precision(std::vector<T> &pred, std::vector<T> &actual)
 {
@@ -20,7 +23,8 @@ std::map<T, double> precision(std::vector<T> &pred, std::vector<T> &actual)
 	}
 	int numClasses = s.size();
 	std::map<T, double> precisionMap;
-	std::map<T, int> truePosMap, falsePosMap;
+	std::map<T, int> truePosMap;
+	std::map<T, int> falsePosMap;
 
 	for (int i = 0; i < n; i++)
 	{
@@ -48,7 +52,7 @@ std::map<T, double> precision(std::vector<T> &pred, std::vector<T> &actual)
 		}
 
 		double x = precisionMap[i];
-		float value = (int) (x * 100 + .5);
+		float value = std::lround(x * 100 + HALF);
 		precisionMap[i] = (float) value / 100;
 	}
 

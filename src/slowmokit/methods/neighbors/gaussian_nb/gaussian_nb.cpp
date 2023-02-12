@@ -6,6 +6,8 @@
 
 #include "gaussian_nb.hpp"
 
+const double HALF = 0.5;
+
 template <class T>
 double conditionalProb(int mean, int variance, int feature)
 {
@@ -13,7 +15,7 @@ double conditionalProb(int mean, int variance, int feature)
 	// -_____(feature-mean)^2_____)
 	//                                            ((2*pi*variance^2)^(1/2))    (
 	//                                            2 * variance^2      )
-	double den = pow((2 * 3.14 * variance * variance), 0.5);
+	double den = pow((2 * M_PI * variance * variance), HALF);
 	double insideExp = -1 * pow((feature - mean), 2);
 	insideExp /= (2 * variance * variance);
 	double num = exp(insideExp);
@@ -52,7 +54,7 @@ int fitPredict(std::vector<std::vector<T>> xTrain, std::vector<int> yTrain,
 			sum += pow((xTrain[j][i] - means[i]), 2);
 		}
 		variances[i] = pow((sum / double(xTrain.size())),
-		                   0.5); // Computing variances of each column
+		                   HALF); // Computing variances of each column
 		sum = 0.0;
 	}
 
