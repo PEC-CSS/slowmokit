@@ -53,7 +53,6 @@ std::string fitPredict(std::vector<std::vector<T>> xTrain,
       // likelihood[label][current feature]=occ in current/total no of occ
     }
   }
-  // likelihoods done
 
   std::map<std::string, double> probs;
   for (auto curr : priors)
