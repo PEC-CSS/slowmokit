@@ -58,7 +58,6 @@ double binaryStep(double x)
     return 0;
   }
 }
-<<<<<<< HEAD
 // leaky ReLU
 double leakyReLU(double x, double alpha)
 {
