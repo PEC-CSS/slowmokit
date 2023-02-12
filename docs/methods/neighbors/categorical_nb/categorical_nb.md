@@ -27,7 +27,6 @@ And finally prior*likelihood gives the probabilty of class according to which ou
 ## Example
 
 ```
-std::vector <std::vector<std::string>> xTrain = {{"fifa", "yes", "no",  "no"},
 ```cpp
     std::vector <std::vector<std::string>> xTrain = {{"fifa", "yes", "no",  "no"},
                                                      {"fifa", "no",  "yes", "no"},
