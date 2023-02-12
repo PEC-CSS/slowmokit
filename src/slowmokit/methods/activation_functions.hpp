@@ -8,36 +8,42 @@
 #define ACTIVATION_FUNCTIONS_HPP
 #include "../core.hpp"
 template<class T>
+
 /**
  * @brief To calculate sigmoid(x)
- * @param x: Number whose sigmoid value is to be calculated
- * @return a double value representing sigmoid(x)
- */
-double sigmoid(double);
-
-/**
- * @brief To calculate tan(x)
- * @param x: Number whose tan value is to be calculated
- * @return a double value representing tan(x)
+ * @param x {vector<double>} - vector containing 'double' values of x whose sigmoid values have to be calculated.
+ * 
+ * @return vector containing 'double' values representing sigmoid(x)
  */
 
-double tanh(double);
+std::vector<double> sigmoid(const std::vector<double> &);
 
 /**
  * @brief To calculate ReLU(x)
- * @param x: Number whose ReLU value is to be calculated
- * @return a double value representing ReLU(x)
+ * @param x {vector<double>} - vector containing 'double' values of x whose ReLU values have to be calculated.
+ * 
+ * @return vector containing 'double' values representing ReLU(x)
  */
 
-double ReLU(double);
+std::vector<double> ReLU(const std::vector<double> &);
 
 /**
- * @brief To calculate leakyReLU(x)
- * @param x: Number whose leakyReLU value is to be calculated
- * @return a double value representing leakyReLU(x)
+ * @brief To calculate tanh(x)
+ * @param x {vector<double>} - vector containing 'double' values of x whose tanh values have to be calculated.
+ * 
+ * @return vector containing 'double' values representing tanh(x)
  */
 
-double leakyReLU(double, double);
+std::vector<double> tanh(const std::vector<double> &);
+
+/**
+ * @brief To calculate arctan(x)
+ * @param x {vector<double>} - vector containing 'double' values of x whose arctan values have to be calculated.
+ * 
+ * @return vector containing 'double' values representing arctan(x)
+ */
+
+std::vector<double> arctan(const std::vector<double> &);
 
 /**
  * @brief To calculate softmax(x)
@@ -49,19 +55,21 @@ double leakyReLU(double, double);
 std::vector<double> softmax(const std::vector<double> &);
 
 /**
- * @brief To calculate arctan(x)
- * @param x: Number whose tan inverse value is to be calculated
- * @return a double value representing arctan(x)
+ * @brief To calculate binaryStep(x)
+ * @param x {vector<double>} - vector containing 'double' values of x whose binaryStep values have to be calculated.
+ * 
+ * @return vector containing 'double' values representing binaryStep(x)
  */
 
-double arctan(double);
+std::vector<double> binaryStep(const std::vector<double> &);
 
 /**
- * @brief To calculate binaryStep(x)
- * @param x: Number whose binaryStep value is to be calculated
- * @return a double value representing binaryStep(x)
+ * @brief To calculate leakyReLU(x)
+ * @param x {vector<double>} - vector containing 'double' values of x whose leakyReLU values have to be calculated.
+ * 
+ * @return vector containing 'double' values representing leakyReLU(x)
  */
 
-double binaryStep(double);
+std::vector<double> leakyReLU(const std::vector<double> &);
 
 #endif // ACTIVATION_FUNCTIONS_HPP

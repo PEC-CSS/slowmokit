@@ -15,7 +15,7 @@ softmax-The softmax is a more generalised form of the sigmoid. It is used in mul
 binaryStep-The Step activation function is used in the perceptron network. This is usually used in single-layer networks to convert to an output that is binary (0 or 1).These are called Binary Step Function.
 
 
-
+The following function definitions are defined for a single variable for making it comprehendible and are implemented for a vector of 'double' values in the original code.
 ## Parameters
 
 | Name         | Definition                                 | Type         |
@@ -34,48 +34,75 @@ binaryStep-The Step activation function is used in the perceptron network. This 
 |leakyReLU(x)|           max(αx, x),α=0.1 |                    `double` |
 |binaryStep(x)|          0, if x < 0
                          1, if x ≥ 0 |                         `double` |
-|softmax(x)|             e^(x_i) / Σ_j e^(x_j)   |              vector<double> |
+|softmax(x)|             e^(x_i) / Σ_j e^(x_j)   |             `double` |
+
 
 ## Example
 
 ```cpp
 int main(){
                       //sigmoid example    
-double x = 1.0;
-double y = sigmoid(x);
-std::cout << "sigmoid(" << x << ") = " << y << std::endl;
+std::vector<double> x = {-1,0,1};
+std::vector<double> y = sigmoid(x);
+ for (int i = 0; i < y.size(); i++) {
+        std::cout << y[i] << " ";
+    }
+    return 0;
+
+}
 
                       //tanh example
-double x = -1.0;
-double y = tanh(x);
-std::cout << "tanh(" << x << ") = " << y << std::endl;
+std::vector<double> x = {-1,0,1};
+std::vector<double> y = tanh(x);
+ for (int i = 0; i < y.size(); i++) {
+        std::cout << y[i] << " ";
+    }
+    return 0;
 
-                      //tan inverse example
-double x = 0.0;
-double y = arctan(x);
-std::cout << "arctan(" << x << ") = " << y << std::endl;
+}
 
+                      //arctan example
+std::vector<double> x = {-1,0,1};
+std::vector<double> y = arctan(x);
+ for (int i = 0; i < y.size(); i++) {
+        std::cout << y[i] << " ";
+    }
+    return 0;
+
+}
                       //ReLU example
-double x = 1.0;
-double y = ReLU(x);
-std::cout << "ReLU(" << x << ") = " << y << std::endl;
+std::vector<double> x = {1, 2, 3};
+std::vector<double> y = ReLU(x);
+ for (int i = 0; i < y.size(); i++) {
+        std::cout << y[i] << " ";
+    }
+    return 0;
+
+}
 
                        //leakyReLU example
-double x = -1.0;
-double alpha = 0.01;
-y = leakyReLU(x, alpha);
-std::cout << "leakyReLU(" << x << ", " << alpha << ") = " << y << std::endl;
+std::vector<double> x = {1, 2, 3};
+std::vector<double> y = leakyReLU(x);
+ for (int i = 0; i < y.size(); i++) {
+        std::cout << y[i] << " ";
+    }
+    return 0;
+}
 
                        //binaryStep example
-double x = 1.0;
-double y = binaryStep(x);
-std::cout << "binaryStep(" << x << ") = " << y << std::endl;
+std::vector<double> x = {1, 2, 3};
+std::vector<double> y = binaryStep(x);
+ for (int i = 0; i < y.size(); i++) {
+        std::cout << y[i] << " ";
+    }
+    return 0;
+}
 
                         //softmax example
 std::vector<double> x = {1, 2, 3};
-std::vector<double> result = softmax(x);
- for (double value : result) {
-        std::cout << value << " ";
+std::vector<double> y= softmax(x);
+ for (int i = 0; i < y.size(); i++) {
+        std::cout << y[i] << " ";
     }
     return 0;
 
