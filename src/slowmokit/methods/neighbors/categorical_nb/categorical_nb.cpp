@@ -51,8 +51,6 @@ void fit(std::vector<std::vector<T>> xTrain, std::vector<std::string> yTrain)
       // likelihood[label][current feature]=occ in current/total no of occ
     }
   }
-
-  
 }
 
 template<class T> std::string predict(std::vector<T> xTest)
