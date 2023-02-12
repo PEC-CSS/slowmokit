@@ -21,7 +21,7 @@ And finally prior*likelihood gives the probabilty of class according to which ou
 
 | Name                                             | Definition                                  | Return value |
 |--------------------------------------------------|---------------------------------------------|-----------|
-| `fit(vector<vector<T>> xTrain,vector<T> yTrain)` |fit the class instance with the training data|`NULL|
+| `fit(vector<vector<T>> xTrain,vector<T> yTrain)` |fit the class instance with the training data|`NULL`|
 | `predict(vector<T> xTest`                        |predict the label for xTest vector of features|`string`|
 
 ## Example
