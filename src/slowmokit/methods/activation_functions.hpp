@@ -72,4 +72,22 @@ std::vector<double> binaryStep(const std::vector<double> &);
 
 std::vector<double> leakyReLU(const std::vector<double> &);
 
+/**
+ * @brief To convert binaryToBipolar(x)
+ * @param x {vector<double>} - vector containing 'double' values of x who have to be converted to bipolar numbers.
+ * 
+ * @return vector containing 'double' values representing binaryToBipolar(x)
+*/
+
+std::vector<double> binaryToBipolar(const std::vector<double> &);
+
+/**
+ * @brief To convert bipolarToBinary(x)
+ * @param x {vector<double>} -  vector containing 'double' values of x who have to be converted to binary numbers.
+ * 
+ * @return vector containing 'double' values representing bipolarToBinary(x)
+ */
+
+std::vector<double> bipolarToBinary(const std::vector<double> &);
+
 #endif // ACTIVATION_FUNCTIONS_HPP

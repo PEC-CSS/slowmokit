@@ -63,9 +63,8 @@ std::vector<double> binaryStep(const std::vector<double> &x) {
   {
     y[i]=1; }// assuming threshold value to be 0 here 
   else
-  {
-    y[i]=0; }
-    }
+  {    y[i]=0; }
+      }
     return y;
 }
 //leakyReLU
@@ -81,4 +80,23 @@ std::vector<double> leakyReLU(const std::vector<double> &x) {
     }
     return y;
 }
-
+//binaryToBipolar Conversion
+//x= binary numbers entered by the user
+//y= bipolar numbers to be produced as output
+std::vector<double> binaryToBipolar(const std::vector<double> &x) {
+    std::vector<double> y(x.size());
+    for (int i = 0; i < x.size(); i++) {
+        y[i] = 2 * x[i] - 1;
+    }
+    return y;
+}
+//bipolarToBinary Conversion
+//x= bipolar numbers entered by the user
+//y= binary numbers to be produced as output
+std::vector<double> bipolarToBinary(const std::vector<double> &x) {
+    std::vector<double> y(x.size());
+    for (int i = 0; i < x.size(); i++) {
+        y[i] = (x[i] + 1) / 2;
+    }
+    return y;
+}
