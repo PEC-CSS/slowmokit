@@ -233,7 +233,7 @@ void LogisticRegression<T>::fit(std::vector<std::vector<T>> x,
                                 std::vector<int> y, double alpha, int numEpochs,
                                 bool verbose, int batchSize)
 {
-	const int BATCHES=10;
+	const int BATCHES = 10;
 	if (batchSize != -1)
 	{
 		this->batchSize = batchSize;

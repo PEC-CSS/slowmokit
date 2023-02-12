@@ -10,8 +10,8 @@
 #include "../../../core.hpp"
 
 
-const double LEARNING_RATE=0.01;
-const int EPOCHS=100;
+const double LEARNING_RATE = 0.01;
+const int EPOCHS = 100;
 template <class T>
 class LinearRegression
 {

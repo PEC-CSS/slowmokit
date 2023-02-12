@@ -15,12 +15,13 @@ ClassificationReport<T>::ClassificationReport(std::vector<T> &trueValue,
 	ClassificationReport<T>::printReport();
 }
 
+const double HALF = 0.5;
+
 template <class T>
 void ClassificationReport<T>::confusionMatrix(std::vector<T> &trueValue,
                                               std::vector<T> &predictedValue)
 {
 	int n = trueValue.size();
-	const double HALF = 0.5;
 
 	for (int i = 0; i < n; i++)
 	{
