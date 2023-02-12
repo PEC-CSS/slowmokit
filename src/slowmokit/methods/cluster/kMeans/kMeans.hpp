@@ -85,7 +85,7 @@ class kMeans
 		return sqroot((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2));
 	}
 
-	public:
+public:
 	kMeans(int k, int epoch) : k(k), epoch(epoch)
 	{
 		if (k <= 0)

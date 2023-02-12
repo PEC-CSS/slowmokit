@@ -13,7 +13,7 @@
 template<typename T>
 class Model
 {
-	public:
+public:
 	/**
 	 * Takes features and target as value and trains model using those values
 	 * @param x features

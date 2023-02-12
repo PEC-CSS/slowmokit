@@ -19,14 +19,14 @@
 template<class T>
 class ClassificationReport
 {
-	private:
+private:
 	std::vector<T> trueValue;
 	std::vector<T> predictedValue;
 	std::map<T, int> classes, truePositive, falsePositive, trueNegative,
 	    falseNegative;
 
-	public:
-	ClassificationReport(std::vector<T> &x, std::vector<T> &y);
+public:
+	ClassificationReport(std::vector<T> &, std::vector<T> &);
 
 	/**
 	 * @throws domain_error exception when size of the two vectors is not equal

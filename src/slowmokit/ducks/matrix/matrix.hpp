@@ -12,7 +12,7 @@
 template<class T = int>
 class Matrix
 {
-	private:
+private:
 	/**
 	 * n: Row Dimension
 	 * m: Column Dimension
@@ -32,7 +32,7 @@ class Matrix
 		m = std::size(mat[0]);
 	}
 
-	public:
+public:
 	/**
 	 * @constructor to initialise Matrix object with all zero and given
 	 * dimension

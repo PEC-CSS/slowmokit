@@ -14,7 +14,7 @@ class LogisticRegression
 {
 	int batchSize = -1;
 
-	private:
+private:
 	std::vector<std::vector<T>> beta; // Initializing beta i.e weights ->
 	                                  // (output_classes * numbers_of_features)
 	/**
@@ -56,7 +56,7 @@ class LogisticRegression
 	           std::vector<std::vector<int>> y, double alpha, int numEpochs,
 	           bool verbose);
 
-	public:
+public:
 	/**
 	 * @brief training
 	 *

@@ -11,7 +11,7 @@
 template<class T>
 class KNN
 {
-	private:
+private:
 	std::vector<std::vector<T>> xTrain;
 	std::vector<int> yTrain;
 	int classNums;
@@ -25,7 +25,7 @@ class KNN
 	 */
 	double distance(std::vector<T> x1, std::vector<T> x2);
 
-	public:
+public:
 	/**
 	 * @brief store values of training data
 	 *

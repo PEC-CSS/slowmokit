@@ -12,7 +12,7 @@
 template<class T>
 class GaussianNB
 {
-	private:
+private:
 	/**
 	 * @brief Condtional Probability of Gaussian Naive Bayes
 	 *
@@ -23,7 +23,7 @@ class GaussianNB
 	 */
 	double conditionalProb(int mean, int variance, int feature);
 
-	public:
+public:
 	/**
 	 * @brief Fit predict at same time
 	 *

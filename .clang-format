@@ -1,6 +1,6 @@
 ---
 BasedOnStyle: LLVM
-AccessModifierOffset: "0"
+AccessModifierOffset: "-4"
 AllowShortBlocksOnASingleLine: false
 AllowShortIfStatementsOnASingleLine: false
 AllowShortFunctionsOnASingleLine: false
@@ -8,6 +8,7 @@ AlignConsecutiveAssignments: false
 AlignOperands: false
 AlignTrailingComments: true
 AlwaysBreakTemplateDeclarations: true
+AccessModifierOffset: 0
 BreakBeforeBraces: Allman
 BreakStringLiterals: "true"
 CompactNamespaces: "false"

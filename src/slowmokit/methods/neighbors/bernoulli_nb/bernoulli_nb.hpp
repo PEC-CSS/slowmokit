@@ -12,7 +12,7 @@
 template<class T>
 class BernoulliNB
 {
-	private:
+private:
 	/**
 	@brief Function Prior probability
 	@param yTrain to compute P(y=y1) and label y1
@@ -33,7 +33,7 @@ class BernoulliNB
 	                       std::vector<T> yTrain, int featureCol,
 	                       int featureVal, int label);
 
-	public:
+public:
 	/**
 	@brief Function fit and predict the output
 	@param xTrain 2-d training values
