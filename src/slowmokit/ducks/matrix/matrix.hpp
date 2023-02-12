@@ -92,16 +92,6 @@ template<class T = int> class Matrix
 
 
   /**
-   * @brief Function for taking dot product of current matrix with another
-   * matrix
-   * @param rhs: Take dot product of current Matrix with `rhs`
-   * @returns: A New Matrix after taking dot product with matrix `rhs`
-   * @throws: std::invalid_argument incase of incompatible dimensions
-   */
-  Matrix &dot(const Matrix &);
-
-
-  /**
    * @brief overloading += operator for adding another matrix to existing matrix
    * @param1: Matrix `rhs` which is to be added
    * @throws: std::invalid_argument incase of incompatible dimensions
