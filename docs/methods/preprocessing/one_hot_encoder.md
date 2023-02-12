@@ -10,7 +10,7 @@ One hot encoding makes our training data more useful and expressive, and it can 
 | Name         | Definition                                 | Type         |
 |--------------|--------------------------------------------|--------------|
 |   data       | The data that has to be encoded is passed as the data parameter in the oneHotEncoder function. | `vector<int>` |
-
+|   nClasses      | This parameter is an integer that specifies the number of classes or categories in the input data. | `int` |
 
 ## Methods
 
@@ -20,7 +20,7 @@ One hot encoding makes our training data more useful and expressive, and it can 
 
 ## Example
 
-```
+```cpp
 int main() {
  std::vector<std::string> data = {"apples", "banana", "mango", "pear", "mango","apples","pear"};
  int nClasses = 4;

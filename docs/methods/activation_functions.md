@@ -31,7 +31,7 @@ binaryStep-The Step activation function is used in the perceptron network. This 
 
 ## Example
 
-```
+```cpp
 int main(){
                       //sigmoid example    
 double x = 1.0;

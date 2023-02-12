@@ -58,6 +58,7 @@ double binaryStep(double x)
     return 0;
   }
 }
+<<<<<<< HEAD
 // leaky ReLU
 double leakyReLU(double x, double alpha)
 {
@@ -70,3 +71,13 @@ double leakyReLU(double x, double alpha)
     return alpha * x;
   }
 }
+=======
+//leaky ReLU
+double leakyReLU(double x, double alpha) {
+    if (x >= 0) {
+        return x;
+    } else {
+        return alpha * x;
+    }
+}
+>>>>>>> 5eebc29054fab6686e728aca29e64e1c53dd7a8c
