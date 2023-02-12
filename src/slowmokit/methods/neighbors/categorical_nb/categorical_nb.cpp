@@ -65,7 +65,7 @@ template<class T> std::string predict(std::vector<T> xTest)
     }
   }
   double maxProb = 0;
-  std::string out = "";
+  std::string out;
   for (auto prob : probs)
   {
     if (prob.second > maxProb)
