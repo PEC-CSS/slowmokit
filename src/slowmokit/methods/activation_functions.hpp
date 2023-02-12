@@ -11,10 +11,12 @@
 
 /**
  * @param x {double x} - double value on which the function is applied.
- * 
- * @param x {vector<double>} - vector containing 'double' values of x for softmax activation function implementation.
- * 
- * @return {double value} - double value after putting x in the functions gets returned.  
+ *
+ * @param x {vector<double>} - vector containing 'double' values of x for
+ * softmax activation function implementation.
+ *
+ * @return {double value} - double value after putting x in the functions gets
+ * returned.
  */
 
 template<class T>
