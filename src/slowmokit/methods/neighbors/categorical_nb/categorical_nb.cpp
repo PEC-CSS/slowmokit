@@ -5,11 +5,11 @@
  */
 
 #include "categorical_nb.hpp"
-
+std::map<std::string, double> priors;
+std::map<std::string, std::map<std::string , double>> likelihoods;  // for each label we will store a map , containing n features and their corresponding probability
 template<class T>
-
-std::string fitPredict(std::vector<std::vector<T>> xTrain,
-                       std::vector<std::string> yTrain, std::vector<T> xTest)
+void fit(std::vector<std::vector<T>> xTrain,
+                       std::vector<std::string> yTrain)
 {
   // posterior = (prior * likelihood)/evidence
   // since, evidence is same among all instances -> we can ignore it
@@ -19,7 +19,6 @@ std::string fitPredict(std::vector<std::vector<T>> xTrain,
   if (xTrain.size() != yTrain.size())
     throw "Number of features and target must be equal";
 
-  std::map<std::string, double> priors;
   std::map<std::string, int> occurences;
 
   for (auto category : yTrain)
@@ -30,10 +29,7 @@ std::string fitPredict(std::vector<std::vector<T>> xTrain,
   {
     priors[current.first] = double(current.second) / yTrain.size();
   }
-  // priors calculated
 
-  std::map<std::string, std::map<T, double>> likelihoods;
-  // for any ith label -> n instances -> for each differ probability
   std::map<std::string, std::map<T, int>> counts;
 
   for (int i = 0; i < xTrain.size(); i++)
@@ -54,28 +50,31 @@ std::string fitPredict(std::vector<std::vector<T>> xTrain,
       // likelihood[label][current feature]=occ in current/total no of occ
     }
   }
-  // likelihoods done
 
-  std::map<std::string, double> probs;
-  for (auto curr : priors)
-  {
-    probs[curr.first] = curr.second;
-    for (auto feature : xTest)
-    {
-      // if(likelihoods[curr.first][feature]==0){ continue;}
-      probs[curr.first] *= likelihoods[curr.first][feature];
-    }
-  }
-  double maxProb = 0;
-  std::string out = "";
-  for (auto prob : probs)
-  {
-    if (prob.second > maxProb)
-    {
-      maxProb = prob.second;
-      out = prob.first;
-    }
-  }
 
-  return out;
+}
+
+template<class T>
+std::string predict(std::vector<T> xTest){
+    std::map<std::string, double> probs;
+    for (auto curr : priors)
+    {
+        probs[curr.first] = curr.second;
+        for (auto feature : xTest)
+        {
+            probs[curr.first] *= likelihoods[curr.first][feature];
+        }
+    }
+    double maxProb = 0;
+    std::string out = "";
+    for (auto prob : probs)
+    {
+        if (prob.second > maxProb)
+        {
+            maxProb = prob.second;
+            out = prob.first;
+        }
+    }
+
+    return out;
 }

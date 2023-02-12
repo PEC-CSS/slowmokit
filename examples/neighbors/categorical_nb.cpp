@@ -14,6 +14,7 @@
 //    std::vector <std::string> yTrain = {"m", "m", "m", "m", "f", "f", "f", "f"};
 //    std::vector <std::string> xTest = {"fifa", "no", "yes", "yes"};
 //    categoricalNB<std::string> classifier;
-//    std::cout << classifier.fitPredict(xTrain, yTrain, xTest);
+//    classifier.fit(xTrain,yTrain)
+//    std::cout<<classifier.predict(xTest);
 //
 //}
