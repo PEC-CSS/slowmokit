@@ -23,7 +23,8 @@ namespace detail
 	                void(*begin(std::declval<T &>())), // operator*
 	                std::true_type {});
 
-	template<typename T> std::false_type is_iterable_impl(...);
+	template<typename T>
+	std::false_type is_iterable_impl(...);
 
 } // namespace detail
 
@@ -53,9 +54,9 @@ train_test_quadruple<T, G> trainTestSplit(const std::vector<T> &X,
 	std::mt19937 rng(seed);
 	std::shuffle(std::begin(input), std::end(input), rng);
 
-	int n             = std::size(input);
+	int n = std::size(input);
 	int trainDataSize = n * trainSize;
-	int testDataSize  = n - trainDataSize;
+	int testDataSize = n - trainDataSize;
 
 	if (testDataSize == 0 || testDataSize <= 0)
 		throw std::invalid_argument("Dataset too small");

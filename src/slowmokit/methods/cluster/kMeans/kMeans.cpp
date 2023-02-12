@@ -5,7 +5,8 @@
  */
 #include "kMeans.hpp"
 
-template<class T> void kMeans<T>::fit(std::vector<std::vector<T>> X)
+template<class T>
+void kMeans<T>::fit(std::vector<std::vector<T>> X)
 {
 	int n = std::size(X);
 	if (std::ssize(centroids) != k)
@@ -78,7 +79,8 @@ std::vector<int> kMeans<T>::predict(std::vector<std::vector<T>> X)
 	return clusters;
 }
 
-template<class T> std::vector<int> kMeans<T>::labels() const
+template<class T>
+std::vector<int> kMeans<T>::labels() const
 {
 	return clusters;
 }

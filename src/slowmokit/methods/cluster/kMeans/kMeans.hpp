@@ -9,7 +9,8 @@
 
 #include "../../../core.hpp"
 
-template<class T> class kMeans
+template<class T>
+class kMeans
 {
 	const int k;
 	const int epoch;
@@ -22,7 +23,8 @@ template<class T> class kMeans
 	  @param r: end of range
 	  @throws assertionError if r > l.
 	  */
-	template<class G> G randomInteger(G l, G r)
+	template<class G>
+	G randomInteger(G l, G r)
 	{
 		std::mt19937 rng(
 		    std::chrono::steady_clock::now().time_since_epoch().count());
@@ -37,7 +39,8 @@ template<class T> class kMeans
 	 * @param L start of range
 	 * @param R end of range
 	 */
-	template<class G> std::set<G> getKDistinctIndices(int k, int L, int R)
+	template<class G>
+	std::set<G> getKDistinctIndices(int k, int L, int R)
 	{
 		if (k < 0)
 		{

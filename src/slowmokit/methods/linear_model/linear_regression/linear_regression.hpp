@@ -9,11 +9,12 @@
 
 #include "../../../core.hpp"
 
-template<class T> class LinearRegression
+template<class T>
+class LinearRegression
 {
 	private:
 	std::vector<T> coefficients;
-	int epochs          = 100;
+	int epochs = 100;
 	double learningRate = 0.01;
 
 	public:

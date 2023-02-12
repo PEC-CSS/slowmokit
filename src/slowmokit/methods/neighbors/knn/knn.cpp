@@ -5,7 +5,8 @@
  */
 #include "knn.hpp"
 
-template<class T> double KNN<T>::distance(std::vector<T> x1, std::vector<T> x2)
+template<class T>
+double KNN<T>::distance(std::vector<T> x1, std::vector<T> x2)
 {
 	double dist = 0;
 	for (int i = 0; i < x1.size(); i++)
@@ -33,8 +34,8 @@ template<class T>
 void KNN<T>::fit(std::vector<std::vector<T>> x, std::vector<int> y,
                  int classNums)
 {
-	this->xTrain    = x;
-	this->yTrain    = y;
+	this->xTrain = x;
+	this->yTrain = y;
 	this->classNums = classNums;
 }
 

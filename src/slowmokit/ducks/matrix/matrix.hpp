@@ -9,7 +9,8 @@
 
 #include "../../core.hpp"
 
-template<class T = int> class Matrix
+template<class T = int>
+class Matrix
 {
 	private:
 	/**
@@ -57,7 +58,8 @@ template<class T = int> class Matrix
 	 * @param scalar: Number with which you want to multiply matrix with
 	 * @returns: Matrix after multiplying current matrix with scalar
 	 */
-	template<class G> Matrix &operator*=(const G &);
+	template<class G>
+	Matrix &operator*=(const G &);
 
 
 	/**
@@ -76,7 +78,8 @@ template<class T = int> class Matrix
 	 * @param scalar: Number with which you want to add matrix with
 	 * @returns: Matrix after adding current matrix with scalar
 	 */
-	template<class G> Matrix &operator+=(const G &);
+	template<class G>
+	Matrix &operator+=(const G &);
 
 
 	/**
@@ -84,7 +87,8 @@ template<class T = int> class Matrix
 	 * @param scalar: Number with which you want to subtract matrix with
 	 * @returns: Matrix after subtracting scalar from current matrix
 	 */
-	template<class G> Matrix &operator-=(const G &);
+	template<class G>
+	Matrix &operator-=(const G &);
 
 
 	/**
@@ -168,7 +172,8 @@ template<class T = int> class Matrix
 /**
  * @brief overloading << for easy printing of Matrix
  */
-template<class T> std::ostream &operator<<(std::ostream &, const Matrix<T> &);
+template<class T>
+std::ostream &operator<<(std::ostream &, const Matrix<T> &);
 
 /**
  * @brief Free Function to multiply a matrix to a number or another matrix
@@ -176,9 +181,12 @@ template<class T> std::ostream &operator<<(std::ostream &, const Matrix<T> &);
  * @param rhs: A number (only if lhs is not a number) or a Matrix
  * @returns Matrix Object
  */
-template<class T, class G> Matrix<T> operator*(G, const Matrix<T> &);
-template<class T, class G> Matrix<T> operator*(Matrix<T>, const G &);
-template<class T> Matrix<T> operator*(Matrix<T>, const Matrix<T> &);
+template<class T, class G>
+Matrix<T> operator*(G, const Matrix<T> &);
+template<class T, class G>
+Matrix<T> operator*(Matrix<T>, const G &);
+template<class T>
+Matrix<T> operator*(Matrix<T>, const Matrix<T> &);
 
 /**
  * @brief Free Function to add a matrix to a number or another matrix
@@ -186,9 +194,12 @@ template<class T> Matrix<T> operator*(Matrix<T>, const Matrix<T> &);
  * @param rhs: A number (only if lhs is not a number) or a Matrix
  * @returns Matrix Object
  */
-template<class T, class G> Matrix<T> operator+(G, const Matrix<T> &);
-template<class T, class G> Matrix<T> operator+(Matrix<T>, const G &);
-template<class T> Matrix<T> operator+(Matrix<T>, const Matrix<T> &);
+template<class T, class G>
+Matrix<T> operator+(G, const Matrix<T> &);
+template<class T, class G>
+Matrix<T> operator+(Matrix<T>, const G &);
+template<class T>
+Matrix<T> operator+(Matrix<T>, const Matrix<T> &);
 
 /**
  * @brief Free Function to subtract a matrix to a number or another matrix
@@ -196,9 +207,12 @@ template<class T> Matrix<T> operator+(Matrix<T>, const Matrix<T> &);
  * @param rhs: A number (only if lhs is not a number) or a Matrix
  * @returns Matrix Object
  */
-template<class T, class G> Matrix<T> operator-(G, const Matrix<T> &);
-template<class T, class G> Matrix<T> operator-(Matrix<T>, const G &);
-template<class T> Matrix<T> operator-(Matrix<T>, const Matrix<T> &);
+template<class T, class G>
+Matrix<T> operator-(G, const Matrix<T> &);
+template<class T, class G>
+Matrix<T> operator-(Matrix<T>, const G &);
+template<class T>
+Matrix<T> operator-(Matrix<T>, const Matrix<T> &);
 
 
 #endif // SLOWMOKIT_IO_HPP

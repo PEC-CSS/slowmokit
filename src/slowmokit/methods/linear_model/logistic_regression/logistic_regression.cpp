@@ -48,12 +48,12 @@ double LogisticRegression<T>::EvalL(std::vector<std::vector<T>> x,
 	// y -> all training y values
 	// beta -> weights computed in logRegMbgd
 
-	int n       = x.size();     // number of x values
+	int n = x.size();           // number of x values
 	double loss = 0.0;          // initializing loss with 0.0
 	for (int i = 0; i < n; i++) // loop over each x value
 	{
 		std::vector<double> xiHat = x[i]; // particular x value
-		std::vector<int> yi       = y[i]; // particular y value
+		std::vector<int> yi = y[i];       // particular y value
 		std::vector<double> qi(
 		    beta.size(),
 		    0.0); // qi is the loss for each class like in output
@@ -84,8 +84,8 @@ LogisticRegression<T>::logRegMbgd(std::vector<std::vector<double>> x,
                                   std::vector<std::vector<int>> y, double alpha,
                                   int numEpochs, bool verbose)
 {                                 // PERFORMS MULTICLASS LOGISTIC REGRESSION
-	int n          = x.size();    // Rows in training vector
-	int d          = x[0].size(); // Number of features
+	int n = x.size();             // Rows in training vector
+	int d = x[0].size();          // Number of features
 	int numClasses = y[0].size(); // Output classes
 	std::vector<std::vector<double>> beta(
 	    numClasses,

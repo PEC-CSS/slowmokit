@@ -16,7 +16,8 @@
  * @throws domain_error exception when size of the two vectors is not equal
  */
 
-template<class T> class ClassificationReport
+template<class T>
+class ClassificationReport
 {
 	private:
 	std::vector<T> trueValue;

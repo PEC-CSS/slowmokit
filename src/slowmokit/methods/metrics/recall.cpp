@@ -45,8 +45,8 @@ std::map<T, double> recall(std::vector<T> &pred, std::vector<T> &actual)
 			recallMap[i] = 0.0;
 		}
 
-		double x     = recallMap[i];
-		float value  = (int) (x * 100 + .5);
+		double x = recallMap[i];
+		float value = (int) (x * 100 + .5);
 		recallMap[i] = (float) value / 100;
 	}
 

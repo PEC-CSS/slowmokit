@@ -4,13 +4,14 @@
  * Implementation of the Accuracy score main program
  */
 #include "standardization.hpp"
-template<class T> void standardize(std::vector<T> &values)
+template<class T>
+void standardize(std::vector<T> &values)
 {
-	double mean   = 0.0;
+	double mean = 0.0;
 	double stdDev = 0.0;
-	double sum    = accumulate(values.begin(), values.end(), 0.0);
-	int n         = values.size();
-	mean          = sum / (double) n;
+	double sum = accumulate(values.begin(), values.end(), 0.0);
+	int n = values.size();
+	mean = sum / (double) n;
 
 	for (int i = 0; i < n; i++)
 	{

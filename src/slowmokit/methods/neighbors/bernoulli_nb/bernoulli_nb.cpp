@@ -5,7 +5,8 @@
  */
 #include "bernoulli_nb.hpp"
 
-template<class T> double priorProb(std::vector<T> yTrain, int label)
+template<class T>
+double priorProb(std::vector<T> yTrain, int label)
 { // Prior-Probability P(y)
 	int sum = 0;
 	for (int i = 0; i < yTrain.size(); i++)
@@ -65,11 +66,11 @@ int fitPredict(std::vector<std::vector<T>> xTrain, std::vector<T> yTrain,
 		}
 
 		double prior = priorProb(yTrain, label);
-		double post  = prior * likelihood;
+		double post = prior * likelihood;
 		postProbs.push_back(post);
 	}
 	double sumpropProbs = 0.0;
-	int max             = 0;
+	int max = 0;
 	for (int i = 0; i < postProbs.size(); i++)
 	{
 		sumpropProbs += postProbs[i];

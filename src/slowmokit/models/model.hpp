@@ -10,7 +10,8 @@
 
 #include "../core.hpp"
 
-template<typename T> class Model
+template<typename T>
+class Model
 {
 	public:
 	/**

@@ -9,7 +9,8 @@
 
 #include "../../../core.hpp"
 
-template<class T> class BernoulliNB
+template<class T>
+class BernoulliNB
 {
 	private:
 	/**

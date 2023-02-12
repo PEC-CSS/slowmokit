@@ -5,7 +5,8 @@
  */
 
 #include "label_encoder.hpp"
-template<class T> std::vector<int> labelEncoder(std::vector<T> &input)
+template<class T>
+std::vector<int> labelEncoder(std::vector<T> &input)
 {
 	std::map<T, int> indices;
 	int currIndex = 0;
@@ -22,7 +23,7 @@ template<class T> std::vector<int> labelEncoder(std::vector<T> &input)
 	int i = 0;
 	for (auto e : input)
 	{
-		int curr       = indices[e];
+		int curr = indices[e];
 		encodedData[i] = curr;
 		i++;
 	}

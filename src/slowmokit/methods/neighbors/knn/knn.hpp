@@ -8,7 +8,8 @@
 
 #include "../../../models/model.hpp"
 
-template<class T> class KNN
+template<class T>
+class KNN
 {
 	private:
 	std::vector<std::vector<T>> xTrain;

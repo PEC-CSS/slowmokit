@@ -47,8 +47,8 @@ std::map<T, double> precision(std::vector<T> &pred, std::vector<T> &actual)
 			precisionMap[i] = 0.0;
 		}
 
-		double x        = precisionMap[i];
-		float value     = (int) (x * 100 + .5);
+		double x = precisionMap[i];
+		float value = (int) (x * 100 + .5);
 		precisionMap[i] = (float) value / 100;
 	}
 

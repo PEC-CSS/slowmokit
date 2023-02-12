@@ -9,7 +9,7 @@
 template<class T>
 LinearRegression<T>::LinearRegression(int epochs, double learningRate)
 {
-	this->epochs       = epochs;
+	this->epochs = epochs;
 	this->learningRate = learningRate;
 }
 
@@ -64,7 +64,8 @@ std::vector<T> LinearRegression<T>::predict(std::vector<std::vector<T>> x)
 	return yPred;
 }
 
-template<class T> void LinearRegression<T>::printCoefficients()
+template<class T>
+void LinearRegression<T>::printCoefficients()
 {
 	for (int i = 0; i < coefficients.size(); i++)
 		std::cout << "Θ" << i << ": " << coefficients[i] << std::endl;

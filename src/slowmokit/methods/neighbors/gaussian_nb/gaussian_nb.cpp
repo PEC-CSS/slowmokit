@@ -6,13 +6,14 @@
 
 #include "gaussian_nb.hpp"
 
-template<class T> double conditionalProb(int mean, int variance, int feature)
+template<class T>
+double conditionalProb(int mean, int variance, int feature)
 {
 	// Conditional probabilty  P(x=f1 / y=class) = __________1____________ * e^(
 	// -_____(feature-mean)^2_____)
 	//                                            ((2*pi*variance^2)^(1/2))    (
 	//                                            2 * variance^2      )
-	double den       = pow((2 * 3.14 * variance * variance), 0.5);
+	double den = pow((2 * 3.14 * variance * variance), 0.5);
 	double insideExp = -1 * pow((feature - mean), 2);
 	insideExp /= (2 * variance * variance);
 	double num = exp(insideExp);
@@ -39,7 +40,7 @@ int fitPredict(std::vector<std::vector<T>> xTrain, std::vector<int> yTrain,
 			sum += xTrain[j][i];
 		}
 		means[i] = sum / double(xTrain.size()); // Computing means
-		sum      = 0.0;
+		sum = 0.0;
 	}
 
 	sum = 0.0;
@@ -52,7 +53,7 @@ int fitPredict(std::vector<std::vector<T>> xTrain, std::vector<int> yTrain,
 		}
 		variances[i] = pow((sum / double(xTrain.size())),
 		                   0.5); // Computing variances of each column
-		sum          = 0.0;
+		sum = 0.0;
 	}
 
 	double sumpropProbs = 0.0;

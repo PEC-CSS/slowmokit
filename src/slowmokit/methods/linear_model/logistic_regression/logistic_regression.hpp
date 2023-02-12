@@ -9,7 +9,8 @@
 
 #include "../../../core.hpp"
 
-template<class T> class LogisticRegression
+template<class T>
+class LogisticRegression
 {
 	int batchSize = -1;
 

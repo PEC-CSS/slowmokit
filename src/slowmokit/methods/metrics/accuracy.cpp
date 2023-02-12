@@ -12,7 +12,7 @@ double accuracy(const std::vector<T> &pred, const std::vector<T> &trueLabels)
 		throw std ::domain_error("pred and true_labels must have same size");
 	}
 	int correct = 0;
-	int total   = pred.size();
+	int total = pred.size();
 	for (int i = 0; i < total; i++)
 	{
 		if (pred[i] == trueLabels[i])

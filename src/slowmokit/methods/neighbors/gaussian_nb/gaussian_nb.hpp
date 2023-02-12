@@ -9,7 +9,8 @@
 
 #include "../../../core.hpp"
 
-template<class T> class GaussianNB
+template<class T>
+class GaussianNB
 {
 	private:
 	/**

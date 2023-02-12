@@ -176,9 +176,9 @@ CheckOptions:
   - key:             readability-inconsistent-declaration-parameter-name.Strict
     value:           '0'
   - key:             readability-magic-numbers.IgnoredFloatingPointValues
-    value:           '1.0;100.0;'
+    value:           '1.0;100.0;0.5;'
   - key:             readability-magic-numbers.IgnoredIntegerValues
-    value:           '1;2;3;4;'
+    value:           '1;2;3;4;10;11'
   - key:             readability-redundant-member-init.IgnoreBaseInCopyConstructors
     value:           '0'
   - key:             readability-redundant-smartptr-get.IgnoreMacros
