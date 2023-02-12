@@ -4,7 +4,7 @@
  * Implementation of the precision main program
  */
 #include "precision.hpp"
-template<class T>
+template <class T>
 std::map<T, double> precision(std::vector<T> &pred, std::vector<T> &actual)
 {
 	if (pred.size() != actual.size())

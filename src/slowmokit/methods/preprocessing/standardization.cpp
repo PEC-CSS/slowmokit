@@ -4,7 +4,7 @@
  * Implementation of the Accuracy score main program
  */
 #include "standardization.hpp"
-template<class T>
+template <class T>
 void standardize(std::vector<T> &values)
 {
 	double mean = 0.0;

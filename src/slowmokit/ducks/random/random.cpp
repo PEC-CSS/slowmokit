@@ -6,11 +6,11 @@
 
 #include "random.hpp"
 
-template<class RealType>
+template <class RealType>
 RealType random(RealType L, RealType R)
 {
 	std::mt19937 rng(seed);
-	if (!std::is_floating_point<RealType>())
+	if (! std::is_floating_point<RealType>())
 		throw std::domain_error("Both parameter must be floating point only.");
 
 	if (L > R)
@@ -21,11 +21,11 @@ RealType random(RealType L, RealType R)
 	return std::uniform_real_distribution<RealType>(L, R)(rng);
 }
 
-template<class IntType>
+template <class IntType>
 IntType randint(IntType L, IntType R)
 {
 	std::mt19937 rng(seed);
-	if (!std::is_integral<IntType>() and !std::is_unsigned<IntType>())
+	if (! std::is_integral<IntType>() and ! std::is_unsigned<IntType>())
 		throw std::domain_error(
 		    "Both parameter must be signed or unsigned integer type only.");
 

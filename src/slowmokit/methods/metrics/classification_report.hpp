@@ -16,16 +16,16 @@
  * @throws domain_error exception when size of the two vectors is not equal
  */
 
-template<class T>
+template <class T>
 class ClassificationReport
 {
-private:
+	private:
 	std::vector<T> trueValue;
 	std::vector<T> predictedValue;
 	std::map<T, int> classes, truePositive, falsePositive, trueNegative,
 	    falseNegative;
 
-public:
+	public:
 	ClassificationReport(std::vector<T> &, std::vector<T> &);
 
 	/**

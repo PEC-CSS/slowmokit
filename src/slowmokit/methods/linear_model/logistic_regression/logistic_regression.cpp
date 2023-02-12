@@ -7,7 +7,7 @@
 #include "logistic_regression.hpp"
 #include "../../preprocessing/one_hot_encoder.hpp"
 
-template<class T>
+template <class T>
 std::vector<double> LogisticRegression<T>::softmax(std::vector<T> x)
 { // Softmax function
 	std::vector<double> exps(x.size());
@@ -25,7 +25,7 @@ std::vector<double> LogisticRegression<T>::softmax(std::vector<T> x)
 	return exps;
 };
 
-template<class T>
+template <class T>
 double LogisticRegression<T>::crossLogEntropy(std::vector<int> y,
                                               std::vector<T> qi)
 { // Gives gradient descent -(d(z)/d(theta))
@@ -37,7 +37,7 @@ double LogisticRegression<T>::crossLogEntropy(std::vector<int> y,
 	return -1 * l;
 };
 
-template<class T>
+template <class T>
 //
 double LogisticRegression<T>::EvalL(std::vector<std::vector<T>> x,
                                     std::vector<std::vector<int>> y,
@@ -77,7 +77,7 @@ double LogisticRegression<T>::EvalL(std::vector<std::vector<T>> x,
 	return loss; // finally returning loss
 };
 
-template<class T>
+template <class T>
 // This function performs logistic regression stochastic gradient descent
 std::vector<std::vector<double>>
 LogisticRegression<T>::logRegMbgd(std::vector<std::vector<double>> x,
@@ -139,8 +139,8 @@ LogisticRegression<T>::logRegMbgd(std::vector<std::vector<double>> x,
 		    gradLi( // Initializing gradient descent
 		        numClasses, std::vector<double>(x[0].size(), 0.0));
 
-		while (!prm.empty()) // till prm not becomes empty keep iterating over
-		                     // the while loop
+		while (! prm.empty()) // till prm not becomes empty keep iterating over
+		                      // the while loop
 		{
 			if ((prm.size() + countCompleted) <
 			    batchSize) // if we left with x values less than batch size then
@@ -222,7 +222,7 @@ LogisticRegression<T>::logRegMbgd(std::vector<std::vector<double>> x,
 	return beta; // finally return weights computed after all the epochs
 };
 
-template<class T>
+template <class T>
 // training function
 // x -> training 2-d vector double values
 // y - > training 1-d int values
@@ -254,7 +254,7 @@ void LogisticRegression<T>::fit(std::vector<std::vector<T>> x,
 	    logRegMbgd(x, oneHotEncodedY, alpha, numEpochs, verbose, batchSize);
 };
 
-template<class T>
+template <class T>
 std::vector<double> LogisticRegression<T>::predict(std::vector<T> x)
 { // Predict probabilities of each class
 	std::vector<double> probs(beta.size(), 0.0);

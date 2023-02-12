@@ -4,7 +4,7 @@
  * Implementation of the Accuracy score main program
  */
 #include "accuracy.hpp"
-template<class T>
+template <class T>
 double accuracy(const std::vector<T> &pred, const std::vector<T> &trueLabels)
 {
 	if (pred.size() != trueLabels.size())

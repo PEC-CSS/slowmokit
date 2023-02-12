@@ -18,7 +18,7 @@
  * @throws std::domain_error if L or R are not floating point type
  * @throws std::length_error exception if R > L
  */
-template<class RealType>
+template <class RealType>
 RealType random(RealType, RealType);
 
 /**
@@ -30,7 +30,7 @@ RealType random(RealType, RealType);
  * @throws std::domain_error if L or R is not signed/unsigned int or char
  * @throws std::length_error exception if R > L
  */
-template<class IntType>
+template <class IntType>
 IntType randint(IntType, IntType);
 
 /**

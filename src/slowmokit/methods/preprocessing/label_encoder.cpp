@@ -5,7 +5,7 @@
  */
 
 #include "label_encoder.hpp"
-template<class T>
+template <class T>
 std::vector<int> labelEncoder(std::vector<T> &input)
 {
 	std::map<T, int> indices;

@@ -5,7 +5,7 @@
  */
 #include "bernoulli_nb.hpp"
 
-template<class T>
+template <class T>
 double priorProb(std::vector<T> yTrain, int label)
 { // Prior-Probability P(y)
 	int sum = 0;
@@ -19,7 +19,7 @@ double priorProb(std::vector<T> yTrain, int label)
 	return sum / double(yTrain.size());
 }
 
-template<class T>
+template <class T>
 double conditionalProb(std::vector<std::vector<T>> xTrain,
                        std::vector<T> yTrain, int featureCol, int featureVal,
                        int label)
@@ -44,7 +44,7 @@ double conditionalProb(std::vector<std::vector<T>> xTrain,
 	return numerator;
 }
 
-template<class T>
+template <class T>
 int fitPredict(std::vector<std::vector<T>> xTrain, std::vector<T> yTrain,
                std::vector<T> xTest)
 {

@@ -4,7 +4,7 @@
  * Implementation of the Accuracy score main program
  */
 #include "normalization.hpp"
-template<class T>
+template <class T>
 void normalize(std::vector<T> &values)
 {
 	T minimum = *min_element(values.begin(), values.end());

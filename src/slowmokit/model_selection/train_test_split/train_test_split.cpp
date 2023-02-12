@@ -13,7 +13,7 @@ namespace detail
 	using std::begin;
 	using std::end;
 
-	template<typename T>
+	template <typename T>
 	auto isIterableImpl(int)
 	    -> decltype(begin(std::declval<T &>()) !=
 	                    end(std::declval<T &>()), // begin/end and operator !=
@@ -23,19 +23,19 @@ namespace detail
 	                void(*begin(std::declval<T &>())), // operator*
 	                std::true_type {});
 
-	template<typename T>
+	template <typename T>
 	std::false_type isIterableImpl(...);
 
 } // namespace detail
 
-template<typename T>
+template <typename T>
 using is_iterable = decltype(detail::isIterableImpl<T>(0));
 
-template<typename T, typename G>
+template <typename T, typename G>
 using train_test_quadruple =
     std::tuple<std::vector<T>, std::vector<G>, std::vector<T>, std::vector<G>>;
 
-template<class T, class G>
+template <class T, class G>
 
 train_test_quadruple<T, G> trainTestSplit(const std::vector<T> &X,
                                           const std::vector<G> &y,

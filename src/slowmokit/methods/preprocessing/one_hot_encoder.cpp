@@ -5,7 +5,7 @@
  */
 
 #include "one_hot_encoder.hpp"
-template<class T>
+template <class T>
 std::vector<std::vector<int>> oneHotEncoder(const std::vector<T> &data,
                                             int nClasses)
 {

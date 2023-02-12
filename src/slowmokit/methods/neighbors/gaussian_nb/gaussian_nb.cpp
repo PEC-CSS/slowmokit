@@ -6,7 +6,7 @@
 
 #include "gaussian_nb.hpp"
 
-template<class T>
+template <class T>
 double conditionalProb(int mean, int variance, int feature)
 {
 	// Conditional probabilty  P(x=f1 / y=class) = __________1____________ * e^(
@@ -20,7 +20,7 @@ double conditionalProb(int mean, int variance, int feature)
 	return num / den;
 };
 
-template<class T>
+template <class T>
 int fitPredict(std::vector<std::vector<T>> xTrain, std::vector<int> yTrain,
                std::vector<T> xTest, std::vector<int> classes)
 {

@@ -6,14 +6,14 @@
 
 #include "linear_regression.hpp"
 
-template<class T>
+template <class T>
 LinearRegression<T>::LinearRegression(int epochs, double learningRate)
 {
 	this->epochs = epochs;
 	this->learningRate = learningRate;
 }
 
-template<class T>
+template <class T>
 void LinearRegression<T>::fit(std::vector<std::vector<T>> x, std::vector<T> y)
 {
 	if (x.size() == 0 || y.size() == 0)
@@ -49,7 +49,7 @@ void LinearRegression<T>::fit(std::vector<std::vector<T>> x, std::vector<T> y)
 	}
 }
 
-template<class T>
+template <class T>
 std::vector<T> LinearRegression<T>::predict(std::vector<std::vector<T>> x)
 {
 	std::vector<T> yPred;
@@ -64,7 +64,7 @@ std::vector<T> LinearRegression<T>::predict(std::vector<std::vector<T>> x)
 	return yPred;
 }
 
-template<class T>
+template <class T>
 void LinearRegression<T>::printCoefficients()
 {
 	for (int i = 0; i < coefficients.size(); i++)

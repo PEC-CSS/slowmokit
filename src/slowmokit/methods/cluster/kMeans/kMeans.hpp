@@ -9,7 +9,7 @@
 
 #include "../../../core.hpp"
 
-template<class T>
+template <class T>
 class kMeans
 {
 	const int k;
@@ -23,7 +23,7 @@ class kMeans
 	  @param r: end of range
 	  @throws assertionError if r > l.
 	  */
-	template<class G>
+	template <class G>
 	G randomInteger(G l, G r)
 	{
 		std::mt19937 rng(
@@ -39,7 +39,7 @@ class kMeans
 	 * @param L start of range
 	 * @param R end of range
 	 */
-	template<class G>
+	template <class G>
 	std::set<G> getKDistinctIndices(int k, int L, int R)
 	{
 		if (k < 0)
@@ -61,7 +61,7 @@ class kMeans
 		return nums;
 	}
 
-	template<class G1 = int, class G2 = double>
+	template <class G1 = int, class G2 = double>
 	G2 sqroot(G1 x, double eps = 1e-9)
 	{
 		G2 left = 0, right = x;
@@ -85,7 +85,7 @@ class kMeans
 		return sqroot((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2));
 	}
 
-public:
+	public:
 	kMeans(int k, int epoch) : k(k), epoch(epoch)
 	{
 		if (k <= 0)

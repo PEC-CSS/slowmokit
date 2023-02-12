@@ -9,10 +9,10 @@
 
 #include "../../core.hpp"
 
-template<class T = int>
+template <class T = int>
 class Matrix
 {
-private:
+	private:
 	/**
 	 * n: Row Dimension
 	 * m: Column Dimension
@@ -32,7 +32,7 @@ private:
 		m = std::size(mat[0]);
 	}
 
-public:
+	public:
 	/**
 	 * @constructor to initialise Matrix object with all zero and given
 	 * dimension
@@ -58,7 +58,7 @@ public:
 	 * @param scalar: Number with which you want to multiply matrix with
 	 * @returns: Matrix after multiplying current matrix with scalar
 	 */
-	template<class G>
+	template <class G>
 	Matrix &operator*=(const G &);
 
 
@@ -78,7 +78,7 @@ public:
 	 * @param scalar: Number with which you want to add matrix with
 	 * @returns: Matrix after adding current matrix with scalar
 	 */
-	template<class G>
+	template <class G>
 	Matrix &operator+=(const G &);
 
 
@@ -87,7 +87,7 @@ public:
 	 * @param scalar: Number with which you want to subtract matrix with
 	 * @returns: Matrix after subtracting scalar from current matrix
 	 */
-	template<class G>
+	template <class G>
 	Matrix &operator-=(const G &);
 
 
@@ -172,7 +172,7 @@ public:
 /**
  * @brief overloading << for easy printing of Matrix
  */
-template<class T>
+template <class T>
 std::ostream &operator<<(std::ostream &, const Matrix<T> &);
 
 /**
@@ -181,11 +181,11 @@ std::ostream &operator<<(std::ostream &, const Matrix<T> &);
  * @param rhs: A number (only if lhs is not a number) or a Matrix
  * @returns Matrix Object
  */
-template<class T, class G>
+template <class T, class G>
 Matrix<T> operator*(G, const Matrix<T> &);
-template<class T, class G>
+template <class T, class G>
 Matrix<T> operator*(Matrix<T>, const G &);
-template<class T>
+template <class T>
 Matrix<T> operator*(Matrix<T>, const Matrix<T> &);
 
 /**
@@ -194,11 +194,11 @@ Matrix<T> operator*(Matrix<T>, const Matrix<T> &);
  * @param rhs: A number (only if lhs is not a number) or a Matrix
  * @returns Matrix Object
  */
-template<class T, class G>
+template <class T, class G>
 Matrix<T> operator+(G, const Matrix<T> &);
-template<class T, class G>
+template <class T, class G>
 Matrix<T> operator+(Matrix<T>, const G &);
-template<class T>
+template <class T>
 Matrix<T> operator+(Matrix<T>, const Matrix<T> &);
 
 /**
@@ -207,11 +207,11 @@ Matrix<T> operator+(Matrix<T>, const Matrix<T> &);
  * @param rhs: A number (only if lhs is not a number) or a Matrix
  * @returns Matrix Object
  */
-template<class T, class G>
+template <class T, class G>
 Matrix<T> operator-(G, const Matrix<T> &);
-template<class T, class G>
+template <class T, class G>
 Matrix<T> operator-(Matrix<T>, const G &);
-template<class T>
+template <class T>
 Matrix<T> operator-(Matrix<T>, const Matrix<T> &);
 
 

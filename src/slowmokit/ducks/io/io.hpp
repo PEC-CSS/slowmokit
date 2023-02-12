@@ -11,7 +11,7 @@
 
 class IO
 {
-public:
+	public:
 	/**
 	 * @brief Function to read a csv file
 	 * @param path: the path of the csv file to be read

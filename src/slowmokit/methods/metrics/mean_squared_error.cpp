@@ -4,7 +4,7 @@
  * Implementation of the MSE main program
  */
 #include "mean_squared_error.hpp"
-template<class T>
+template <class T>
 double meanSquaredError(std::vector<T> &actual, std::vector<T> &pred)
 {
 	if (actual.size() != pred.size())

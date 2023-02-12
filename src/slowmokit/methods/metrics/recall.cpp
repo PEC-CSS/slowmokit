@@ -4,7 +4,7 @@
  * Implementation of the recall main program
  */
 #include "recall.hpp"
-template<class T>
+template <class T>
 std::map<T, double> recall(std::vector<T> &pred, std::vector<T> &actual)
 {
 	if (pred.size() != actual.size())

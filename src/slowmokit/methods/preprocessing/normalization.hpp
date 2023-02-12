@@ -15,7 +15,7 @@
  * element is equal to maximum element
  */
 
-template<class T>
+template <class T>
 void normalize(std::vector<T> &);
 
 #endif // SLOWMOKIT_NORMALIZATION_HPP

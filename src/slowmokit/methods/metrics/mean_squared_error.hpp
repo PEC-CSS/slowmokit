@@ -17,7 +17,7 @@
  * equal
  */
 
-template<class T>
+template <class T>
 double meanSquaredError(std::vector<T> &, std::vector<T> &);
 
 #endif // SLOWMOKIT_MEAN_SQUARED_ERROR_HPP
