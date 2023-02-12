@@ -51,6 +51,25 @@ void fit(std::vector<std::vector<T>> xTrain,
     }
   }
 
+  std::map<std::string, double> probs;
+  for (auto curr : priors)
+  {
+    probs[curr.first] = curr.second;
+    for (auto feature : xTest)
+    {
+      probs[curr.first] *= likelihoods[curr.first][feature];
+    }
+  }
+  double maxProb = 0;
+  std::string out;
+  for (auto prob : probs)
+  {
+    if (prob.second > maxProb)
+    {
+      maxProb = prob.second;
+      out = prob.first;
+    }
+  }
 
 }
 
