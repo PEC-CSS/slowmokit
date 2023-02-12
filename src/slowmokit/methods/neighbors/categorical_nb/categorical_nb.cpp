@@ -30,7 +30,6 @@ std::string fitPredict(std::vector<std::vector<T>> xTrain,
   {
     priors[current.first] = double(current.second) / yTrain.size();
   }
-  // priors calculated
 
   std::map<std::string, std::map<T, double>> likelihoods;
   // for any ith label -> n instances -> for each differ probability
