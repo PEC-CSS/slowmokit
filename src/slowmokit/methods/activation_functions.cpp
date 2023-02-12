@@ -5,10 +5,9 @@
  */
 #include "activation_functions.hpp"
 template<class T>
-#include <math.h>
 //sigmoid
 double sigmoid(double x) {
-    return 1 / (1 + exp(-x));
+    return 1 / (1 + std::exp(-x));
 } 
 //ReLU
 double ReLU(double x) {
@@ -20,12 +19,12 @@ double ReLU(double x) {
 }
 //tanh
 double tanh(double x) {
-    double result = (exp(x) - exp(-x)) / (exp(x) + exp(-x));
+    double result = (std::exp(x) - std::exp(-x)) / (std::exp(x) + std::exp(-x));
     return result;
 }
 //tan inverse
 double arctan(double x) {
-    return atan(x);
+    return std::atan(x);
 }
 
 //softmax 
@@ -33,10 +32,10 @@ std::vector<double> softmax(const std::vector<double> &x) {
     std::vector<double> result(x.size());
     double sum = 0;
     for (double value : x) {
-        sum += exp(value);
+        sum += std::exp(value);
     }
     for (int i = 0; i < x.size(); i++) {
-        result[i] = exp(x[i]) / sum;
+        result[i] = std::exp(x[i]) / sum;
     }
     return result;
 }

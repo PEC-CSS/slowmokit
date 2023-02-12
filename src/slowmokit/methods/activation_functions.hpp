@@ -6,8 +6,8 @@
 
 #ifndef ACTIVATION_FUNCTIONS_HPP
 #define ACTIVATION_FUNCTIONS_HPP
-#include "../../core.hpp"
-#include <math.h>
+#include "../core.hpp"
+
 
 /**
  * @param x {double x} - double value on which the function is applied.
@@ -19,12 +19,12 @@
 
 template<class T>
 
-double sigmoid(double x);
-double tanh(double x);
-double ReLU(double x);
-double leakyReLU(double x, double alpha);
-std::vector<double> softmax(const std::vector<double> &x);
-double arctan(double x);
-double binaryStep(double x);
+double sigmoid(double);
+double tanh(double);
+double ReLU(double);
+double leakyReLU(double, double);
+std::vector<double> softmax(const std::vector<double> &);
+double arctan(double);
+double binaryStep(double);
 
 #endif // ACTIVATION_FUNCTIONS_HPP
