@@ -25,7 +25,8 @@ double conditionalProb(std::vector<std::vector<T>> xTrain,
                        int label)
 { // Conditional Probability
 	// P(x=f1 / y=class)
-	int denominator = 0, numerator = 0;
+	int denominator = 0;
+	int numerator = 0;
 	for (int i = 0; i < yTrain.size(); i++)
 	{
 		if (yTrain[i] == label)

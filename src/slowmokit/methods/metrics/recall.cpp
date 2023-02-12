@@ -24,7 +24,7 @@ std::map<T, double> recall(std::vector<T> &pred, std::vector<T> &actual)
 	int numClasses = s.size();
 	std::map<T, double> recallMap;
 	std::map<T, int> truePosMap;
-	std::map<T, int>falseNegMap;
+	std::map<T, int> falseNegMap;
 	for (int i = 0; i < n; i++)
 	{
 		if (pred[i] == actual[i])
