@@ -6,10 +6,11 @@
 
 #include "categorical_nb.hpp"
 std::map<std::string, double> priors;
-std::map<std::string, std::map<std::string , double>> likelihoods;  // for each label we will store a map , containing n features and their corresponding probability
+std::map<std::string, std::map<std::string, double>>
+    likelihoods; // for each label we will store a map , containing n features
+                 // and their corresponding probability
 template<class T>
-void fit(std::vector<std::vector<T>> xTrain,
-                       std::vector<std::string> yTrain)
+void fit(std::vector<std::vector<T>> xTrain, std::vector<std::string> yTrain)
 {
   // posterior = (prior * likelihood)/evidence
   // since, evidence is same among all instances -> we can ignore it
@@ -70,30 +71,29 @@ void fit(std::vector<std::vector<T>> xTrain,
       out = prob.first;
     }
   }
-
 }
 
-template<class T>
-std::string predict(std::vector<T> xTest){
-    std::map<std::string, double> probs;
-    for (auto curr : priors)
+template<class T> std::string predict(std::vector<T> xTest)
+{
+  std::map<std::string, double> probs;
+  for (auto curr : priors)
+  {
+    probs[curr.first] = curr.second;
+    for (auto feature : xTest)
     {
-        probs[curr.first] = curr.second;
-        for (auto feature : xTest)
-        {
-            probs[curr.first] *= likelihoods[curr.first][feature];
-        }
+      probs[curr.first] *= likelihoods[curr.first][feature];
     }
-    double maxProb = 0;
-    std::string out = "";
-    for (auto prob : probs)
+  }
+  double maxProb = 0;
+  std::string out = "";
+  for (auto prob : probs)
+  {
+    if (prob.second > maxProb)
     {
-        if (prob.second > maxProb)
-        {
-            maxProb = prob.second;
-            out = prob.first;
-        }
+      maxProb = prob.second;
+      out = prob.first;
     }
+  }
 
-    return out;
+  return out;
 }

@@ -11,10 +11,12 @@
 
 template<class T> class categoricalNB
 {
-    categoricalNB(){
-        std::map<std::string, double> priors;
-        std::map<std::string, std::map<T, double>> likelihoods;
-    }
+  categoricalNB()
+  {
+    std::map<std::string, double> priors;
+    std::map<std::string, std::map<T, double>> likelihoods;
+  }
+
   public:
   /**
    * @brief Fitting the training set into instance of class
@@ -22,14 +24,13 @@ template<class T> class categoricalNB
    * @param yTrain all training 1-d string y values
    * @return NULL
    */
-  void fit(std::vector<std::vector<T>> xTrain,
-                         std::vector<std::string> yTrain);
+  void fit(std::vector<std::vector<T>> xTrain, std::vector<std::string> yTrain);
 
-    /**
-     * @brief Predicting the class for xTest on the basis of training set
-     * @param xTest all testing feature x values
-     * @return string denoting the class label of xTest
-     */
+  /**
+   * @brief Predicting the class for xTest on the basis of training set
+   * @param xTest all testing feature x values
+   * @return string denoting the class label of xTest
+   */
   std::string predict(std::vector<T> xTest);
 };
 
