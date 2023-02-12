@@ -64,16 +64,21 @@ class kMeans
 	template <class G1 = int, class G2 = double>
 	G2 sqroot(G1 x, double eps = 1e-9)
 	{
-		G2 left = 0, right = x;
+		G2 left = 0;
+		G2 right = x;
 
 		while (right - left > eps)
 		{
 			G2 mid = left + (right - left) / 2;
 
 			if (mid >= x / mid)
+			{
 				right = mid;
+			}
 			else
+			{
 				left = mid;
+			}
 		}
 
 		return left + (right - left) / 2;

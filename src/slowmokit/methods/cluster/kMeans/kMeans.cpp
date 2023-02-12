@@ -15,7 +15,9 @@ void kMeans<T>::fit(std::vector<std::vector<T>> X)
 		assert(std::ssize(id) == k);
 		centroids.clear();
 		for (auto i : id)
+		{
 			centroids.push_back({1.0 * X[i][0], 1.0 * X[i][1]});
+		}
 	}
 
 	clusters.resize(n, -1);
@@ -43,14 +45,18 @@ void kMeans<T>::fit(std::vector<std::vector<T>> X)
 			assert(pos < std::size(clusters));
 
 			if (clusters[pos] != cluster_num)
+			{
 				changed = true;
+			}
 
 			clusters[pos++] = cluster_num;
 		}
 
 		// move centroids
 		for (auto &centroid : centroids)
+		{
 			centroid[0] = centroid[1] = 0;
+		}
 
 		std::vector<int> count(k);
 

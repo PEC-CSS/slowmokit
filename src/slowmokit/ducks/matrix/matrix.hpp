@@ -50,7 +50,7 @@ class Matrix
 	 * @throws std::invalid_argument exception if row dimension is not
 	 * consistent
 	 */
-	Matrix(const std::vector<std::vector<T>>);
+	Matrix(std::vector<std::vector<T>>);
 
 
 	/**
@@ -148,7 +148,7 @@ class Matrix
 	 * matrix
 	 * @throw: whatever operator *= throws
 	 */
-	Matrix matmul(const Matrix);
+	Matrix matmul(Matrix);
 
 
 	/**
@@ -156,7 +156,7 @@ class Matrix
 	 * @param rhs: This is the matrix which will be added with the main matrix
 	 * @throw: whatever operator *= throws
 	 */
-	Matrix add(const Matrix);
+	Matrix add(Matrix);
 
 
 	/**
@@ -165,7 +165,7 @@ class Matrix
 	 * matrix
 	 * @throw: whatever operator *= throws
 	 */
-	Matrix subtract(const Matrix);
+	Matrix subtract(Matrix);
 };
 
 

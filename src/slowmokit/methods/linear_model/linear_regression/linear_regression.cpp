@@ -16,7 +16,7 @@ LinearRegression<T>::LinearRegression(int epochs, double learningRate)
 template <class T>
 void LinearRegression<T>::fit(std::vector<std::vector<T>> x, std::vector<T> y)
 {
-	if (x.size() == 0 || y.size() == 0)
+	if (x.empty() || y.empty())
 		throw "Make sure that you have atleast one train example";
 	if (x.size() != y.size())
 		throw "Number of features and target must be equal";

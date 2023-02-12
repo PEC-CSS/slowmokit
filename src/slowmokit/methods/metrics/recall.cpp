@@ -33,17 +33,17 @@ std::map<T, double> recall(std::vector<T> &pred, std::vector<T> &actual)
 		}
 	}
 
-  for (int i = 0; i < numClasses; i++)
-  {
-    if (truePosMap[i] > 0 || falseNegMap[i] > 0)
-    {
-      recallMap[i] =
-          (double) (truePosMap[i] / (double) (truePosMap[i] + falseNegMap[i]));
-    }
-    else
-    {
-      recallMap[i] = 1.0;
-    }
+	for (int i = 0; i < numClasses; i++)
+	{
+		if (truePosMap[i] > 0 || falseNegMap[i] > 0)
+		{
+			recallMap[i] = (double) (truePosMap[i] /
+			                         (double) (truePosMap[i] + falseNegMap[i]));
+		}
+		else
+		{
+			recallMap[i] = 1.0;
+		}
 
 		double x = recallMap[i];
 		float value = (int) (x * 100 + .5);

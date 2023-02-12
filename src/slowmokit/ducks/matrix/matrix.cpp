@@ -206,8 +206,10 @@ template <class T>
 const std::vector<T> &Matrix<T>::operator[](int i) const
 {
 	if (i >= n or i < 0)
+	{
 		throw std::out_of_range("\ni should be between 0 and " +
 		                        std::to_string(n - 1) + " inclusive");
+	}
 
 	return this->mat[i];
 }
@@ -222,12 +224,18 @@ std::ostream &operator<<(std::ostream &os, const Matrix<T> &matrix)
 		for (int j = 0; j < m; j++)
 		{
 			if (j > 0)
+			{
+
 				os << " ";
+			}
 			os << matrix[i][j];
 		}
 
 		if (i != n - 1)
+		{
+
 			os << "\n";
+		}
 	}
 
 	return os;
