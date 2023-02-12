@@ -14,7 +14,7 @@ namespace detail
 	using std::end;
 
 	template<typename T>
-	auto is_iterable_impl(int)
+	auto isIterableImpl(int)
 	    -> decltype(begin(std::declval<T &>()) !=
 	                    end(std::declval<T &>()), // begin/end and operator !=
 	                void(),                       // Handle evil operator ,
@@ -24,12 +24,12 @@ namespace detail
 	                std::true_type {});
 
 	template<typename T>
-	std::false_type is_iterable_impl(...);
+	std::false_type isIterableImpl(...);
 
 } // namespace detail
 
 template<typename T>
-using is_iterable = decltype(detail::is_iterable_impl<T>(0));
+using is_iterable = decltype(detail::isIterableImpl<T>(0));
 
 template<typename T, typename G>
 using train_test_quadruple =
@@ -58,7 +58,7 @@ train_test_quadruple<T, G> trainTestSplit(const std::vector<T> &X,
 	int trainDataSize = n * trainSize;
 	int testDataSize = n - trainDataSize;
 
-	if (testDataSize == 0 || testDataSize <= 0)
+	if (trainDataSize == 0 || testDataSize <= 0)
 		throw std::invalid_argument("Dataset too small");
 
 	auto xData = std::vector<std::pair<T, G>>(

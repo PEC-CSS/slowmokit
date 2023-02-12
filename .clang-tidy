@@ -7,6 +7,8 @@ FormatStyle:     'file'
 CheckOptions:
   - key:             bugprone-argument-comment.CommentBoolLiterals
     value:           '0'
+  - key:             bugprone-easily-swappable-parameters.MinimumLength
+    value:           '5'
   - key:             bugprone-argument-comment.CommentCharacterLiterals
     value:           '0'
   - key:             bugprone-argument-comment.CommentFloatLiterals
@@ -26,6 +28,8 @@ CheckOptions:
   - key:             bugprone-narrowing-conversions.WarnOnIntegerNarrowingConversion
     value:           'false'
   - key:             bugprone-narrowing-conversions.WarnOnIntegerToFloatingPointNarrowingConversion
+    value:           'false'
+  - key:             bugprone-narrowing-conversions.WarnOnFloatingPointNarrowingConversion
     value:           'false'
   - key:             bugprone-assert-side-effect.AssertMacros
     value:           assert
