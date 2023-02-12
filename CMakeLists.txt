@@ -61,6 +61,5 @@ add_library(slowmokit
         src/slowmokit/methods/metrics/recall.cpp
         src/slowmokit/methods/metrics/mean_squared_error.hpp
         src/slowmokit/methods/metrics/mean_squared_error.cpp
-        examples/neighbors/categorical_nb.cpp
         src/slowmokit/methods/neighbors/categorical_nb/categorical_nb.cpp
         src/slowmokit/methods/neighbors/categorical_nb/categorical_nb.hpp)
