@@ -159,13 +159,12 @@ template<class T = int> class Matrix
    * @throw: whatever operator *= throws
    */
   Matrix subtract(const Matrix);
+
+  /**
+   * @brief overloading << for easy printing of Matrix
+   */
+  friend std::ostream &operator<< <T>(std::ostream &, const Matrix<T> &);
 };
-
-
-/**
- * @brief overloading << for easy printing of Matrix
- */
-template<class T> std::ostream &operator<<(std::ostream &, const Matrix<T> &);
 
 /**
  * @brief Free Function to multiply a matrix to a number or another matrix

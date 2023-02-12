@@ -40,6 +40,9 @@ add_library(slowmokit
         src/slowmokit/methods/neighbors/bernoulli_nb.hpp
         src/slowmokit/methods/neighbors/bernoulli_nb/bernoulli_nb.hpp
         src/slowmokit/methods/neighbors/bernoulli_nb/bernoulli_nb.cpp
+        src/slowmokit/methods/linear_model/logistic_regression.hpp
+        src/slowmokit/methods/linear_model/logistic_regression/logistic_regression.hpp
+        src/slowmokit/methods/linear_model/logistic_regression/logistic_regression.cpp
         src/slowmokit/methods/preprocessing/label_encoder.cpp
         src/slowmokit/methods/preprocessing/label_encoder.hpp
         src/slowmokit/methods/metrics/classification_report.hpp
@@ -55,4 +58,6 @@ add_library(slowmokit
         src/slowmokit/methods/metrics/precision.hpp
         src/slowmokit/methods/metrics/precision.cpp
         src/slowmokit/methods/metrics/recall.hpp
-        src/slowmokit/methods/metrics/recall.cpp)
+        src/slowmokit/methods/metrics/recall.cpp
+        src/slowmokit/methods/metrics/mean_squared_error.hpp
+        src/slowmokit/methods/metrics/mean_squared_error.cpp)

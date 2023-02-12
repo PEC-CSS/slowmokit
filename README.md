@@ -1,6 +1,6 @@
 <p align="center">
     <img width="69" src="https://user-images.githubusercontent.com/52048551/206870724-e4c71d93-fbaf-420c-8a64-cfd8ba05d27e.png" alt="slowmoKIT logo">
-    <h1 align="center">Slomokit</h1>
+    <h1 align="center">Slowmokit</h1>
 </p>
 
 ## ML kit in C++.
