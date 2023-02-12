@@ -55,7 +55,3 @@ double leakyReLU(double x, double alpha) {
         return alpha * x;
     }
 }
-
-
-
-
