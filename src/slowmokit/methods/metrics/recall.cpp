@@ -42,7 +42,7 @@ std::map<T, double> recall(std::vector<T> &pred, std::vector<T> &actual)
     }
     else
     {
-      recallMap[i] = 0.0;
+      recallMap[i] = 1.0;
     }
 
     double x = recallMap[i];
