@@ -47,8 +47,9 @@ std::vector<double> arctan(const std::vector<double> &);
 
 /**
  * @brief To calculate softmax(x)
- * @param x {vector<double>} - vector containing 'double' values of x whose softmax values have to be calculated.
- * 
+ * @param x {vector<double>} - vector containing 'double' values of x whose
+ * softmax values have to be calculated.
+ *
  * @return vector containing 'double' values representing softmax(x)
  */
 
