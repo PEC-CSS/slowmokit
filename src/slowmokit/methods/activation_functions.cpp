@@ -48,10 +48,10 @@ double binaryStep(double x) {
     }
 }
 //leaky ReLU
-double leakyReLU(double x, double alpha) {
+double leakyReLU(double x) {
     if (x >= 0) {
         return x;
     } else {
-        return alpha * x;
+        return 0.1 * x; //alpha=0.1
     }
 }
