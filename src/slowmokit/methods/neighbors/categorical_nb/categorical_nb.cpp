@@ -52,25 +52,7 @@ void fit(std::vector<std::vector<T>> xTrain, std::vector<std::string> yTrain)
     }
   }
 
-  std::map<std::string, double> probs;
-  for (auto curr : priors)
-  {
-    probs[curr.first] = curr.second;
-    for (auto feature : xTest)
-    {
-      probs[curr.first] *= likelihoods[curr.first][feature];
-    }
-  }
-  double maxProb = 0;
-  std::string out;
-  for (auto prob : probs)
-  {
-    if (prob.second > maxProb)
-    {
-      maxProb = prob.second;
-      out = prob.first;
-    }
-  }
+  
 }
 
 template<class T> std::string predict(std::vector<T> xTest)
