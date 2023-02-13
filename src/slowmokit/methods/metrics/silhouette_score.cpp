@@ -38,7 +38,7 @@ double silhouetteScore(std::vector<std::vector<T>> x, std::vector<int> y,
         {
           for (int k = 0; k < x[0].size(); k++)
           {
-            distances[i][j] += (x[i][k] - x[j][k]);
+            distances[i][j] += abs(x[i][k] - x[j][k]);
           }
         }
       }
