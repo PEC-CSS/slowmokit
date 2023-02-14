@@ -11,6 +11,7 @@
 
 template<class T> class kMeans
 {
+  const int default_epoch = 40;
   const int k;
   const int epoch;
   std::vector<int> clusters;
@@ -84,17 +85,17 @@ template<class T> class kMeans
   public:
   kMeans(int k, int epoch) : k(k), epoch(epoch)
   {
-    if (k <= 0)
+    if (k <= 1)
     {
-      throw "k should be a positive integer.";
+      throw std::invalid_argument("k should be greater than 1");
     }
   }
 
-  kMeans(int k) : kMeans(k, 40) {}
+  kMeans(int k) : kMeans(k, default_epoch) {}
 
   kMeans(int k, std::vector<std::vector<long double>> initial_centroids,
          int epoch)
-      : kMeans(k, 40)
+      : kMeans(k, epoch)
   {
     this->centroids = initial_centroids;
   }
@@ -104,12 +105,12 @@ template<class T> class kMeans
   std::vector<int> predict(std::vector<std::vector<T>>);
 
   /**
-   * Returns which cluster point-i belongs to
+   * @Returns which cluster point-i belongs to
    */
   std::vector<int> labels() const;
 
   /**
-   * Returns the final centroid for each cluster.
+   * @Returns the final centroid for each cluster.
    */
   std::vector<std::vector<long double>> getCentroid() const;
 };

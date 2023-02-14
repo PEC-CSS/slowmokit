@@ -27,7 +27,7 @@
 *.lib
 
 # Executables
-*.exe
+**/*.exe
 *.out
 *.app
 
@@ -43,5 +43,11 @@ cmake-build-debug
 # CHelper
 **/*__tests
 
+# Binary Executive
+**/*.bin
+
 # build
 build
+
+#cph extension
+.cph/
