@@ -27,7 +27,7 @@ template<class T> class DistanceMetric
   /**
    * @returns euclidean distance between the two vectors
    */
-  T euclidean();
+  double euclidean();
 
 
   /**
@@ -40,19 +40,19 @@ template<class T> class DistanceMetric
    * @param power The order of the norm
    * @returns minkowski distance between the two vectors
    */
-  T minkowski(int);
+  double minkowski(int);
 
   /**
    * @brief to find the magnitude of the vector
    * @param x a vector
    * @returns magnitude of x
    */
-  T magnitude(std::vector<T> &);
+  double magnitude(std::vector<T> &);
 
   /**
    * @returns cosine similarity between the two vectors
    */
-  T cosineSimilarity();
+  double cosineSimilarity();
 };
 
 #endif // SLOWMOKIT_DISTANCE_METRIC_HPP

@@ -17,9 +17,9 @@ DistanceMetric<T>::DistanceMetric(std::vector<T> &x, std::vector<T> &y)
   }
 }
 
-template<class T> T DistanceMetric<T>::euclidean()
+template<class T> double DistanceMetric<T>::euclidean()
 {
-  T distance = 0;
+  double distance = 0;
   int n = x.size();
   for (int i = 0; i < n; i++)
   {
@@ -38,9 +38,9 @@ template<class T> T DistanceMetric<T>::manhattan()
   }
   return distance;
 }
-template<class T> T DistanceMetric<T>::minkowski(int power)
+template<class T> double DistanceMetric<T>::minkowski(int power)
 {
-  T distance = 0;
+  double distance = 0;
   int n = x.size();
   for (int i = 0; i < n; i++)
   {
@@ -49,20 +49,20 @@ template<class T> T DistanceMetric<T>::minkowski(int power)
   return std::pow(distance, 1.0 / power);
 }
 
-template<class T> T DistanceMetric<T>::magnitude(std::vector<T> &x)
+template<class T> double DistanceMetric<T>::magnitude(std::vector<T> &x)
 {
-  T result = 0;
+  double result = 0;
   int n = x.size();
   for (int i = 0; i < n; i++)
   {
-    result += std::pow(x[i], 2);
+    result += x[i] * x[i];
   }
   return std::sqrt(result);
 }
 
-template<class T> T DistanceMetric<T>::cosineSimilarity()
+template<class T> double DistanceMetric<T>::cosineSimilarity()
 {
-  T dotProduct = 0;
+  double dotProduct = 0;
   int n = x.size();
   for (int i = 0; i < n; i++)
   {
