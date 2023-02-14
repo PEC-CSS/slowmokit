@@ -63,5 +63,5 @@ add_library(slowmokit
         src/slowmokit/methods/metrics/f1score.cpp
         src/slowmokit/methods/metrics/mean_squared_error.hpp
         src/slowmokit/methods/metrics/mean_squared_error.cpp
-        src/slowmokit/methods/neighbors/distance_metric/distance_metric.cpp
-        src/slowmokit/methods/neighbors/distance_metric/distance_metric.hpp)
+        src/slowmokit/methods/metrics/distance_metric/distance_metric.cpp
+        src/slowmokit/methods/metrics/distance_metric/distance_metric.hpp)
