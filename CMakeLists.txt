@@ -27,6 +27,7 @@ add_subdirectory(src/slowmokit)
 
 add_library(slowmokit
         src/slowmokit.hpp
+        src/slowmokit.cpp
 
         # base files
         src/slowmokit/base.hpp
