@@ -27,7 +27,6 @@ add_subdirectory(src/slowmokit)
 
 add_library(slowmokit
         src/slowmokit.hpp
-<<<<<<< HEAD
 
         # base files
         src/slowmokit/base.hpp
@@ -88,6 +87,4 @@ add_library(slowmokit
         src/slowmokit/methods/neighbors/decision_tree.hpp
         src/slowmokit/methods/neighbors/decision_tree/decision_tree.hpp
         src/slowmokit/methods/neighbors/decision_tree/decision_tree.cpp)
-=======
         src/slowmokit.cpp)
->>>>>>> a4af99b7c4f0a059aa30cc5d8d5fc22572e9db64
