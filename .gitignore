@@ -27,7 +27,7 @@
 *.lib
 
 # Executables
-*/*.exe
+**/*.exe
 *.out
 *.app
 
@@ -48,3 +48,6 @@ cmake-build-debug
 
 # build
 build
+
+#cph extension
+.cph/

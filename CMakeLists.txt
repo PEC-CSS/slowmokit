@@ -19,7 +19,8 @@ add_library(slowmokit
         src/slowmokit/ducks/io/io.hpp
         src/slowmokit/ducks/io/io.cpp
         src/slowmokit/ducks/matrix/matrix.hpp
-        src/slowmokit/ducks/matrix/matrix.cpp
+        src/slowmokit/ducks/matrix/matrix_main.cpp
+        src/slowmokit/ducks/matrix/matrix_free.cpp
 
         # methods
         src/slowmokit/models/model.hpp
@@ -59,7 +60,11 @@ add_library(slowmokit
         src/slowmokit/methods/metrics/precision.cpp
         src/slowmokit/methods/metrics/recall.hpp
         src/slowmokit/methods/metrics/recall.cpp
+        src/slowmokit/methods/metrics/f1score.hpp
+        src/slowmokit/methods/metrics/f1score.cpp
         src/slowmokit/methods/metrics/mean_squared_error.hpp
         src/slowmokit/methods/metrics/mean_squared_error.cpp
         src/slowmokit/methods/activation_functions.cpp
         src/slowmokit/methods/activation_functions.hpp)
+        src/slowmokit/methods/metrics/silhouette_score.cpp
+        src/slowmokit/methods/metrics/silhouette_score.hpp)
