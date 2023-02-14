@@ -9,6 +9,18 @@ template<class T>
 double silhouetteScore(std::vector<std::vector<T>> x, std::vector<int> y,
                        int numClusters, std::string typeDist)
 {
+  if (x.size() != y.size())
+  {
+    throw std::invalid_argument("Size of x and y values are not same");
+    return -1;
+  }
+
+  if (numClusters < 2 or x.size() - 1 < numClusters)
+  {
+    throw std::invalid_argument("Invalid arguments sizes of x or numClusters");
+    return -1;
+  }
+
   std::transform(typeDist.begin(), typeDist.end(), typeDist.begin(),
                  [](unsigned char c) { return std::tolower(c); });
 
@@ -29,8 +41,9 @@ double silhouetteScore(std::vector<std::vector<T>> x, std::vector<int> y,
         { // euclidean distance
           for (int k = 0; k < x[0].size(); k++)
           {
-            distances[i][j] += pow((x[i][k] - x[j][k]),
-                                   2); // x[i][k]-> i=point,k=1-d value of point
+            distances[i][j] +=
+                (x[i][k] - x[j][k]) *
+                (x[i][k] - x[j][k]); // x[i][k]-> i=point,k=1-d value of point
           }
           distances[i][j] = pow(distances[i][j], 0.5);
         }
@@ -54,7 +67,7 @@ double silhouetteScore(std::vector<std::vector<T>> x, std::vector<int> y,
     int sumNum = 0;
     std::vector<double> interClusters(
         numClusters,
-        0.0); // For computing values of point to each cluster points
+        0.0); // values of point to each cluster points
     std::vector<int> sumsOfParticular(numClusters, 0);
     for (int j = 0; j < x.size(); j++)
     {
@@ -73,7 +86,7 @@ double silhouetteScore(std::vector<std::vector<T>> x, std::vector<int> y,
     }
     intraClusters[i] /=
         sumNum; // Mean of sum values of distances b/w points of same cluster
-    double minimumOfall = std::numeric_limits<int>::max();
+    double minimumOfall = std::numeric_limits<double>::max();
     ;
     for (int j = 0; j < numClusters; j++)
     {

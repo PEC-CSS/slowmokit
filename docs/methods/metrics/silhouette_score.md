@@ -1,7 +1,7 @@
 # Silhouette Score
 
 The silhouette score is calculated as the average of all points si, where si is the difference of minimum of inter cluster distance to average of intra cluster distance divided by maximum of both.
-The silhouette Score reflects how good the value of k is, where k is the number of clusters.
+The silhouette Score reflects how good the clusters are.
 
 ## Parameters
 
@@ -9,6 +9,8 @@ The silhouette Score reflects how good the value of k is, where k is the number 
 | ------------- | ------------------------------------------------------------------------------------------- | ----------------|
 | numClusters   | Takes a number of clusters                                                                  | `int`           |
 | typeDist      | You require euclidean/manhattan distance to compute silhoutte Score                         | `string`        |
+| x             | Values of various points                                                           | `vector<vector<double>>` |
+| y             | Cluster number to which each x value belongs to                                        | `vector<int>`        |
 
 
 ## Methods

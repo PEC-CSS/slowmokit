@@ -43,7 +43,7 @@ std::map<T, double> precision(std::vector<T> &pred, std::vector<T> &actual)
     }
     else
     {
-      precisionMap[i] = 0.0;
+      precisionMap[i] = 1.0;
     }
 
     double x = precisionMap[i];

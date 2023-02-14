@@ -59,6 +59,8 @@ add_library(slowmokit
         src/slowmokit/methods/metrics/precision.cpp
         src/slowmokit/methods/metrics/recall.hpp
         src/slowmokit/methods/metrics/recall.cpp
+        src/slowmokit/methods/metrics/f1score.hpp
+        src/slowmokit/methods/metrics/f1score.cpp
         src/slowmokit/methods/metrics/mean_squared_error.hpp
         src/slowmokit/methods/metrics/mean_squared_error.cpp
         src/slowmokit/methods/metrics/silhouette_score.cpp
