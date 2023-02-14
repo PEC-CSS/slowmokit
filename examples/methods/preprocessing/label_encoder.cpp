@@ -1,4 +1,4 @@
-//#include "src/slowmokit/methods/preprocessing/label_encoder.hpp"
+//#include "../../src/slowmokit/methods/preprocessing/label_encoder.hpp"
 
 //int main() {
 // std::vector<std::string> data = {"luffy","zoro","sanji","luffy","law","zoro"};

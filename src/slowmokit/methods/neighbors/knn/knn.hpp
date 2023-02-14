@@ -6,8 +6,6 @@
 #ifndef SLOWMOKIT_KNN_HPP
 #define SLOWMOKIT_KNN_HPP
 
-#include "../../../models/model.hpp"
-
 template<class T> class KNN
 {
   private:
