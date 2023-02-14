@@ -40,9 +40,31 @@ add_library(slowmokit
         src/slowmokit/methods/neighbors/bernoulli_nb.hpp
         src/slowmokit/methods/neighbors/bernoulli_nb/bernoulli_nb.hpp
         src/slowmokit/methods/neighbors/bernoulli_nb/bernoulli_nb.cpp
+        src/slowmokit/methods/linear_model/logistic_regression.hpp
+        src/slowmokit/methods/linear_model/logistic_regression/logistic_regression.hpp
+        src/slowmokit/methods/linear_model/logistic_regression/logistic_regression.cpp
+        src/slowmokit/methods/preprocessing/label_encoder.cpp
+        src/slowmokit/methods/preprocessing/label_encoder.hpp
+        src/slowmokit/methods/metrics/classification_report.hpp
+        src/slowmokit/methods/metrics/classification_report.cpp
         src/slowmokit/methods/neighbors/gaussian_nb.hpp
         src/slowmokit/methods/neighbors/gaussian_nb/gaussian_nb.cpp
         src/slowmokit/methods/neighbors/gaussian_nb/gaussian_nb.hpp
+        src/slowmokit/methods/neighbors/knn.hpp
+        src/slowmokit/methods/neighbors/knn/knn.hpp
+        src/slowmokit/methods/neighbors/knn/knn.cpp
+        src/slowmokit/methods/preprocessing/one_hot_encoder.hpp
+        src/slowmokit/methods/preprocessing/one_hot_encoder.cpp
+        src/slowmokit/methods/metrics/precision.hpp
+        src/slowmokit/methods/metrics/precision.cpp
+        src/slowmokit/methods/metrics/recall.hpp
+        src/slowmokit/methods/metrics/recall.cpp
+        src/slowmokit/methods/metrics/f1score.hpp
+        src/slowmokit/methods/metrics/f1score.cpp
+        src/slowmokit/methods/metrics/mean_squared_error.hpp
+        src/slowmokit/methods/metrics/mean_squared_error.cpp
+        src/slowmokit/methods/metrics/silhouette_score.cpp
+        src/slowmokit/methods/metrics/silhouette_score.hpp
         src/slowmokit/methods/neighbors/decision_tree.hpp
         src/slowmokit/methods/neighbors/decision_tree/decision_tree.hpp
         src/slowmokit/methods/neighbors/decision_tree/decision_tree.cpp)

@@ -2,7 +2,7 @@
 // #include "../../src/slowmokit/core.hpp"
 
 // signed main(){
-//     std::vector<std::vector<double>> xData{
+//     std::vector<std::vector<double>> x_data{
 //         {0,23.76,3,76.56,1},
 //         {1,12.76,2,87.45,0},
 //         {1,21.86,1,79.98,1},
@@ -81,8 +81,8 @@
 //         {1,27.64,1,71.89,1},
 //         {0,20.90,2,80.86,0},
 //     };
-//     DecisionTree* dt = new DecisionTree(9,0,4);
-//     dt->train(xData);
+//     DecisionTree<double> dt = new DecisionTree(9,0,4);
+//     dt->train(x_data);
 //     std::vector<double> test{1,38.19,2,81.65};
 //     std::cout<<dt->predict(test);
 //     return 0;

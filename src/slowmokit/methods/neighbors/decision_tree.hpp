@@ -1,7 +1,7 @@
 /**
  * @file methods/neighbors/decision_tree.hpp
  *
- * Easy include for Decision Trees algorithm
+ * Easy include for Decision Tree algorithm
  */
 
 
@@ -10,4 +10,4 @@
 
 #include "decision_tree/decision_tree.hpp"
 
-#endif //SLOWMOKIT_DECISION_TREE_HPP
+#endif // SLOWMOKIT_DECISION_TREE_HPP
