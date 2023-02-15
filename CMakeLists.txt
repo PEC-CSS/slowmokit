@@ -88,4 +88,3 @@ add_library(slowmokit
         src/slowmokit/methods/neighbors/decision_tree.hpp
         src/slowmokit/methods/neighbors/decision_tree/decision_tree.hpp
         src/slowmokit/methods/neighbors/decision_tree/decision_tree.cpp)
-        src/slowmokit.cpp)
