@@ -14,7 +14,8 @@ template<class T>
  * @param x {vector<double>} - vector containing 'double' values of x whose
  * sigmoid values have to be calculated.
  *
- * @return void, the initial vector x itself gets changed with the new values of the activation function.
+ * @return void, the initial vector x itself gets changed with the new values of
+ * the activation function.
  */
 
 void sigmoid(std::vector<double> &);
@@ -24,7 +25,8 @@ void sigmoid(std::vector<double> &);
  * @param x {vector<double>} - vector containing 'double' values of x whose ReLU
  * values have to be calculated.
  *
- * @return void, the initial vector x itself gets changed with the new values of the activation function.
+ * @return void, the initial vector x itself gets changed with the new values of
+ * the activation function.
  */
 
 void ReLU(std::vector<double> &);
@@ -34,7 +36,8 @@ void ReLU(std::vector<double> &);
  * @param x {vector<double>} - vector containing 'double' values of x whose tanh
  * values have to be calculated.
  *
- * @return void, the initial vector x itself gets changed with the new values of the activation function.
+ * @return void, the initial vector x itself gets changed with the new values of
+ * the activation function.
  */
 
 void tanh(std::vector<double> &);
@@ -44,7 +47,8 @@ void tanh(std::vector<double> &);
  * @param x {vector<double>} - vector containing 'double' values of x whose
  * arctan values have to be calculated.
  *
- * @return void, the initial vector x itself gets changed with the new values of the activation function.
+ * @return void, the initial vector x itself gets changed with the new values of
+ * the activation function.
  */
 
 void arctan(std::vector<double> &);
@@ -54,7 +58,8 @@ void arctan(std::vector<double> &);
  * @param x {vector<double>} - vector containing 'double' values of x whose
  * softmax values have to be calculated.
  *
- * @return void, the initial vector x itself gets changed with the new values of the activation function.
+ * @return void, the initial vector x itself gets changed with the new values of
+ * the activation function.
  */
 
 void softmax(std::vector<double> &);
@@ -64,7 +69,8 @@ void softmax(std::vector<double> &);
  * @param x {vector<double>} - vector containing 'double' values of x whose
  * binaryStep values have to be calculated.
  *
- * @return void, the initial vector x itself gets changed with the new values of the activation function.
+ * @return void, the initial vector x itself gets changed with the new values of
+ * the activation function.
  */
 
 void binaryStep(std::vector<double> &);
@@ -73,9 +79,10 @@ void binaryStep(std::vector<double> &);
  * @brief To calculate leakyReLU(x)
  * @param x {vector<double>} - vector containing 'double' values of x whose
  * leakyReLU values have to be calculated.
- * @param alpha {double} - alpha's default value = 0.1 declared as parameter.  
- * 
- * @return void, the initial vector x itself gets changed with the new values of the activation function.
+ * @param alpha {double} - alpha's default value = 0.1 declared as parameter.
+ *
+ * @return void, the initial vector x itself gets changed with the new values of
+ * the activation function.
  */
 
 void leakyReLU(std::vector<double> &, double = 0.1);
@@ -84,8 +91,9 @@ void leakyReLU(std::vector<double> &, double = 0.1);
  * @brief To convert binaryToBipolar(x)
  * @param x {vector<double>} - vector containing 'double' values of x who have
  * to be converted to bipolar numbers.
- * 
- * @return void, the initial vector x itself gets changed with the new bipolar values.
+ *
+ * @return void, the initial vector x itself gets changed with the new bipolar
+ * values.
  */
 
 void binaryToBipolar(std::vector<double> &);
@@ -95,7 +103,8 @@ void binaryToBipolar(std::vector<double> &);
  * @param x {vector<double>} -  vector containing 'double' values of x who have
  * to be converted to binary numbers.
  *
- * @return void, the initial vector x itself gets changed with the new binary values.
+ * @return void, the initial vector x itself gets changed with the new binary
+ * values.
  */
 
 void bipolarToBinary(std::vector<double> &);
