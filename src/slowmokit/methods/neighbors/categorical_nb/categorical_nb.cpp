@@ -6,7 +6,8 @@
 
 #include "categorical_nb.hpp"
 template<class T>
-void CategoricalNB<T> :: fit(std::vector<std::vector<T>> xTrain, std::vector<std::string> yTrain)
+void CategoricalNB<T>::fit(std::vector<std::vector<T>> xTrain,
+                           std::vector<std::string> yTrain)
 {
   // posterior = (prior * likelihood)/evidence
   // since, evidence is same among all instances -> we can ignore it
@@ -40,7 +41,7 @@ void CategoricalNB<T> :: fit(std::vector<std::vector<T>> xTrain, std::vector<std
       counts; // to store the count of each cell corresponding to it's label,
               // it's row and it's category
 
-  for (int i = 0; i < (int)(xTrain.size());
+  for (int i = 0; i < (int) (xTrain.size());
        i++) // iterating over the training data grid
   {
     std::vector<T> current = xTrain[i]; // current row
@@ -69,25 +70,25 @@ void CategoricalNB<T> :: fit(std::vector<std::vector<T>> xTrain, std::vector<std
 
 template<class T>
 
-std::string CategoricalNB<T>:: predict(
+std::string CategoricalNB<T>::predict(
     std::vector<T> xTest) // predicting the label on the basis of training set
 {
-  if (((int)(xTest.size())) != featureSize)
+  if (((int) (xTest.size())) != featureSize)
   {
     throw "The number of features in training and testing set must be same";
   }
   std::map<std::string, double> probs;
   for (auto curr : priors) // since, posterior = prior*likelihood , we will
-                              // calculate the same for each label to give the
-                              // label with highest probability as the output
+                           // calculate the same for each label to give the
+                           // label with highest probability as the output
   {
     probs[curr.first] = curr.second;
     int j = 0;
     for (auto feature : xTest)
     {
-      probs[curr.first] *= likelihoods[curr.first][{
-          feature,
-          j}]; // calculating posterior for each feature in Testing data
+      probs[curr.first] *=
+          likelihoods[curr.first][{feature, j}]; // calculating posterior for
+                                                 // each feature in Testing data
       j++;
     }
   }
@@ -102,8 +103,9 @@ std::string CategoricalNB<T>:: predict(
       out = prob.first;
     }
   }
-  for(auto e : probs){
-    std::cout<<e.first<<" "<<e.second<<std::endl;
+  for (auto e : probs)
+  {
+    std::cout << e.first << " " << e.second << std::endl;
   }
   return out;
 }

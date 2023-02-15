@@ -27,11 +27,11 @@ template<class T> class CategoricalNB
    * @return string denoting the class label of xTest
    */
   std::string predict(std::vector<T> xTest);
-private :
-    std::map<std::string, double> priors;
-    std::map<std::string, std::map<std::pair<T, int>, double>> likelihoods;
-    int featureSize;
 
+  private:
+  std::map<std::string, double> priors;
+  std::map<std::string, std::map<std::pair<T, int>, double>> likelihoods;
+  int featureSize;
 };
 
 #endif //   SLOWMOKIT_CATEGORICAL_NB_HPP
