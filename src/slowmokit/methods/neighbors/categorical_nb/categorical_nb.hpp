@@ -11,11 +11,6 @@
 
 template<class T> class CategoricalNB
 {
-  CategoricalNB()
-  {
-    std::map<std::string, double> priors;
-    std::map<std::string, std::map<T, double>> likelihoods;
-  }
 
   public:
   /**
