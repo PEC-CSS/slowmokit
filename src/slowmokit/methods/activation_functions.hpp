@@ -58,7 +58,7 @@ void softmax(std::vector<double> &);
  * @brief To calculate binaryStep(x)
  * @param x {vector<double>} - vector containing 'double' values of x whose
  * binaryStep values have to be calculated.
- *.
+ *
  */
 
 void binaryStep(std::vector<double> &);
@@ -67,8 +67,7 @@ void binaryStep(std::vector<double> &);
  * @brief To calculate leakyReLU(x)
  * @param x {vector<double>} - vector containing 'double' values of x whose
  * leakyReLU values have to be calculated.
- * @param alpha {double} - alpha's default value = 0.1 declared as parameter.  
- * 
+ *
  */
 
 void leakyReLU(std::vector<double> &, double = 0.1);
