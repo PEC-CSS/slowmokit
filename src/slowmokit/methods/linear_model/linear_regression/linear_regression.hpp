@@ -4,8 +4,8 @@
  * The header file including the linear regression algorithm
  */
 
-#ifndef SLOWMOKIT_LINEAR_REGRESSION_HPP
-#define SLOWMOKIT_LINEAR_REGRESSION_HPP
+#ifndef SLOWMOKIT_LINEAR_REGRESSION_HPP_1
+#define SLOWMOKIT_LINEAR_REGRESSION_HPP_1
 
 #include "../../../core.hpp"
 

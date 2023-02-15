@@ -7,6 +7,27 @@
 
 Library which can be used for machine learning in C++.
 
+### Installation guide
+
+To use this library locally
+
+####
+
+Prerequisites
+
+-   [CMAKE](https://cmake.org/install/)
+-   [CPP 20](https://codeforces.com/blog/entry/96040)
+
+Then following command will install the library
+
+```bash
+mkdir build
+cd build
+cmake ../
+cmake --build .
+sudo cmake --install .
+```
+
 ### Steps
 
 Following are the steps to start contributing to our beautiful library:
