@@ -44,7 +44,7 @@ template<class T> double DistanceMetric<T>::minkowski(int power)
   int n = x.size();
   for (int i = 0; i < n; i++)
   {
-    distance += std::pow(x[i] - y[i], power);
+    distance += std::pow(std::abs(x[i] - y[i]), power);
   }
   return std::pow(distance, 1.0 / power);
 }
