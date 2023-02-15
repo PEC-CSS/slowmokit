@@ -25,6 +25,7 @@ template<class T> double DistanceMetric<T>::euclidean()
   {
     distance += (x[i] - y[i]) * (x[i] - y[i]);
   }
+  assert(distance >= 0);
   return std::sqrt(distance);
 }
 
@@ -36,6 +37,7 @@ template<class T> T DistanceMetric<T>::manhattan()
   {
     distance += std::abs(x[i] - y[i]);
   }
+  assert(distance >= 0);
   return distance;
 }
 template<class T> double DistanceMetric<T>::minkowski(int power)
@@ -46,6 +48,7 @@ template<class T> double DistanceMetric<T>::minkowski(int power)
   {
     distance += std::pow(std::abs(x[i] - y[i]), power);
   }
+  assert(distance >= 0);
   return std::pow(distance, 1.0 / power);
 }
 
@@ -57,6 +60,7 @@ template<class T> double DistanceMetric<T>::magnitude(std::vector<T> &x)
   {
     result += x[i] * x[i];
   }
+  assert(result >= 0);
   return std::sqrt(result);
 }
 
