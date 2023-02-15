@@ -1,66 +1,73 @@
 //int main(){
                       //sigmoid example    
 //std::vector<double> x = {-1,0,1};
-//std::vector<double> y = sigmoid(x);
-// for (int i = 0; i < y.size(); i++) {
-//        std::cout << y[i] << " ";
+// sigmoid(x);
+// for (int i = 0; i < x.size(); i++) {
+//        std::cout << x[i] << " ";
 //    }
 //    return 0;
-
-//}
 
                       //tanh example
 //std::vector<double> x = {-1,0,1};
-//std::vector<double> y = tanh(x);
-// for (int i = 0; i < y.size(); i++) {
-//        std::cout << y[i] << " ";
+// tanh(x);
+// for (int i = 0; i < x.size(); i++) {
+//        std::cout << x[i] << " ";
 //    }
 //    return 0;
-
-//}
 
                       //arctan example
 //std::vector<double> x = {-1,0,1};
-//std::vector<double> y = arctan(x);
-// for (int i = 0; i < y.size(); i++) {
-//        std::cout << y[i] << " ";
+// arctan(x);
+// for (int i = 0; i < x.size(); i++) {
+//        std::cout << x[i] << " ";
 //    }
 //    return 0;
 
-//}
                       //ReLU example
 //std::vector<double> x = {1, 2, 3};
-//std::vector<double> y = ReLU(x);
-// for (int i = 0; i < y.size(); i++) {
-//        std::cout << y[i] << " ";
+// ReLU(x);
+// for (int i = 0; i < x.size(); i++) {
+//        std::cout << x[i] << " ";
 //    }
 //    return 0;
-
-//}
 
                        //leakyReLU example
 //std::vector<double> x = {1, 2, 3};
-//std::vector<double> y = leakyReLU(x);
-// for (int i = 0; i < y.size(); i++) {
-//        std::cout << y[i] << " ";
+// leakyReLU(x);
+// for (int i = 0; i < x.size(); i++) {
+//        std::cout << x[i] << " ";
 //    }
 //    return 0;
-//}
 
                        //binaryStep example
 //std::vector<double> x = {1, 2, 3};
-//std::vector<double> y = binaryStep(x);
-// for (int i = 0; i < y.size(); i++) {
-//        std::cout << y[i] << " ";
+// binaryStep(x);
+// for (int i = 0; i < x.size(); i++) {
+//        std::cout << x[i] << " ";
 //    }
 //    return 0;
-//}
 
                         //softmax example
 //std::vector<double> x = {1, 2, 3};
-//std::vector<double> y = softmax(x);
-// for (int i = 0; i < y.size(); i++) {
-//        std::cout << y[i] << " ";
+// softmax(x);
+// for (int i = 0; i < x.size(); i++) {
+//        std::cout << x[i] << " ";
+//    }
+//    return 0;
+
+                      //binaryToBipolar example   
+//std::vector<double> x = {-1,1};
+// binaryToBipolar(x);
+// for (int i = 0; i < x.size(); i++) {
+//        std::cout << x[i] << " ";
+//    }
+//    return 0;
+
+                      //bipolarToBinary example    
+//std::vector<double> x = {-1,1};
+// bipolarToBinary(x);
+// for (int i = 0; i < x.size(); i++) {
+//        std::cout << x[i] << " ";
 //    }
 //    return 0;
 
