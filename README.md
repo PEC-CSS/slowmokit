@@ -20,12 +20,22 @@ Prerequisites
 
 Then following command will install the library
 
+UNIX (Linux/Macos)
+
 ```bash
 mkdir build
 cd build
 cmake ../
 cmake --build .
 sudo cmake --install .
+```
+
+WINDOWS
+
+```bash
+cmake -G "MinGW Makefiles" -S . -B build
+cmake --build build
+cmake --install build --prefix '<ADD PATH OF MINGW BIN HERE>'
 ```
 
 ### Steps
