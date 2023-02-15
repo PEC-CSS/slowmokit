@@ -103,9 +103,5 @@ std::string CategoricalNB<T>::predict(
       out = prob.first;
     }
   }
-  for (auto e : probs)
-  {
-    std::cout << e.first << " " << e.second << std::endl;
-  }
   return out;
 }
