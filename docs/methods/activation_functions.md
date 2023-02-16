@@ -4,7 +4,7 @@ Sigmoid-It is computationally expensive, causes vanishing gradient problem and n
 
 tanh- The Tanh activation function is a hyperbolic tangent sigmoid function that has a range of -1 to 1. It is often used in deep learning models for its ability to model nonlinear boundaries
 
-tan-1h-The ArcTan function is a sigmoid function to model accelerating and decelerating outputs but with useful output ranges.This activation function maps the input values in the range (−π/2,π/2). Its derivative converges quadratically against 0 for large input values.
+arctan-The ArcTan function is a sigmoid function to model accelerating and decelerating outputs but with useful output ranges.This activation function maps the input values in the range (−π/2,π/2). Its derivative converges quadratically against 0 for large input values.
 
 ReLU-This The ReLU activation function returns 0 if the input value to the function is less than 0 but for any positive input, the output is the same as the input. It is also continuous but non-differentiable at 0 and at values less than 0 because its derivative is 0 for any negative input.
 
@@ -33,7 +33,7 @@ The following function definitions are defined for a single variable for making 
 |ReLU(x)|                max(0, x) |                           `double` |
 |leakyReLU(x)|           max(αx, x),α=0.1 |                    `double` |
 |binaryStep(x)|          0, if x < 0
-                         1, if x ≥ 0 |                         `double` |
+|           |              1, if x ≥ 0 |                         `double` |
 |softmax(x)|             e^(x_i) / Σ_j e^(x_j)   |             `double` |
 
 

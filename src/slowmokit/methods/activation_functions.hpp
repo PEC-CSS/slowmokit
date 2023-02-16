@@ -76,7 +76,7 @@ void leakyReLU(std::vector<double> &, double = 0.1);
  * @brief To convert binaryToBipolar(x)
  * @param x {vector<double>} - vector containing 'double' values of x who have
  * to be converted to bipolar numbers.
- * 
+ *
  */
 
 void binaryToBipolar(std::vector<double> &);
