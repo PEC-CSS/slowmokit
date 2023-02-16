@@ -1,8 +1,6 @@
 cmake_minimum_required(VERSION 3.24)
 project(slowmokit C CXX)
 
-set(CMAKE_CXX_STANDARD 20)
-
 # If we are not using Visual Studio, use the GNU install directories module.
 # Otherwise set the values manually.
 if (NOT MSVC)
