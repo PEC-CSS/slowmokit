@@ -38,6 +38,12 @@ cmake --build build
 cmake --install build --prefix '<ADD PATH OF MINGW INCLUDE HERE (mingw64/include)>'
 ```
 
+> If permission is required to execute, run the following command
+
+```
+chmod 705 ./install
+```
+
 ### Steps
 
 Following are the steps to start contributing to our beautiful library:
@@ -57,6 +63,7 @@ More details [here](./create_model/README.md)
 4. Make the model directory you want to implement in the `src/slowmokit/methods/<model type>/<your_model>`.
     - `<model type>` is basically the class of your model, for example `linear_model` or `cluster`.
 5. Create two files:
+
     - `<model>.hpp` : the header file for the model, create the class of model here and include all the stuff required
       for the model here.
         - Include `core.hpp` for all the basic functionalities already added.
