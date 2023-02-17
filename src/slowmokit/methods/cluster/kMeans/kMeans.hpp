@@ -4,18 +4,19 @@
  * The header file including the kMeans
  */
 
-#ifndef SLOWMOKIT_KMEANS_HPP
-#define SLOWMOKIT_KMEANS_HPP
+#ifndef SLOWMOKIT_KMEANS_HPP_1
+#define SLOWMOKIT_KMEANS_HPP_1
 
 #include "../../../core.hpp"
 
 template <class T>
 class kMeans
 {
-	const int k;
-	const int epoch;
-	std::vector<int> clusters;
-	std::vector<std::vector<long double>> centroids;
+  const int default_epoch = 40;
+  const int k;
+  const int epoch;
+  std::vector<int> clusters;
+  std::vector<std::vector<long double>> centroids;
 
 	/**
 	  Returns random number between l and r, both inclusive
@@ -90,39 +91,37 @@ class kMeans
 		return sqroot((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2));
 	}
 
-	public:
-	kMeans(int k, int epoch) : k(k), epoch(epoch)
-	{
-		if (k <= 0)
-		{
-			throw "k should be a positive integer.";
-		}
-	}
+  public:
+  kMeans(int k, int epoch) : k(k), epoch(epoch)
+  {
+    if (k <= 1)
+    {
+      throw std::invalid_argument("k should be greater than 1");
+    }
+  }
 
-	kMeans(int k) : kMeans(k, 40)
-	{
-	}
+  kMeans(int k) : kMeans(k, default_epoch) {}
 
-	kMeans(int k, std::vector<std::vector<long double>> initial_centroids,
-	       int epoch)
-	    : kMeans(k, 40)
-	{
-		this->centroids = initial_centroids;
-	}
+  kMeans(int k, std::vector<std::vector<long double>> initial_centroids,
+         int epoch)
+      : kMeans(k, epoch)
+  {
+    this->centroids = initial_centroids;
+  }
 
 	void fit(std::vector<std::vector<T>>);
 
 	std::vector<int> predict(std::vector<std::vector<T>>);
 
-	/**
-	 * Returns which cluster point-i belongs to
-	 */
-	std::vector<int> labels() const;
+  /**
+   * @Returns which cluster point-i belongs to
+   */
+  std::vector<int> labels() const;
 
-	/**
-	 * Returns the final centroid for each cluster.
-	 */
-	std::vector<std::vector<long double>> getCentroid() const;
+  /**
+   * @Returns the final centroid for each cluster.
+   */
+  std::vector<std::vector<long double>> getCentroid() const;
 };
 
 #endif // SLOWMOKIT_KMEANS_HPP

@@ -98,16 +98,6 @@ class Matrix
 
 
 	/**
-	 * @brief Function for taking dot product of current matrix with another
-	 * matrix
-	 * @param rhs: Take dot product of current Matrix with `rhs`
-	 * @returns: A New Matrix after taking dot product with matrix `rhs`
-	 * @throws: std::invalid_argument incase of incompatible dimensions
-	 */
-	Matrix &dot(const Matrix &);
-
-
-	/**
 	 * @brief overloading += operator for adding another matrix to existing
 	 * matrix
 	 * @param1: Matrix `rhs` which is to be added
@@ -159,21 +149,19 @@ class Matrix
 	Matrix add(Matrix);
 
 
-	/**
-	 * @brief This function will subtract 2 matrix
-	 * @param rhs: This is the matrix which will be subtracted from the main
-	 * matrix
-	 * @throw: whatever operator *= throws
-	 */
-	Matrix subtract(Matrix);
+  /**
+   * @brief This function will subtract 2 matrix
+   * @param rhs: This is the matrix which will be subtracted from the main
+   * matrix
+   * @throw: whatever operator *= throws
+   */
+  Matrix subtract(const Matrix);
+
+  /**
+   * @brief overloading << for easy printing of Matrix
+   */
+  friend std::ostream &operator<< <T>(std::ostream &, const Matrix<T> &);
 };
-
-
-/**
- * @brief overloading << for easy printing of Matrix
- */
-template <class T>
-std::ostream &operator<<(std::ostream &, const Matrix<T> &);
 
 /**
  * @brief Free Function to multiply a matrix to a number or another matrix

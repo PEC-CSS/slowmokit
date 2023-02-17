@@ -1,5 +1,4 @@
-#include "../../src/slowmokit/methods/cluster/kMeans.hpp"
-#include <bits/stdc++.h>
+#include "../../../src/slowmokit/methods/cluster/kMeans.hpp"
 
 int main()
 {
