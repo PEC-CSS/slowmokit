@@ -161,7 +161,7 @@ class Matrix
 	 * @brief overloading << for easy printing of Matrix
 	 */
 	template <class U>
-    friend std::ostream &operator<<(std::ostream &, const Matrix<U> &);
+	friend std::ostream &operator<<(std::ostream &, const Matrix<U> &);
 };
 
 /**

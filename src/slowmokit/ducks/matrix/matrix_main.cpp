@@ -330,7 +330,8 @@ Matrix<T> Matrix<T>::subtract(const Matrix<T> rhs)
 }
 
 
-int main() {
-    Matrix<int> m(2, 2);
-    std::cout << m;
+int main()
+{
+	Matrix<int> m(2, 2);
+	std::cout << m;
 }
