@@ -160,7 +160,8 @@ class Matrix
 	/**
 	 * @brief overloading << for easy printing of Matrix
 	 */
-    friend std::ostream &operator<< (std::ostream &, const Matrix<T> &);
+	template <class U>
+    friend std::ostream &operator<<(std::ostream &, const Matrix<U> &);
 };
 
 /**
