@@ -21,8 +21,4 @@ endif ()
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-add_subdirectory(src/slowmokit)
-
-add_library(slowmokit
-        src/slowmokit.hpp
-        src/slowmokit.cpp)
+add_subdirectory(include/slowmokit)
