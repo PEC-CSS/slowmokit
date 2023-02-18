@@ -54,3 +54,9 @@ build
 
 # DSSTORE
 .DS_Store
+
+# cph extension
+.cph/
+
+# DS_STORE
+.DS_Store

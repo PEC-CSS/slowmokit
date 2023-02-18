@@ -1,0 +1,27 @@
+name: clang-tidy check
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  tidy-check:
+    name: Tidy check
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    # Optionally generate compile_commands.json
+
+    - uses: ZedThree/clang-tidy-review@v0.10.0
+      id: review
+      with:
+        apt_packages: liblapack-dev
+        cmake_command: cmake . -DCMAKE_EXPORT_COMPILE_COMMANDS=on
+        config_file: '.clang-tidy'
+        
+    - if: steps.review.outputs.total_comments > 0
+      run: exit 1

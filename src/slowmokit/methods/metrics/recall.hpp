@@ -17,6 +17,6 @@
  * @returns map of recall values
  */
 
-template<class T>
+template <class T>
 std::map<T, double> recall(std::vector<T> &, std::vector<T> &);
 #endif // SLOWMOKIT_RECALL_HPP

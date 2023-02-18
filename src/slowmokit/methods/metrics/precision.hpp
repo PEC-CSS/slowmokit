@@ -17,7 +17,7 @@
  * @returns map of precision values
  */
 
-template<class T>
+template <class T>
 std::map<T, double> precision(std::vector<T> &, std::vector<T> &);
 
 
