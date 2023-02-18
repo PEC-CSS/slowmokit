@@ -40,7 +40,7 @@ pub fn write_files(model_name: String, model_type: String) {
     write_example::write(_examples_file, model_name.to_owned(), model_type.to_owned());
     write_docs::write(_docs_file, model_name.to_owned(), model_type.to_owned());
     write_source::write_easy_import(_easy_import_file, model_name.to_owned(), model_type.to_owned());
-    write_source::write_cpp(_imple_file, model_name.to_owned(), model_type.to_owned());
+    write_source::write_impl(_imple_file, model_name.to_owned(), model_type.to_owned());
     write_source::write_hpp(_header_file, model_name.to_owned(), model_type.to_owned());
 
     println!("File structure created succesfully!");

@@ -5,9 +5,9 @@ pub fn write_easy_import(mut file: File, name: String, type_name: String) {
     let data = format!(
         r#"
 /**
- * @file methods/{type_name}/{name}.hpp
+ * @file {type_name}/{name}.hpp
  * 
- * Easy include for {name} algorithm.
+ * Convenience include for {name} algorithm.
  */
 
 #ifndef SLOWMOKIT_{uppercase_name}_HPP
@@ -49,7 +49,7 @@ pub fn write_hpp(mut file: File, name: String, type_name: String) {
     let data = format!(
         r#"
 /**
- * @file methods/{type_name}/{name}/{name}.hpp
+ * @file {type_name}/{name}/{name}.hpp
  * 
  * Header file including {name} algorithm.
  */
@@ -57,15 +57,21 @@ pub fn write_hpp(mut file: File, name: String, type_name: String) {
 #ifndef SLOWMOKIT_{uppercase_name}_HEADER_HPP
 #define SLOWMOKIT_{uppercase_name}_HEADER_HPP
 
-#include "core.hpp"
+#include <slowmokit/core.hpp>
 
+namespace slkt {{
 template<class T>
 class {pascal_name} 
 {{
     // declare all functions here
 }}
 
-#endif // SLOWMOKIT_{uppercase_name}_HPP
+}} // namespace slkt
+
+// Include implementation.
+#include "{name}_impl.hpp"
+
+#endif // SLOWMOKIT_{uppercase_name}_HEADER_HPP
 "#
     );
     file.write_all(data.as_bytes())
@@ -74,18 +80,27 @@ class {pascal_name}
     println!("Model header file added!");
 }
 
-pub fn write_cpp(mut file: File, name: String, type_name: String) {
+pub fn write_impl(mut file: File, name: String, type_name: String) {
+    let uppercase_name = name.to_uppercase();
     let data = format!(
         r#"
 /**
- * @file methods/{type_name}/{name}/{name}.cpp
+ * @file {type_name}/{name}/{name}_impl.hpp
  * 
- * Implementation of {name} main program.
+ * Implementation of {name} algorithm.
  */
+
+ #ifndef SLOWMOKIT_{uppercase_name}_IMPL_HPP
+ #define SLOWMOKIT_{uppercase_name}_IMPL_HPP
 
 #include "{name}.hpp"
 
-// Implement/declare all function using the resolution operator `::`
+namespace slkt {{
+// Implement/define all function using the resolution operator `::`
+
+}}
+
+#endif // SLOWMOKIT_{uppercase_name}_IMPL_HPP
 "#
     );
     file.write_all(data.as_bytes())

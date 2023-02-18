@@ -10,7 +10,7 @@ Write a brief decription of algorithm here.
 ## includes
 
 ```cpp
-#include <slowmokit/methods/{type_name}/{name}.h>
+#include <slowmokit/{type_name}/{name}.h>
 ```
 
 ## usage

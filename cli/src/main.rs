@@ -1,15 +1,12 @@
 mod create;
 
-use execute::Execute;
-use std::process::Command;
-
 use clap::{Args, Parser, Subcommand};
 
 #[derive(Parser)]
 #[command(author, version)]
 #[command(
     about = "nimble_cli - one in all tool for ml kit",
-    long_about = "nible_cli is a command line tool built to assist the development and maintainence of the machine leanring library built by PEC CSS."
+    long_about = "nimble_cli is a command line tool built to assist the development and maintainence of the machine leanring library built by PEC CSS."
 )]
 struct Cli {
     #[command(subcommand)]
@@ -52,30 +49,10 @@ fn main() {
         }
         Some(Commands::Install(_)) => {
             println!("Install library to device");
-            let mut cmd;
             if cfg!(target_os = "windows") {
                 // TODO: Windows
-                cmd = Command::new("cmd");
-                cmd.args(["/C", "echo hello"]);
-            } else if cfg!(target_os = "macos") {
-                // TODO: MacOs
-                cmd = Command::new("python3");
-                cmd.arg("hello.py");
             } else {
-                // TODO : Linux
-                cmd = Command::new("ls");
-                cmd.arg("-l");
-            }
-            let output = cmd.execute_output().unwrap();
-
-            if let Some(exit_code) = output.status.code() {
-                if exit_code == 0 {
-                    eprintln!("Installed Sucessfully.");
-                } else {
-                    eprintln!("Installation Failed.");
-                }
-            } else {
-                eprintln!("Interrupted!");
+                // TODO: UNIX based
             }
         }
         Some(Commands::Upgrade(_)) => {
