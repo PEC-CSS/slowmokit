@@ -52,11 +52,8 @@ build
 # cph extension
 .cph/
 
-# DSSTORE
-.DS_Store
-
-# cph extension
-.cph/
-
 # DS_STORE
 .DS_Store
+
+# Folder Structure
+folder.txt
