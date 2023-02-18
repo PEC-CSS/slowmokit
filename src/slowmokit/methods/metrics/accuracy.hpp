@@ -16,7 +16,7 @@
  * @throws domain_error exception when size of the two vectors is not equal
  */
 
-template<class T>
+template <class T>
 double accuracy(const std::vector<T> &, const std::vector<T> &);
 
 #endif // SLOWMOKIT_ACCURACY_HPP

@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.24)
+cmake_minimum_required(VERSION 3.22)
 project(slowmokit C CXX)
 
 # If we are not using Visual Studio, use the GNU install directories module.

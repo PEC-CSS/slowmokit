@@ -8,7 +8,7 @@
 #define SLOWMOKIT_SILHOUETTE_SCORE_HPP
 #include "../../core.hpp"
 
-template<class T>
+template <class T>
 /**
  * @brief Calculates Silhouette Score
  *

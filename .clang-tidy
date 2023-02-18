@@ -7,6 +7,8 @@ FormatStyle:     'file'
 CheckOptions:
   - key:             bugprone-argument-comment.CommentBoolLiterals
     value:           '0'
+  - key:             bugprone-easily-swappable-parameters.MinimumLength
+    value:           '5'
   - key:             bugprone-argument-comment.CommentCharacterLiterals
     value:           '0'
   - key:             bugprone-argument-comment.CommentFloatLiterals
@@ -23,6 +25,12 @@ CheckOptions:
     value:           '0'
   - key:             bugprone-argument-comment.StrictMode
     value:           '0'
+  - key:             bugprone-narrowing-conversions.WarnOnIntegerNarrowingConversion
+    value:           'false'
+  - key:             bugprone-narrowing-conversions.WarnOnIntegerToFloatingPointNarrowingConversion
+    value:           'false'
+  - key:             bugprone-narrowing-conversions.WarnOnFloatingPointNarrowingConversion
+    value:           'false'
   - key:             bugprone-assert-side-effect.AssertMacros
     value:           assert
   - key:             bugprone-assert-side-effect.CheckFunctionCalls
@@ -81,14 +89,16 @@ CheckOptions:
     value:           '1'
   - key:             cppcoreguidelines-non-private-member-variables-in-classes.IgnoreClassesWithAllMemberVariablesBeingPublic
     value:           '1'
-  - key:             google-readability-braces-around-statements.ShortStatementLines
-    value:           '1'
-  - key:             google-readability-function-size.StatementThreshold
+  - key:             readability-braces-around-statements.ShortStatementLines
+    value:           '5'
+  - key:             readability-function-size.StatementThreshold
     value:           '800'
-  - key:             google-readability-namespace-comments.ShortNamespaceLines
+  - key:             readability-namespace-comments.ShortNamespaceLines
     value:           '10'
-  - key:             google-readability-namespace-comments.SpacesBeforeComments
+  - key:             readability-namespace-comments.SpacesBeforeComments
     value:           '2'
+  - key:             readability-function-cognitive-complexity.Threshold
+    value:           '50'
   - key:             misc-definitions-in-headers.HeaderFileExtensions
     value:           ',h,hh,hpp,hxx'
   - key:             misc-definitions-in-headers.UseHeaderFileExtension
@@ -153,6 +163,16 @@ CheckOptions:
     value:           '4294967295'
   - key:             readability-identifier-naming.IgnoreFailedSplit
     value:           '0'
+  - key:             readability-identifier-naming.FunctionCase
+    value:           'camelBack'
+  - key:             readability-identifier-naming.ClassCase
+    value:           'CamelCase'
+  - key:             readability-identifier-naming.StructCase
+    value:           'CamelCase'
+  - key:             readability-identifier-naming.NamespaceCase
+    value:           'lower_case'
+  - key:             readability-identifier-naming.GlobalConstantCase
+    value:           'UPPER_CASE'
   - key:             readability-implicit-bool-conversion.AllowIntegerConditions
     value:           '0'
   - key:             readability-implicit-bool-conversion.AllowPointerConditions
@@ -162,9 +182,9 @@ CheckOptions:
   - key:             readability-inconsistent-declaration-parameter-name.Strict
     value:           '0'
   - key:             readability-magic-numbers.IgnoredFloatingPointValues
-    value:           '1.0;100.0;'
+    value:           '1.0;'
   - key:             readability-magic-numbers.IgnoredIntegerValues
-    value:           '1;2;3;4;'
+    value:           '1;2;3;4;10;11;100'
   - key:             readability-redundant-member-init.IgnoreBaseInCopyConstructors
     value:           '0'
   - key:             readability-redundant-smartptr-get.IgnoreMacros
@@ -183,3 +203,7 @@ CheckOptions:
     value:           '1'
   - key:             readability-uppercase-literal-suffix.NewSuffixes
     value:           ''
+  - key:             readability-identifier-length.MinimumVariableNameLength
+    value:           '1'
+  - key:             readability-identifier-length.MinimumParameterNameLength
+    value:           '1'
