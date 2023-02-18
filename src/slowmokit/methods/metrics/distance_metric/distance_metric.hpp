@@ -15,44 +15,45 @@
  * @returns the distance metrics
  * @throws domain_error exception when size of the two vectors is not equal
  */
-template<class T> class DistanceMetric
+template <class T>
+class DistanceMetric
 {
-  private:
-  std::vector<T> x;
-  std::vector<T> y;
+	private:
+	std::vector<T> x;
+	std::vector<T> y;
 
-  public:
-  DistanceMetric(std::vector<T> &x, std::vector<T> &y);
+	public:
+	DistanceMetric(std::vector<T> &x, std::vector<T> &y);
 
-  /**
-   * @returns euclidean distance between the two vectors
-   */
-  double euclidean();
-
-
-  /**
-   * @returns manhattan distance between the two vectors
-   */
-  T manhattan();
+	/**
+	 * @returns euclidean distance between the two vectors
+	 */
+	double euclidean();
 
 
-  /**
-   * @param power The order of the norm
-   * @returns minkowski distance between the two vectors
-   */
-  double minkowski(int);
+	/**
+	 * @returns manhattan distance between the two vectors
+	 */
+	T manhattan();
 
-  /**
-   * @brief to find the magnitude of the vector
-   * @param x a vector
-   * @returns magnitude of x
-   */
-  double magnitude(std::vector<T> &);
 
-  /**
-   * @returns cosine similarity between the two vectors
-   */
-  double cosineSimilarity();
+	/**
+	 * @param power The order of the norm
+	 * @returns minkowski distance between the two vectors
+	 */
+	double minkowski(int);
+
+	/**
+	 * @brief to find the magnitude of the vector
+	 * @param x a vector
+	 * @returns magnitude of x
+	 */
+	double magnitude(std::vector<T> &);
+
+	/**
+	 * @returns cosine similarity between the two vectors
+	 */
+	double cosineSimilarity();
 };
 
 #endif // SLOWMOKIT_DISTANCE_METRIC_HPP
