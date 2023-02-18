@@ -328,10 +328,3 @@ Matrix<T> Matrix<T>::subtract(const Matrix<T> rhs)
 	res -= rhs;
 	return res;
 }
-
-
-int main()
-{
-	Matrix<int> m(2, 2);
-	std::cout << m;
-}
