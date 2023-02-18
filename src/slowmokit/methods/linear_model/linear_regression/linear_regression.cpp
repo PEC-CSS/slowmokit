@@ -65,7 +65,8 @@ template <class T>
 std::vector<T> LinearRegression<T>::predict(std::vector<std::vector<T>> x)
 {
 	std::vector<T> yPred;
-	int trainExampleSize = x.size(), featureSize = x[0].size();
+	int trainExampleSize = x.size();
+    int featureSize = x[0].size();
 	for (int example = 0; example < trainExampleSize; example++)
 	{
 		T currentY = coefficients[0];
