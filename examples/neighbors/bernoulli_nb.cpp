@@ -1,4 +1,5 @@
-// #include "../../../src/slowmokit/methods/neighbors/bernoulli_nb.hpp"
+// #include "../../src/slowmokit/methods/neighbors/bernoulli_nb.hpp"
+// #include "../../src/slowmokit/core.hpp"
 
 // signed main(){
 //     std::vector<std::vector<int>> xTrain{

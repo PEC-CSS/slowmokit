@@ -1,7 +1,7 @@
 /**
- * @file ducks/matrix/matrix_main.cpp
+ * @file ducks/matrix/matrix.cpp
  *
- * Implementation of the main methods of Matrix
+ * Implementation of the matrix main program
  */
 
 #include "matrix.hpp"

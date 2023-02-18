@@ -10,4 +10,7 @@
 // pre-requisites of the library
 #include "prereqs.hpp"
 
+// standard model class
+#include "models/model.hpp"
+
 #endif // SLOWMOKIT_CORE_HPP
