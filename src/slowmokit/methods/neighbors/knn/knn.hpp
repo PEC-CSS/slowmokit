@@ -6,7 +6,10 @@
 #ifndef SLOWMOKIT_KNN_HPP
 #define SLOWMOKIT_KNN_HPP
 
-template<class T> class KNN
+#include "../../../core.hpp"
+
+template <class T>
+class KNN
 {
 	private:
 	std::vector<std::vector<T>> xTrain;

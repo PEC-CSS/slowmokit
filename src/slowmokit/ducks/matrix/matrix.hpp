@@ -149,18 +149,18 @@ class Matrix
 	Matrix add(Matrix);
 
 
-  /**
-   * @brief This function will subtract 2 matrix
-   * @param rhs: This is the matrix which will be subtracted from the main
-   * matrix
-   * @throw: whatever operator *= throws
-   */
-  Matrix subtract(const Matrix);
+	/**
+	 * @brief This function will subtract 2 matrix
+	 * @param rhs: This is the matrix which will be subtracted from the main
+	 * matrix
+	 * @throw: whatever operator *= throws
+	 */
+	Matrix subtract(const Matrix);
 
-  /**
-   * @brief overloading << for easy printing of Matrix
-   */
-  friend std::ostream &operator<< <T>(std::ostream &, const Matrix<T> &);
+	/**
+	 * @brief overloading << for easy printing of Matrix
+	 */
+	friend std::ostream &operator<< <T>(std::ostream &, const Matrix<T> &);
 };
 
 /**

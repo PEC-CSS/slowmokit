@@ -17,7 +17,7 @@
  * equal
  */
 
-template<class T>
+template <class T>
 std::map<T, double> f1Score(std::vector<T> &, std::vector<T> &);
 
 #endif // SLOWMOKIT_F1SCORE_HPP

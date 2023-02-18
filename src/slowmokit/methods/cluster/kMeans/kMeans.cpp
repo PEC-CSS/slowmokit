@@ -7,7 +7,7 @@
 #include "kMeans.hpp"
 
 template <class T>
-void kMeans<T>::fit(std::vector<std::vector<T>> X)
+void KMeans<T>::fit(std::vector<std::vector<T>> X)
 {
 	int n = std::size(X);
 	if (std::ssize(centroids) != k)
@@ -23,7 +23,7 @@ void kMeans<T>::fit(std::vector<std::vector<T>> X)
 
 	clusters.resize(n, -1);
 	bool changed = true;
-	for (int __ = 0; __ < epoch and changed; __++)
+	for (int _ = 0; _ < epoch and changed; _++)
 	{
 		int pos = 0;
 		changed = false;
@@ -80,20 +80,20 @@ void kMeans<T>::fit(std::vector<std::vector<T>> X)
 }
 
 template <class T>
-std::vector<int> kMeans<T>::predict(std::vector<std::vector<T>> X)
+std::vector<int> KMeans<T>::predict(std::vector<std::vector<T>> X)
 {
 	fit(X);
 	return clusters;
 }
 
 template <class T>
-std::vector<int> kMeans<T>::labels() const
+std::vector<int> KMeans<T>::labels() const
 {
 	return clusters;
 }
 
 template <class T>
-std::vector<std::vector<long double>> kMeans<T>::getCentroid() const
+std::vector<std::vector<long double>> KMeans<T>::getCentroid() const
 {
 	return centroids;
 }

@@ -10,13 +10,13 @@
 #include "../../../core.hpp"
 
 template <class T>
-class kMeans
+class KMeans
 {
-  const int default_epoch = 40;
-  const int k;
-  const int epoch;
-  std::vector<int> clusters;
-  std::vector<std::vector<long double>> centroids;
+	const int default_epoch = 40;
+	const int k;
+	const int epoch;
+	std::vector<int> clusters;
+	std::vector<std::vector<long double>> centroids;
 
 	/**
 	  Returns random number between l and r, both inclusive
@@ -62,8 +62,10 @@ class kMeans
 		return nums;
 	}
 
+	constexpr static double EPS = 1e-9;
+
 	template <class G1 = int, class G2 = double>
-	G2 sqroot(G1 x, double eps = 1e-9)
+	G2 sqroot(G1 x, double eps = EPS)
 	{
 		G2 left = 0;
 		G2 right = x;
@@ -91,37 +93,39 @@ class kMeans
 		return sqroot((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2));
 	}
 
-  public:
-  kMeans(int k, int epoch) : k(k), epoch(epoch)
-  {
-    if (k <= 1)
-    {
-      throw std::invalid_argument("k should be greater than 1");
-    }
-  }
+	public:
+	KMeans(int k, int epoch) : k(k), epoch(epoch)
+	{
+		if (k <= 1)
+		{
+			throw std::invalid_argument("k should be greater than 1");
+		}
+	}
 
-  kMeans(int k) : kMeans(k, default_epoch) {}
+	KMeans(int k) : KMeans(k, default_epoch)
+	{
+	}
 
-  kMeans(int k, std::vector<std::vector<long double>> initial_centroids,
-         int epoch)
-      : kMeans(k, epoch)
-  {
-    this->centroids = initial_centroids;
-  }
+	KMeans(int k, std::vector<std::vector<long double>> initial_centroids,
+	       int epoch)
+	    : KMeans(k, epoch)
+	{
+		this->centroids = initial_centroids;
+	}
 
 	void fit(std::vector<std::vector<T>>);
 
 	std::vector<int> predict(std::vector<std::vector<T>>);
 
-  /**
-   * @Returns which cluster point-i belongs to
-   */
-  std::vector<int> labels() const;
+	/**
+	 * @Returns which cluster point-i belongs to
+	 */
+	std::vector<int> labels() const;
 
-  /**
-   * @Returns the final centroid for each cluster.
-   */
-  std::vector<std::vector<long double>> getCentroid() const;
+	/**
+	 * @Returns the final centroid for each cluster.
+	 */
+	std::vector<std::vector<long double>> getCentroid() const;
 };
 
 #endif // SLOWMOKIT_KMEANS_HPP
