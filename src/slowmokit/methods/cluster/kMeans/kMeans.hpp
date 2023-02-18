@@ -4,114 +4,129 @@
  * The header file including the kMeans
  */
 
-#ifndef SLOWMOKIT_KMEANS_HPP
-#define SLOWMOKIT_KMEANS_HPP
+#ifndef SLOWMOKIT_KMEANS_HPP_1
+#define SLOWMOKIT_KMEANS_HPP_1
 
 #include "../../../core.hpp"
 
-template<class T> class kMeans
+template <class T>
+class KMeans
 {
-  const int k;
-  const int epoch;
-  std::vector<int> clusters;
-  std::vector<std::vector<long double>> centroids;
+	const int default_epoch = 40;
+	const int k;
+	const int epoch;
+	std::vector<int> clusters;
+	std::vector<std::vector<long double>> centroids;
 
-  /**
-    Returns random number between l and r, both inclusive
-    @param l: start of range
-    @param r: end of range
-    @throws assertionError if r > l.
-    */
-  template<class G> G randomInteger(G l, G r)
-  {
-    std::mt19937 rng(
-        std::chrono::steady_clock::now().time_since_epoch().count());
-    assert(l <= r);
+	/**
+	  Returns random number between l and r, both inclusive
+	  @param l: start of range
+	  @param r: end of range
+	  @throws assertionError if r > l.
+	  */
+	template <class G>
+	G randomInteger(G l, G r)
+	{
+		std::mt19937 rng(
+		    std::chrono::steady_clock::now().time_since_epoch().count());
+		assert(l <= r);
 
-    return std::uniform_int_distribution<G>(l, r)(rng);
-  }
+		return std::uniform_int_distribution<G>(l, r)(rng);
+	}
 
-  /**
-   * Returns set of k-distinct values
-   * @param k number of distinct values needed
-   * @param L start of range
-   * @param R end of range
-   */
-  template<class G> std::set<G> getKDistinctIndices(int k, int L, int R)
-  {
-    if (k < 0)
-    {
-      throw "k < 0 not allowed!";
-    }
+	/**
+	 * Returns set of k-distinct values
+	 * @param k number of distinct values needed
+	 * @param L start of range
+	 * @param R end of range
+	 */
+	template <class G>
+	std::set<G> getKDistinctIndices(int k, int L, int R)
+	{
+		if (k < 0)
+		{
+			throw "k < 0 not allowed!";
+		}
 
-    if (R - L + 1 < k)
-    {
-      throw "Range should be of length atleast k";
-    }
+		if (R - L + 1 < k)
+		{
+			throw "Range should be of length atleast k";
+		}
 
-    std::set<G> nums;
-    while (std::ssize(nums) != k)
-    {
-      nums.emplace(randomInteger(L, R));
-    }
+		std::set<G> nums;
+		while (std::ssize(nums) != k)
+		{
+			nums.emplace(randomInteger(L, R));
+		}
 
-    return nums;
-  }
+		return nums;
+	}
 
-  template<class G1 = int, class G2 = double> G2 sqroot(G1 x, double eps = 1e-9)
-  {
-    G2 left = 0, right = x;
+	constexpr static double EPS = 1e-9;
 
-    while (right - left > eps)
-    {
-      G2 mid = left + (right - left) / 2;
+	template <class G1 = int, class G2 = double>
+	G2 sqroot(G1 x, double eps = EPS)
+	{
+		G2 left = 0;
+		G2 right = x;
 
-      if (mid >= x / mid)
-        right = mid;
-      else
-        left = mid;
-    }
+		while (right - left > eps)
+		{
+			G2 mid = left + (right - left) / 2;
 
-    return left + (right - left) / 2;
-  }
+			if (mid >= x / mid)
+			{
+				right = mid;
+			}
+			else
+			{
+				left = mid;
+			}
+		}
 
-  long double euclideanDistance(long double x1, long double y1, long double x2,
-                                long double y2)
-  {
-    return sqroot((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2));
-  }
+		return left + (right - left) / 2;
+	}
 
-  public:
-  kMeans(int k, int epoch) : k(k), epoch(epoch)
-  {
-    if (k <= 0)
-    {
-      throw "k should be a positive integer.";
-    }
-  }
+	long double euclideanDistance(long double x1, long double y1,
+	                              long double x2, long double y2)
+	{
+		return sqroot((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2));
+	}
 
-  kMeans(int k) : kMeans(k, 40) {}
+	public:
+	KMeans(int k, int epoch) : k(k), epoch(epoch)
+	{
+		if (k <= 1)
+		{
+			throw std::invalid_argument("k should be greater than 1");
+		}
+	}
 
-  kMeans(int k, std::vector<std::vector<long double>> initial_centroids,
-         int epoch)
-      : kMeans(k, 40)
-  {
-    this->centroids = initial_centroids;
-  }
+	KMeans(int k) : KMeans(k, default_epoch)
+	{
+	}
 
-  void fit(std::vector<std::vector<T>>);
+	KMeans(int k,
+	       const std::vector<std::vector<long double>> &initial_centroids,
+	       int epoch)
+	    : KMeans(k, epoch)
+	{
+		this->centroids = initial_centroids;
+	}
 
-  std::vector<int> predict(std::vector<std::vector<T>>);
+	void fit(std::vector<std::vector<T>>);
 
-  /**
-   * Returns which cluster point-i belongs to
-   */
-  std::vector<int> labels() const;
+	std::vector<int> predict(std::vector<std::vector<T>>);
 
-  /**
-   * Returns the final centroid for each cluster.
-   */
-  std::vector<std::vector<long double>> getCentroid() const;
+	/**
+	 * @Returns which cluster point-i belongs to
+	 */
+	std::vector<int> labels() const;
+
+	/**
+	 * @Returns the final centroid for each cluster.
+	 */
+	std::vector<std::vector<long double>> getCentroid() const;
 };
 
 #endif // SLOWMOKIT_KMEANS_HPP

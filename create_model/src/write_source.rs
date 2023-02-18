@@ -10,12 +10,12 @@ pub fn write_easy_import(mut file: File, name: String, type_name: String) {
  * Easy include for {name} algorithm.
  */
 
-#ifndef SLOWMOKIT_{uppercase_name}_HPP
-#define SLOWMOKIT_{uppercase_name}_HPP
+#ifndef SLOWMOKIT_{uppercase_name}_HPP_MAIN
+#define SLOWMOKIT_{uppercase_name}_HPP_MAIN
 
 #include "{name}/{name}.hpp"
 
-#endif // SLOWMOKIT_{uppercase_name}_HPP
+#endif // SLOWMOKIT_{uppercase_name}_HPP_MAIN
 "#
     );
     file.write_all(data.as_bytes())

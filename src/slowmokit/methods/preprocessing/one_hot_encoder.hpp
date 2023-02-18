@@ -16,7 +16,7 @@
  * @return {std::vector<std::vector<int>>} - oneHotEncoded data is returned.
  */
 
-template<class T>
+template <class T>
 std::vector<std::vector<int>> oneHotEncoder(const std::vector<T> &, int);
 
 #endif // ONE_HOT_ENCODER_HPP

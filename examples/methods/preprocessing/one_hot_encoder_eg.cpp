@@ -1,4 +1,4 @@
-//#include "src/slowmokit/methods/preprocessing/one_hot_encoder.hpp"
+//#include "../../src/slowmokit/methods/preprocessing/one_hot_encoder.hpp"
 
 //int main() {
 // std::vector<std::string> data = {"apples", "banana", "mango", "pear", "mango","apples","pear"};

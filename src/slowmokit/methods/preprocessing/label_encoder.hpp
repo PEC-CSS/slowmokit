@@ -15,6 +15,7 @@
  * @returns a vector containing the corresponding encoded data
  */
 
-template<class T> std::vector<int> labelEncoder(std::vector<T> &);
+template <class T>
+std::vector<int> labelEncoder(std::vector<T> &);
 
 #endif // SLOWMOKIT_LABEL_ENCODER_HPP

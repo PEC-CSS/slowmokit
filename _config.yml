@@ -1,0 +1,9 @@
+title: Slowmokit
+description: ML library in C++.
+remote_theme: pages-themes/hacker@v0.2.0
+plugins:
+    - jekyll-remote-theme
+gem "github-pages", group: :jekyll_plugins
+show_downloads: false
+google_analytics:
+exclude: [src/, docs/, examples/, create_model/]

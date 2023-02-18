@@ -24,7 +24,7 @@ LogisticRegression fits a linear model with coefficients $w\  =\  [(w_1, w_2, â€
 | ------------------------------- | ----------------------------------------------------- | ----------------- |
 | `softmax(vector<T> x)`          | Computes softmax                                      | `vector<T>`       |
 | `crossLogEntropy(vector<int>y,vector<T>qi)` | actual*log(predicted value)                       | DOUBLE       |
-| `EvalL(vector<vector<T>>x,vector<vector<int>>y,vector<vector<T>>beta)`| Computes loss  |      DOUBLE       |
+| `evalL(vector<vector<T>>x,vector<vector<int>>y,vector<vector<T>>beta)`| Computes loss  |      DOUBLE       |
 | `logRegMbgd(vector<vector<double>>x,vector<vector<int>>y,double alpha,int numEpochs,bool verbose)`| Performs gradient descent  |      `vector<vector<T>>`      |
 | `fit(vector<vector<T>>x,vector<vector<int>>y,double alpha,int numEpochs,bool verbose,int batchSize)`| Training of model |      void      |
 | `predict(std::vector<T> x)`| Gives probability for the testing values to belong to a specific class |      `vector<double> T`      |

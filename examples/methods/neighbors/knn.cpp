@@ -1,5 +1,4 @@
-// #include "../../src/slowmokit/methods/neighbors/knn.hpp"
-// #include "../../src/slowmokit/core.hpp"
+// #include "../../../src/slowmokit/methods/neighbors/knn.hpp"
 
 // signed main(){
     // std::vector<std::vector<double>> x{

@@ -14,6 +14,7 @@
  * @throws runtime_error when standard deviation is equal to zero
  */
 
-template<class T> void standardize(std::vector<T> &);
+template <class T>
+void standardize(std::vector<T> &);
 
 #endif // SLOWMOKIT_STANDARDIZATION_HPP
