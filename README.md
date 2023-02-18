@@ -5,7 +5,7 @@
 
 ## ML kit in C++.
 
-Library which can be used for machine learning in C++.
+header-only library which can be used for machine learning in C++.
 
 ### Installation guide
 
@@ -16,32 +16,18 @@ To use this library locally
 Prerequisites
 
 -   [CMAKE](https://cmake.org/install/)
--   [CPP 20](https://codeforces.com/blog/entry/96040)
+-   [CPP 17](https://codeforces.com/blog/entry/96040)
 
 Then following command will install the library
 
-UNIX (Linux/Macos)
-
 ```bash
-mkdir build
-cd build
-cmake ../
-cmake --build .
-sudo cmake --install .
-```
-
-WINDOWS
-
-```bash
-cmake -G "MinGW Makefiles" -S . -B build
-cmake --build build
-cmake --install build --prefix '<ADD PATH OF MINGW INCLUDE HERE (mingw64/include)>'
+./scripts/install
 ```
 
 > If permission is required to execute, run the following command
 
 ```
-chmod 705 ./install
+chmod 705 ./scripts/install
 ```
 
 ### Steps
@@ -54,13 +40,13 @@ Following are the steps to start contributing to our beautiful library:
 
 After this,
 
-You can directly use the executable file by running `./create` in the root folder of library, to do the required configurations.
+You can directly use the executable file by running `./bin/nim` in the root folder of library, to do the required configurations.
 
 More details [here](./create_model/README.md)
 
 > If it does not work then you need to configure everything by your own.
 
-4. Make the model directory you want to implement in the `src/slowmokit/methods/<model type>/<your_model>`.
+4. Make the model directory you want to implement in the `include/slowmokit/<model type>/<your_model>`.
     - `<model type>` is basically the class of your model, for example `linear_model` or `cluster`.
 5. Create two files:
 
@@ -76,7 +62,7 @@ More details [here](./create_model/README.md)
 
 > This step is mandatory
 
-9. Format the files according to the convention. For simplicity, run `./clang-format-all src/` in gitbash(if on windows) or in terminal(if on linux/macos)
+9. Format the files according to the convention. For simplicity, run `./scripts/clang-format-all include/` in gitbash(if on windows) or in terminal(if on linux/macos)
 
 _For this you need to have `clang-format` binaries installed in the machine._
 
@@ -99,7 +85,7 @@ sudo apt install clang-format
 ### Example
 
 Once the algorithm is ready, run and test it. After testing, push it in the `examples` directory, with proper comments and
-instructions. With same directory structure as in `src`.
+instructions. With same directory structure as in `include`.
 
 ### Documentation
 
