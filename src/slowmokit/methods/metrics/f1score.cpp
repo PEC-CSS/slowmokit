@@ -16,6 +16,7 @@ std::map<T, double> f1Score(std::vector<T> &pred, std::vector<T> &actual)
 	precisionMap = precision(pred, actual);
 	recallMap = recall(pred, actual);
 	std::map<T, double> f1ScoreMap;
+	const double HALF = 0.5;
 	for (int i = 0; i < precisionMap.size(); i++)
 	{
 		T classNumber = i;
@@ -31,7 +32,7 @@ std::map<T, double> f1Score(std::vector<T> &pred, std::vector<T> &actual)
 			     (double) recallMap[classNumber]);
 
 			double x = f1ScoreMap[classNumber];
-			float value = (int) (x * 100 + .5);
+			float value = std::lround(x * 100 + HALF);
 			f1ScoreMap[classNumber] = (float) value / 100;
 		}
 	}

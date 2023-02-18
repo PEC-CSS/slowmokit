@@ -5,8 +5,6 @@
  */
 #include "recall.hpp"
 
-const double HALF = 0.5;
-
 template <class T>
 std::map<T, double> recall(std::vector<T> &pred, std::vector<T> &actual)
 {
@@ -50,6 +48,7 @@ std::map<T, double> recall(std::vector<T> &pred, std::vector<T> &actual)
 		}
 
 		double x = recallMap[i];
+		const double HALF = 0.5;
 		float value = std::lround(x * 100 + HALF);
 		recallMap[i] = (float) value / 100;
 	}

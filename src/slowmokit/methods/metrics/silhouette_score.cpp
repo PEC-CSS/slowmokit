@@ -46,7 +46,8 @@ double silhouetteScore(std::vector<std::vector<T>> x, std::vector<int> y,
 						    (x[i][k] -
 						     x[j][k]); // x[i][k]-> i=point,k=1-d value of point
 					}
-					distances[i][j] = pow(distances[i][j], 0.5);
+					const double HALF = 0.5;
+					distances[i][j] = pow(distances[i][j], HALF);
 				}
 				else if (typeDist == "manhattan")
 				{

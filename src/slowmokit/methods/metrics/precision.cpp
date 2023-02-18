@@ -5,8 +5,6 @@
  */
 #include "precision.hpp"
 
-const double HALF = 0.5;
-
 template <class T>
 std::map<T, double> precision(std::vector<T> &pred, std::vector<T> &actual)
 {
@@ -52,6 +50,7 @@ std::map<T, double> precision(std::vector<T> &pred, std::vector<T> &actual)
 		}
 
 		double x = precisionMap[i];
+		const double HALF = 0.5;
 		float value = std::lround(x * 100 + HALF);
 		precisionMap[i] = (float) value / 100;
 	}
