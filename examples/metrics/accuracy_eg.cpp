@@ -1,4 +1,4 @@
-// #include "../../src/slowmokit/methods/metrics/accuracy.hpp"
+// #include "../src/slowmokit/methods/metrics/accuracy.hpp"
 
 // int main() {
 //   std::vector<int> pred = {1, 0, 1, 1, 0, 1};

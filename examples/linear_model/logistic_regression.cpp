@@ -1,4 +1,5 @@
-// #include "../../../src/slowmokit/methods/linear_model/logistic_regression.hpp"
+// #include "../../src/slowmokit/methods/linear_model/logistic_regression.hpp"
+// #include "../../src/slowmokit/core.hpp"
 
 // int main()
 // {

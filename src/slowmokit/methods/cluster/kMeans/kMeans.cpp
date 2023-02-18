@@ -3,7 +3,6 @@
  *
  * Implementation of the K-Means main program
  */
-
 #include "kMeans.hpp"
 
 template<class T> void kMeans<T>::fit(std::vector<std::vector<T>> X)
