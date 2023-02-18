@@ -155,7 +155,7 @@ class Matrix
 	 * matrix
 	 * @throw: whatever operator *= throws
 	 */
-	Matrix subtract(const Matrix);
+	Matrix subtract(Matrix);
 
 	/**
 	 * @brief overloading << for easy printing of Matrix

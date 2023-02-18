@@ -32,8 +32,7 @@ void LinearRegression<T>::fit(std::vector<std::vector<T>> x, std::vector<T> y)
 	}
 	coefficients.clear();
 	coefficients.resize(featureSize + 1);
-
-	for (int epoch = 0; epoch < epochs; epoch++)
+	for (int epoch = 0; epoch < this->epochs; epoch++)
 	{
 		std::vector<T> yPred;
 		for (int example = 0; example < trainExampleSize; example++)

@@ -7,6 +7,7 @@
 #define SLOWMOKIT_KNN_HPP
 
 #include "../../../core.hpp"
+#include "../../../ducks/random/random.hpp"
 
 template <class T>
 class KNN

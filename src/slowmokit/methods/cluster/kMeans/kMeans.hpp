@@ -106,7 +106,8 @@ class KMeans
 	{
 	}
 
-	KMeans(int k, std::vector<std::vector<long double>> initial_centroids,
+	KMeans(int k,
+	       const std::vector<std::vector<long double>> &initial_centroids,
 	       int epoch)
 	    : KMeans(k, epoch)
 	{

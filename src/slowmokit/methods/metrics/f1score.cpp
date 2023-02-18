@@ -11,7 +11,8 @@ template <class T>
 std::map<T, double> f1Score(std::vector<T> &pred, std::vector<T> &actual)
 {
 	// 2 * Precision * Recall / (Precision + Recall)
-	std::map<T, double> precisionMap, recallMap;
+	std::map<T, double> precisionMap;
+	std::map<T, double> recallMap;
 	precisionMap = precision(pred, actual);
 	recallMap = recall(pred, actual);
 	std::map<T, double> f1ScoreMap;

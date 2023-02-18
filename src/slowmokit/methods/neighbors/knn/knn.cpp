@@ -71,7 +71,7 @@ int KNN<T>::predict(std::vector<T> test, int k, std::string distType)
 		pq.pop();
 	}
 	int max = 0;
-	for (int i = 0; i < classNums; i++)
+	for (int i = 0; i < this->classNums; i++)
 	{
 		if (calculatetimes[i] > calculatetimes[max])
 		{
