@@ -64,7 +64,7 @@ template<class T>
 class {pascal_name} 
 {{
     // declare all functions here
-}}
+}};
 
 }} // namespace slkt
 
