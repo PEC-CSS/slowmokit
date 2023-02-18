@@ -6,3 +6,4 @@ plugins:
 gem "github-pages", group: :jekyll_plugins
 show_downloads: false
 google_analytics:
+exclude: [src/, docs/, examples/, create_model/]
