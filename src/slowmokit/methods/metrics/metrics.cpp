@@ -8,7 +8,8 @@
 
 
 template<class T>
-double Metrics<T>::accuracy(const std::vector<T> &pred, const std::vector<T> &trueLabels)
+double Metrics<T>::accuracy(const std::vector<T> &pred,
+                            const std::vector<T> &trueLabels)
 {
   if (pred.size() != trueLabels.size())
   {
@@ -27,7 +28,8 @@ double Metrics<T>::accuracy(const std::vector<T> &pred, const std::vector<T> &tr
 }
 
 template<class T>
-double Metrics<T>::meanSquaredError(const std::vector<T> &actual, const std::vector<T> &pred)
+double Metrics<T>::meanSquaredError(const std::vector<T> &actual,
+                                    const std::vector<T> &pred)
 {
   if (actual.size() != pred.size())
   {
@@ -44,7 +46,8 @@ double Metrics<T>::meanSquaredError(const std::vector<T> &actual, const std::vec
 }
 
 template<class T>
-std::map<T, double> Metrics<T>::precision(const std::vector<T> &pred, const std::vector<T> &actual)
+std::map<T, double> Metrics<T>::precision(const std::vector<T> &pred,
+                                          const std::vector<T> &actual)
 {
   if (pred.size() != actual.size())
   {
@@ -94,9 +97,9 @@ std::map<T, double> Metrics<T>::precision(const std::vector<T> &pred, const std:
 }
 
 
-
 template<class T>
-std::map<T, double> Metrics<T>::recall(const std::vector<T> &pred, const std::vector<T> &actual)
+std::map<T, double> Metrics<T>::recall(const std::vector<T> &pred,
+                                       const std::vector<T> &actual)
 {
   if (pred.size() != actual.size())
   {
@@ -146,7 +149,8 @@ std::map<T, double> Metrics<T>::recall(const std::vector<T> &pred, const std::ve
 }
 
 template<class T>
-std::map<T, double> Metrics<T>::f1Score(const std::vector<T> &pred, const std::vector<T> &actual)
+std::map<T, double> Metrics<T>::f1Score(const std::vector<T> &pred,
+                                        const std::vector<T> &actual)
 {
   // 2 * Precision * Recall / (Precision + Recall)
   std::map<T, double> precisionMap, recallMap;

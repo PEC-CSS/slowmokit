@@ -24,7 +24,8 @@ template<class T> class Metrics
    * @param pred -> predicted values
    * @param trueLabels -> true values
    * @returns accuracy score
-   * @throws invalid_argument exception when size of the two vectors is not equal
+   * @throws invalid_argument exception when size of the two vectors is not
+   * equal
    */
 
   static double accuracy(const std::vector<T> &, const std::vector<T> &);
@@ -51,7 +52,7 @@ template<class T> class Metrics
    * @returns map of precision values
    */
 
-  
+
   static std::map<T, double> precision(const std::vector<T> &,
                                        const std::vector<T> &);
 
@@ -64,8 +65,9 @@ template<class T> class Metrics
    * equal
    * @returns map of recall values
    */
-  
-  static std::map<T, double> recall(const std::vector<T> &,const std::vector<T> &);
+
+  static std::map<T, double> recall(const std::vector<T> &,
+                                    const std::vector<T> &);
 
 
   /**
@@ -77,7 +79,7 @@ template<class T> class Metrics
    * equal
    */
 
- 
+
   static std::map<T, double> f1Score(const std::vector<T> &,
                                      const std::vector<T> &);
 };
