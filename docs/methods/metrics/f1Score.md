@@ -7,7 +7,6 @@ Some advantages of F1-score:
 2)If you choose your positive class as the one with fewer samples, F1-score can help balance the metric across positive/negative samples.
 
 
-
 ## Parameters
 
 | Name          | Definition                                                                                  | Type            |
