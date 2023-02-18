@@ -4,27 +4,26 @@
  * The header file including the linear regression algorithm
  */
 
-#ifndef SLOWMOKIT_LINEAR_REGRESSION_HPP
-#define SLOWMOKIT_LINEAR_REGRESSION_HPP
+#ifndef SLOWMOKIT_LINEAR_REGRESSION_HPP_1
+#define SLOWMOKIT_LINEAR_REGRESSION_HPP_1
 
 #include "../../../core.hpp"
 
-template <class T>
-class LinearRegression
+template<class T> class LinearRegression
 {
-private:
-    std::vector<T> coefficients;
-    int epochs = 100;
-    double learningRate = 0.01;
+  private:
+  std::vector<T> coefficients;
+  int epochs = 100;
+  double learningRate = 0.01;
 
-public:
-    LinearRegression(int = 100, double = 0.01);
-    
-    void fit(std::vector<std::vector<T>>, std::vector<T> );
+  public:
+  LinearRegression(int = 100, double = 0.01);
 
-    std::vector<T> predict(std::vector<std::vector<T>>);
+  void fit(std::vector<std::vector<T>>, std::vector<T>);
 
-    void printCoefficients();
+  std::vector<T> predict(std::vector<std::vector<T>>);
+
+  void printCoefficients();
 };
 
-#endif //SLOWMOKIT_LINEAR_REGRESSION_HPP
+#endif // SLOWMOKIT_LINEAR_REGRESSION_HPP

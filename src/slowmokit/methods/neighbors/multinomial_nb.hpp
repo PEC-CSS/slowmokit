@@ -10,4 +10,4 @@
 
 #include "multinomial_nb/multinomial_nb.hpp"
 
-#endif //SLOWMOKIT_MULTINOMIAL_NB_HPP
+#endif // SLOWMOKIT_MULTINOMIAL_NB_HPP
