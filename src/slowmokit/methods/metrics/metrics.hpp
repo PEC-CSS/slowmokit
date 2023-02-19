@@ -82,6 +82,18 @@ template<class T> class Metrics
 
   static std::map<T, double> f1Score(const std::vector<T> &,
                                      const std::vector<T> &);
+
+
+  /**
+   * @brief Calculates Silhouette Score
+   * @param vector<vector<T>> x values
+   * @param vector<int> y values
+   * @param int number of clusters
+   * @param string distance type
+   * @return double Silhouette Score
+   */
+  static double silhouetteScore(const std::vector<std::vector<T>>,
+                                const std::vector<int>, int, std::string);
 };
 
 #endif // SLOWMOKIT_METRICS_HPP
