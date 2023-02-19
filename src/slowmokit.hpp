@@ -20,5 +20,6 @@
 #include "slowmokit/methods/neighbors/bernoulli_nb.hpp"
 #include "slowmokit/methods/neighbors/gaussian_nb.hpp"
 #include "slowmokit/methods/neighbors/knn.hpp"
+#include "slowmokit/methods/neighbors/multinomial_nb.hpp"
 
 #endif // SLOWMOKIT_HPP
