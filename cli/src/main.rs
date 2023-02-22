@@ -1,4 +1,5 @@
 mod create;
+mod install;
 
 use clap::{Args, Parser, Subcommand};
 
@@ -48,12 +49,7 @@ fn main() {
             create::write_files(model.model_name.to_owned(), model.model_type.to_owned());
         }
         Some(Commands::Install(_)) => {
-            println!("Install library to device");
-            if cfg!(target_os = "windows") {
-                // TODO: Windows
-            } else {
-                // TODO: UNIX based
-            }
+            install::install_lib();
         }
         Some(Commands::Upgrade(_)) => {
             println!("Upgrade library to latest version");
