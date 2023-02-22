@@ -8,8 +8,7 @@ if [[ "$OSTYPE" == "msys" ]]; then
     cmake --install build --prefix ${include_path}
 else
     mkdir build
-    cd build
-    cmake ../
-    cmake --build .
-    sudo cmake --install .
+    cmake -S ./ -B build/
+    cmake --build ./build
+    sudo cmake --install ./build
 fi
