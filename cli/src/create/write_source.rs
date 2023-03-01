@@ -59,8 +59,8 @@ pub fn write_hpp(mut file: File, name: String, type_name: String) {
 
 #include <slowmokit/core.hpp>
 
-namespace slkt {{
-template<class T>
+namespace slkt 
+{{
 class {pascal_name} 
 {{
     // declare all functions here
@@ -95,7 +95,8 @@ pub fn write_impl(mut file: File, name: String, type_name: String) {
 
 #include "{name}.hpp"
 
-namespace slkt {{
+namespace slkt 
+{{
 // Implement/define all function using the resolution operator `::`
 
 }}

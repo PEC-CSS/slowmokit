@@ -5,7 +5,7 @@
 
 ## ML kit in C++.
 
-header-only library which can be used for machine learning in C++.
+Header-only library which can be used for machine learning in C++.
 
 ### Installation guide
 
@@ -17,6 +17,7 @@ Prerequisites
 
 -   [CMAKE](https://cmake.org/install/)
 -   [CPP 17](https://codeforces.com/blog/entry/96040)
+-   [Armadillo](https://arma.sourceforge.net/download.html)
 
 Then following command will install the library
 
@@ -36,15 +37,15 @@ Following are the steps to start contributing to our beautiful library:
 
 1. Install an IDE, preferably [CLion](https://www.jetbrains.com/clion/download/).
 2. Fork this repo.
-3. Clone the forked repo, using `git clone https://github.com/PEC-CSS/slowmokit.git`.
+3. Clone the forked repo, using `git clone https://github.com/<your_username>/slowmokit.git`.
 
 After this,
 
 You can directly use the executable file by running `./bin/nim` in the root folder of library, to do the required configurations.
 
-More details [here](./create_model/README.md)
-
 > If it does not work then you need to configure everything by your own.
+
+#### Configuring everything own
 
 4. Make the model directory you want to implement in the `include/slowmokit/<model type>/<your_model>`.
     - `<model type>` is basically the class of your model, for example `linear_model` or `cluster`.

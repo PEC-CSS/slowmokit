@@ -54,6 +54,8 @@ fn main() {
         Some(Commands::Upgrade(_)) => {
             println!("Upgrade library to latest version");
         }
-        None => {}
+        None => {
+            println!("nim is installed, Run nim --help for options.");
+        }
     }
 }
