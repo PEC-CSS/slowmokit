@@ -1,4 +1,4 @@
-name: "Build grrs"
+name: "Build nim"
 
 on:
     push:
@@ -7,23 +7,27 @@ on:
 
 jobs:
     job-macos-1:
-        name: "Build the macOS / AMD64 version of grrs"
+        name: "Build the macOS / AMD64 version of nim"
         runs-on: macos-latest
         steps:
             - uses: actions/checkout@master
             - name: "Update Rust to the latest stable version"
               run: rustup update stable
+              working-directory: ./cli
             - name: Build release version
               run: cargo build --release
+              working-directory: ./cli
             - name: "Brag #1"
-              run: find ./target -name "grrs"
+              run: find ./target -name "nim"
+              working-directory: ./cli
             - uses: actions/upload-artifact@v3
+              working-directory: ./cli
               with:
-                  name: grrs-macos-amd64
-                  path: ./target/release/grrs
+                  name: nim-macos-amd64
+                  path: ./cli/target/release/nim
 
     job-linux-1:
-        name: "Build the Linux / AMD64 version of grrs"
+        name: "Build the Linux / AMD64 version of nim"
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@master
@@ -41,12 +45,14 @@ jobs:
               run: rustup update stable
             - name: Build release version
               run: cargo build --target $(uname -m)-unknown-linux-musl --release
+              working-directory: ./cli
             - name: "Brag #1"
-              run: find ./target -name "grrs"
+              run: find ./target -name "nim"
+              working-directory: ./cli
             - uses: actions/upload-artifact@v3
               with:
-                  name: grrs-linux-amd64
-                  path: ./target/x86_64-unknown-linux-musl/release/grrs
+                  name: nim-linux-amd64
+                  path: ./cli/target/x86_64-unknown-linux-musl/release/nim
 
     job-windows-1:
         name: "Build the Windows / AMD64 version of ami-helper"
@@ -57,10 +63,11 @@ jobs:
               run: rustup update stable
             - name: Build release version
               run: cargo build --release
+              working-directory: ./cli
             - uses: actions/upload-artifact@v3
               with:
-                  name: grrs-windows-amd64
-                  path: ./target/release/grrs.exe
+                  name: nim-windows-amd64
+                  path: ./cli/target/release/nim.exe
 
     job-publish:
         name: "Publish an update"
@@ -75,25 +82,25 @@ jobs:
             - name: "Download the Linux version"
               uses: actions/download-artifact@v3
               with:
-                  name: grrs-linux-amd64
+                  name: nim-linux-amd64
                   path: ./release/linux/amd64
             - name: "Download the macOS version"
               uses: actions/download-artifact@v3
               with:
-                  name: grrs-macos-amd64
+                  name: nim-macos-amd64
                   path: ./release/macos/amd64
             - name: "Download the Windows version"
               uses: actions/download-artifact@v3
               with:
-                  name: grrs-windows-amd64
+                  name: nim-windows-amd64
                   path: ./release/windows/amd64
             - name: "Create a staging area"
               run: mkdir stage
             - name: "Rename the artifacts to include the operating system and architecture."
               run: |
-                  mv ./release/linux/amd64/grrs ./stage/grrs-linux-amd64
-                  mv ./release/macos/amd64/grrs ./stage/grrs-macos-amd64
-                  mv ./release/windows/amd64/grrs.exe ./stage/grrs-windows-amd64
+                  mv ./release/linux/amd64/nim ./stage/nim-linux-amd64
+                  mv ./release/macos/amd64/nim ./stage/nim-macos-amd64
+                  mv ./release/windows/amd64/nim.exe ./stage/nim-windows-amd64
             - name: "Brag #1"
               run: find ./release
             - name: "Brag #2"
