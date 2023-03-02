@@ -1,0 +1,115 @@
+name: "Build nim"
+
+on:
+    push:
+        tags:
+            - "v*.*.*"
+        branches: [ "folder-structure" ]
+
+jobs:
+    job-macos-1:
+        name: "Build the macOS / AMD64 version of nim"
+        runs-on: macos-latest
+        steps:
+            - uses: actions/checkout@master
+            - name: "Update Rust to the latest stable version"
+              run: rustup update stable
+              working-directory: ./cli
+            - name: Build release version
+              run: cargo build --release
+              working-directory: ./cli
+            - name: "Brag #1"
+              run: find ./target -name "nim"
+              working-directory: ./cli
+            - uses: actions/upload-artifact@v3
+              working-directory: ./cli
+              with:
+                  name: nim-macos-amd64
+                  path: ./cli/target/release/nim
+
+    job-linux-1:
+        name: "Build the Linux / AMD64 version of nim"
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@master
+            - name: "Install GCC"
+              run: |
+                  sudo apt update
+                  sudo apt install -y build-essential
+                  gcc --version
+            - name: "Add support for MUSL"
+              run: |
+                  sudo apt update
+                  sudo apt install -y musl-tools
+                  rustup target add $(uname -m)-unknown-linux-musl
+            - name: "Update Rust to the latest stable version"
+              run: rustup update stable
+            - name: Build release version
+              run: cargo build --target $(uname -m)-unknown-linux-musl --release
+              working-directory: ./cli
+            - name: "Brag #1"
+              run: find ./target -name "nim"
+              working-directory: ./cli
+            - uses: actions/upload-artifact@v3
+              with:
+                  name: nim-linux-amd64
+                  path: ./cli/target/x86_64-unknown-linux-musl/release/nim
+
+    job-windows-1:
+        name: "Build the Windows / AMD64 version of ami-helper"
+        runs-on: windows-latest
+        steps:
+            - uses: actions/checkout@master
+            - name: "Update Rust to the latest stable version"
+              run: rustup update stable
+            - name: Build release version
+              run: cargo build --release
+              working-directory: ./cli
+            - uses: actions/upload-artifact@v3
+              with:
+                  name: nim-windows-amd64
+                  path: ./cli/target/release/nim.exe
+
+    job-publish:
+        name: "Publish an update"
+        runs-on: ubuntu-latest
+        permissions:
+            contents: write
+        needs:
+            - job-linux-1
+            - job-macos-1
+            - job-windows-1
+        steps:
+            - name: "Download the Linux version"
+              uses: actions/download-artifact@v3
+              with:
+                  name: nim-linux-amd64
+                  path: ./release/linux/amd64
+            - name: "Download the macOS version"
+              uses: actions/download-artifact@v3
+              with:
+                  name: nim-macos-amd64
+                  path: ./release/macos/amd64
+            - name: "Download the Windows version"
+              uses: actions/download-artifact@v3
+              with:
+                  name: nim-windows-amd64
+                  path: ./release/windows/amd64
+            - name: "Create a staging area"
+              run: mkdir stage
+            - name: "Rename the artifacts to include the operating system and architecture."
+              run: |
+                  mv ./release/linux/amd64/nim ./stage/nim-linux-amd64
+                  mv ./release/macos/amd64/nim ./stage/nim-macos-amd64
+                  mv ./release/windows/amd64/nim.exe ./stage/nim-windows-amd64
+            - name: "Brag #1"
+              run: find ./release
+            - name: "Brag #2"
+              run: find ./stage
+            - name: Release
+              uses: softprops/action-gh-release@v1
+              if: startsWith(github.ref, 'refs/tags/')
+              with:
+                  tag_name: "latest"
+                  files: |
+                      ./stage/*

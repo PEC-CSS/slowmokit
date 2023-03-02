@@ -1,0 +1,14 @@
+#!/bin/bash
+
+if [[ "$OSTYPE" == "msys" ]]; then
+    cmake -G "MinGW Makefiles" -S . -B build
+    cmake --build build
+    echo "Enter your path to include dir (C:/mingw): "
+    read include_path  
+    cmake --install build --prefix ${include_path}
+else
+    mkdir build
+    cmake -S ./ -B build/
+    cmake --build ./build
+    sudo cmake --install ./build
+fi

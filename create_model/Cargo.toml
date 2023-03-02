@@ -1,9 +1,0 @@
-[package]
-name = "create_model"
-version = "0.1.0"
-edition = "2021"
-
-[[bin]]
-edition = "2018"
-name = "create"
-path = "src/main.rs"

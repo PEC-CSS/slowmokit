@@ -1,0 +1,12 @@
+[package]
+name = "nimble-cli"
+version = "0.1.0"
+edition = "2021"
+
+[[bin]]
+name = "nim"
+path = "src/main.rs"
+
+[dependencies]
+clap = { version = "4.0.22", features = ["derive"] }
+execute = "0.2.11"
