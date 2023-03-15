@@ -6,4 +6,6 @@
  */
 
 #include "base.hpp"
-#include <armadillo>
+
+// Include ready to use utility function to check sizes of datasets.
+#include<slowmokit/util/check_size.hpp>
