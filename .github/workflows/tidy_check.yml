@@ -11,6 +11,14 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+    - name: Installing dependencies
+      run: |
+        curl -k -L https://sourceforge.net/projects/arma/files/armadillo-12.0.1.tar.xz | tar -xvJ && \
+                cd armadillo* && \
+                cmake . && \
+                make && \
+                sudo make install && \
+                cd ..
 
     # Optionally generate compile_commands.json
 
