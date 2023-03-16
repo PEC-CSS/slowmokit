@@ -227,7 +227,7 @@ if (WIN32)
 else ()
     # If not on Windows, put them under more standard UNIX-like places.  This is
     # necessary, otherwise they would all end up in
-    # ${CMAKE_BINARY_DIR}/src/mlpack/methods/... or somewhere else random like
+    # ${CMAKE_BINARY_DIR}/include/slowmokit/methods/... or somewhere else random like
     # that.
     set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib/)
     set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin/)

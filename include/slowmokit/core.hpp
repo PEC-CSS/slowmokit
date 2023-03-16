@@ -8,4 +8,4 @@
 #include "base.hpp"
 
 // Include ready to use utility function to check sizes of datasets.
-#include<slowmokit/util/check_size.hpp>
+#include<slowmokit/core/util/check_size.hpp>
