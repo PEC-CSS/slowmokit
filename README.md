@@ -1,7 +1,6 @@
 <p align="center">
-    <img width="69" src="https://user-images.githubusercontent.com/52048551/206870724-e4c71d93-fbaf-420c-8a64-cfd8ba05d27e.png" alt="slowmoKIT logo">
+    <img width="69" src="https://user-images.githubusercontent.com/52048551/206870724-e4c71d93-fbaf-420c-8a64-cfd8ba05d27e.png" alt="slowmokit logo">
     <h1 align="center">Slowmokit</h1>
-</p>
 
 ## ML kit in C++.
 
@@ -11,9 +10,7 @@ Header-only library which can be used for machine learning in C++.
 
 To use this library locally
 
-####
-
-Prerequisites
+#### Prerequisites
 
 -   [CMAKE](https://cmake.org/install/)
 -   [CPP 17](https://codeforces.com/blog/entry/96040)
@@ -30,8 +27,17 @@ Then following command will install the library
 ```
 chmod 705 ./scripts/install
 ```
+### Compile and run
 
-### Steps
+To compile and run the code written using this library, you need to add the following flags along with the standard commands.
+
+For example, you want to run `hello.cpp` and it has `slowmokit` dependencies.
+
+```bash
+g++ -std=c++17 -larmadillo hello.cpp -o hello && ./hello
+```
+
+### Steps to contribute
 
 Following are the steps to start contributing to our beautiful library:
 

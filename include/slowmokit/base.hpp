@@ -7,6 +7,14 @@
 #ifndef SLOWMOKIT_BASE_HPP
 #define SLOWMOKIT_BASE_HPP
 
+// First, check if Armadillo was included before, warning if so.
+#ifdef ARMA_INCLUDES
+#pragma message                                                                \
+    "Armadillo was included before mlpack; this can sometimes cause\
+ problems.  It should only be necessary to include <slowmokit/core.hpp> and not \
+<armadillo>."
+#endif
+
 // C
 #ifndef _GLIBCXX_NO_ASSERT
 #include <cassert>
@@ -78,5 +86,8 @@
 #include <unordered_map>
 #include <unordered_set>
 #endif
+
+// Armadillo
+#include <armadillo>
 
 #endif // SLOWMOKIT_BASE_HPP

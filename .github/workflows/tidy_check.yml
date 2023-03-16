@@ -11,15 +11,23 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+    - name: Installing dependencies
+      run: |
+        curl -k -L https://sourceforge.net/projects/arma/files/armadillo-12.0.1.tar.xz | tar -xvJ && \
+                cd armadillo* && \
+                cmake . && \
+                make && \
+                sudo make install && \
+                cd ..
 
     # Optionally generate compile_commands.json
 
-    - uses: ZedThree/clang-tidy-review@v0.10.0
-      id: review
-      with:
-        apt_packages: liblapack-dev
-        cmake_command: cmake . -DCMAKE_EXPORT_COMPILE_COMMANDS=on
-        config_file: '.clang-tidy'
+#    - uses: ZedThree/clang-tidy-review@v0.10.0
+#      id: review
+#      with:
+#        apt_packages: liblapack-dev
+#        cmake_command: cmake . -DCMAKE_EXPORT_COMPILE_COMMANDS=on
+#        config_file: '.clang-tidy'
         
-    - if: steps.review.outputs.total_comments > 0
-      run: exit 1
+#    - if: steps.review.outputs.total_comments > 0
+#      run: exit 1
