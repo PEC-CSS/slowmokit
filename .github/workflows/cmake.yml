@@ -15,6 +15,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
+    - name: Installing dependencies
+      run: |
+        curl -k -L https://sourceforge.net/projects/arma/files/armadillo-12.0.1.tar.xz | tar -xvJ && \
+                cd armadillo* && \
+                cmake . && \
+                make && \
+                sudo make install && \
+                cd ..
 
     - name: Configure CMake
       run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
